@@ -6,8 +6,12 @@ import 'package:flutter/material.dart';
 class SizeConfig {
   static double kDeviceWidth = 0;
   static double kDeviceHeight = 0;
+  static late ThemeData kTheme;
+  static late ColorScheme kColorScheme;
 
   static void init(BuildContext context) {
+    kTheme = Theme.of(context);
+    kColorScheme = kTheme.colorScheme;
     var size = MediaQuery.of(context).size;
     kDeviceWidth = size.width;
     kDeviceHeight = size.height;

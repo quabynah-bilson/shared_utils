@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_utils/shared_utils.dart';
+import 'package:simple_animations/simple_animations.dart';
 
 import 'colors.dart';
 import 'spacing.dart';
@@ -12,14 +13,15 @@ import 'config.dart';
 /// extensions on any [Widget]
 extension WidgetX on Widget {
   Widget fillMaxHeight([double ratio = 1.0]) =>
-      SizedBox(height: SizeConfig.kDeviceHeight * ratio);
+      SizedBox(height: SizeConfig.kDeviceHeight * ratio, child: this);
 
   Widget fillMaxWidth([double ratio = 1.0]) =>
-      SizedBox(width: SizeConfig.kDeviceWidth * ratio);
+      SizedBox(width: SizeConfig.kDeviceWidth * ratio, child: this);
 
   Widget fillMaxSize([double ratio = 1.0]) => SizedBox(
         height: SizeConfig.kDeviceHeight * ratio,
         width: SizeConfig.kDeviceWidth * ratio,
+        child: this,
       );
 
   Widget horizontal(double spacing) => Padding(
@@ -52,8 +54,15 @@ extension WidgetX on Widget {
         child: this,
       );
 
-  Widget clickable({required Function() onTap}) => InkWell(
+  Widget clickable({
+    required Function() onTap,
+    BorderRadius? radius,
+    Color? color,
+  }) =>
+      InkWell(
         onTap: onTap,
+        borderRadius: radius,
+        splashColor: color,
         child: this,
       );
 
@@ -135,6 +144,28 @@ extension WidgetX on Widget {
   Widget align(Alignment alignment) => Align(alignment: alignment, child: this);
 
   Widget centered() => Center(child: this);
+
+  // Widget withFadeAnimation({double delay = 1200}) {
+  //   final tween = MultiTrackTween([
+  //     Track('opacity')
+  //         .add(Duration(milliseconds: 500), Tween(begin: 0.0, end: 1.0)),
+  //     Track('translateY').add(
+  //         Duration(milliseconds: 500), Tween(begin: -130.0, end: 0.0),
+  //         curve: Curves.easeOut)
+  //   ]);
+
+  //   return ControlledAnimation(
+  //     delay: Duration(milliseconds: (500 * delay).round()),
+  //     duration: tween.duration,
+  //     tween: tween,
+  //     child: this,
+  //     builderWithChild: (context, child, animation) => Opacity(
+  //       opacity: animation['opacity'],
+  //       child: Transform.translate(
+  //           offset: Offset(0, animation['translateY']), child: child),
+  //     ),
+  //   );
+  // }
 }
 
 extension IconX on Icon {
@@ -155,13 +186,15 @@ extension TextX on String? {
   Widget h4(
     BuildContext context, {
     Color? color,
-    double emphasis = kEmphasisHigh,
+    FontWeight? weight,
+    double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.headline4?.copyWith(
+            fontWeight: weight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -172,13 +205,15 @@ extension TextX on String? {
   Widget h5(
     BuildContext context, {
     Color? color,
-    double emphasis = kEmphasisHigh,
+    FontWeight? weight,
+    double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.headline5?.copyWith(
+            fontWeight: weight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -189,13 +224,15 @@ extension TextX on String? {
   Widget h6(
     BuildContext context, {
     Color? color,
-    double emphasis = kEmphasisHigh,
+    FontWeight? weight,
+    double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.headline6?.copyWith(
+            fontWeight: weight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -206,13 +243,15 @@ extension TextX on String? {
   Widget bodyText1(
     BuildContext context, {
     Color? color,
-    double emphasis = kEmphasisHigh,
+    FontWeight? weight,
+    double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.bodyText1?.copyWith(
+            fontWeight: weight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -223,13 +262,15 @@ extension TextX on String? {
   Widget bodyText2(
     BuildContext context, {
     Color? color,
-    double emphasis = kEmphasisHigh,
+    FontWeight? weight,
+    double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.bodyText2?.copyWith(
+            fontWeight: weight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -240,13 +281,15 @@ extension TextX on String? {
   Widget subtitle1(
     BuildContext context, {
     Color? color,
-    double emphasis = kEmphasisHigh,
+    FontWeight? weight,
+    double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.subtitle1?.copyWith(
+            fontWeight: weight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -257,13 +300,15 @@ extension TextX on String? {
   Widget subtitle2(
     BuildContext context, {
     Color? color,
-    double emphasis = kEmphasisHigh,
+    FontWeight? weight,
+    double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.subtitle2?.copyWith(
+            fontWeight: weight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -274,13 +319,15 @@ extension TextX on String? {
   Widget caption(
     BuildContext context, {
     Color? color,
-    double emphasis = kEmphasisHigh,
+    FontWeight? weight,
+    double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.caption?.copyWith(
+            fontWeight: weight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -291,13 +338,15 @@ extension TextX on String? {
   Widget overline(
     BuildContext context, {
     Color? color,
-    double emphasis = kEmphasisHigh,
+    FontWeight? weight,
+    double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.overline?.copyWith(
+            fontWeight: weight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -307,13 +356,15 @@ extension TextX on String? {
   Widget button(
     BuildContext context, {
     Color? color,
-    double emphasis = kEmphasisHigh,
+    FontWeight? weight,
+    double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.button?.copyWith(
+            fontWeight: weight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -418,7 +469,7 @@ extension ContextX on BuildContext {
   double get height => SizeConfig.kDeviceHeight;
 
   /// shows a [SnackBar]
-  void showSnackBar(String message) {
+  void showSnackBar(String message, [Color? background, Color? foreground]) {
     var messenger = ScaffoldMessenger.of(this);
     messenger
       ..removeCurrentSnackBar()
@@ -427,9 +478,10 @@ extension ContextX on BuildContext {
           content: Text(
             message,
             style: Theme.of(this).textTheme.bodyText1?.copyWith(
-                  color: Theme.of(this).colorScheme.onPrimary,
+                  color: foreground ?? Theme.of(this).colorScheme.onPrimary,
                 ),
           ),
+          backgroundColor: background ?? Theme.of(this).colorScheme.primary,
           behavior: SnackBarBehavior.floating,
           action: SnackBarAction(
             label: 'Dismiss',
