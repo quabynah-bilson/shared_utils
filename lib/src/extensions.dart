@@ -194,7 +194,8 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.headline4?.copyWith(
-            fontWeight: weight,
+            fontWeight:
+                weight ?? Theme.of(context).textTheme.headline4?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -213,7 +214,8 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.headline5?.copyWith(
-            fontWeight: weight,
+            fontWeight:
+                weight ?? Theme.of(context).textTheme.headline5?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -232,7 +234,8 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.headline6?.copyWith(
-            fontWeight: weight,
+            fontWeight:
+                weight ?? Theme.of(context).textTheme.headline6?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -251,7 +254,8 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.bodyText1?.copyWith(
-            fontWeight: weight,
+            fontWeight:
+                weight ?? Theme.of(context).textTheme.bodyText1?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -270,7 +274,8 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.bodyText2?.copyWith(
-            fontWeight: weight,
+            fontWeight:
+                weight ?? Theme.of(context).textTheme.bodyText2?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -289,7 +294,8 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.subtitle1?.copyWith(
-            fontWeight: weight,
+            fontWeight:
+                weight ?? Theme.of(context).textTheme.subtitle1?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -308,7 +314,8 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.subtitle2?.copyWith(
-            fontWeight: weight,
+            fontWeight:
+                weight ?? Theme.of(context).textTheme.subtitle2?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -327,7 +334,8 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.caption?.copyWith(
-            fontWeight: weight,
+            fontWeight:
+                weight ?? Theme.of(context).textTheme.caption?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -346,7 +354,8 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.overline?.copyWith(
-            fontWeight: weight,
+            fontWeight:
+                weight ?? Theme.of(context).textTheme.overline?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
@@ -364,7 +373,8 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.button?.copyWith(
-            fontWeight: weight,
+            fontWeight:
+                weight ?? Theme.of(context).textTheme.button?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 Theme.of(context)
                     .colorScheme
