@@ -14,12 +14,9 @@ abstract class UseCaseResult<T> extends Equatable {
   /// error/failure
   factory UseCaseResult.error(String cause) =>
       UseCaseResultError<T>.create(cause);
-
-  @override
-  List<Object> get props => const [];
 }
 
-// result wrapper
+/// success result wrapper
 class UseCaseResultSuccess<T> extends UseCaseResult<T> {
   const UseCaseResultSuccess._(this.value) : super();
 
@@ -30,13 +27,14 @@ class UseCaseResultSuccess<T> extends UseCaseResult<T> {
   List<Object> get props => [value as Object];
 }
 
+/// error result wrapper
 class UseCaseResultError<E> extends UseCaseResult<E> {
   const UseCaseResultError._(this.cause) : super();
 
-  factory UseCaseResultError.create(dynamic cause) =>
+  factory UseCaseResultError.create(String cause) =>
       UseCaseResultError._(cause);
-  final E cause;
+  final String cause;
 
   @override
-  List<Object> get props => [cause as Object];
+  List<Object> get props => [cause];
 }

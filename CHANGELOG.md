@@ -1,6 +1,7 @@
-## [0.0.4-dev.4] - August 9, 2021.
+## [0.0.5-dev.5] - January 1, 2022.
 
 - Shared utilities for personal Flutter projects
+- Updated use cases result
 
 ## Note
 
