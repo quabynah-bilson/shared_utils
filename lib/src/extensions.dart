@@ -563,3 +563,7 @@ extension ContextX on BuildContext {
       );
   }
 }
+
+/// called in initState
+void doAfterDelay(Function() block) =>
+    Future.delayed(const Duration()).then((value) => block());
