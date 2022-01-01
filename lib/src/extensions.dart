@@ -2,6 +2,7 @@ library shared_utils;
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_utils/shared_utils.dart';
 
@@ -567,3 +568,23 @@ extension ContextX on BuildContext {
 /// called in initState
 void doAfterDelay(Function() block) =>
     Future.delayed(const Duration()).then((value) => block());
+
+/// UI overlay
+void kUseDefaultOverlays(
+  BuildContext context, {
+  Color? statusBarColor,
+  Color? navigationBarColor,
+  Brightness statusBarIconBrightness = Brightness.dark,
+  Brightness navigationBarIconBrightness = Brightness.dark,
+}) =>
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: statusBarColor ?? SizeConfig.kColorScheme.background,
+        systemNavigationBarColor:
+            navigationBarColor ?? SizeConfig.kColorScheme.background,
+        statusBarIconBrightness: statusBarIconBrightness,
+        systemNavigationBarDividerColor:
+            navigationBarColor ?? SizeConfig.kColorScheme.background,
+        systemNavigationBarIconBrightness: navigationBarIconBrightness,
+      ),
+    );
