@@ -187,6 +187,7 @@ extension TextX on String? {
     BuildContext context, {
     Color? color,
     FontWeight? weight,
+    double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
@@ -194,6 +195,7 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.headline1?.copyWith(
+            letterSpacing: spacing,
             fontWeight:
                 weight ?? Theme.of(context).textTheme.headline1?.fontWeight,
             color: color?.withOpacity(emphasis) ??
@@ -207,6 +209,7 @@ extension TextX on String? {
     BuildContext context, {
     Color? color,
     FontWeight? weight,
+    double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
@@ -214,6 +217,7 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.headline2?.copyWith(
+            letterSpacing: spacing,
             fontWeight:
                 weight ?? Theme.of(context).textTheme.headline2?.fontWeight,
             color: color?.withOpacity(emphasis) ??
@@ -227,6 +231,7 @@ extension TextX on String? {
     BuildContext context, {
     Color? color,
     FontWeight? weight,
+    double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
@@ -234,6 +239,7 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.headline3?.copyWith(
+            letterSpacing: spacing,
             fontWeight:
                 weight ?? Theme.of(context).textTheme.headline3?.fontWeight,
             color: color?.withOpacity(emphasis) ??
@@ -247,6 +253,7 @@ extension TextX on String? {
     BuildContext context, {
     Color? color,
     FontWeight? weight,
+    double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
@@ -254,6 +261,7 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.headline4?.copyWith(
+            letterSpacing: spacing,
             fontWeight:
                 weight ?? Theme.of(context).textTheme.headline4?.fontWeight,
             color: color?.withOpacity(emphasis) ??
@@ -267,6 +275,7 @@ extension TextX on String? {
     BuildContext context, {
     Color? color,
     FontWeight? weight,
+    double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
@@ -274,6 +283,7 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.headline5?.copyWith(
+            letterSpacing: spacing,
             fontWeight:
                 weight ?? Theme.of(context).textTheme.headline5?.fontWeight,
             color: color?.withOpacity(emphasis) ??
@@ -287,6 +297,7 @@ extension TextX on String? {
     BuildContext context, {
     Color? color,
     FontWeight? weight,
+    double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
@@ -294,6 +305,7 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.headline6?.copyWith(
+            letterSpacing: spacing,
             fontWeight:
                 weight ?? Theme.of(context).textTheme.headline6?.fontWeight,
             color: color?.withOpacity(emphasis) ??
@@ -307,6 +319,7 @@ extension TextX on String? {
     BuildContext context, {
     Color? color,
     FontWeight? weight,
+    double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
@@ -314,6 +327,7 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.bodyText1?.copyWith(
+            letterSpacing: spacing,
             fontWeight:
                 weight ?? Theme.of(context).textTheme.bodyText1?.fontWeight,
             color: color?.withOpacity(emphasis) ??
@@ -327,6 +341,7 @@ extension TextX on String? {
     BuildContext context, {
     Color? color,
     FontWeight? weight,
+    double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
@@ -334,6 +349,7 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.bodyText2?.copyWith(
+            letterSpacing: spacing,
             fontWeight:
                 weight ?? Theme.of(context).textTheme.bodyText2?.fontWeight,
             color: color?.withOpacity(emphasis) ??
@@ -347,6 +363,7 @@ extension TextX on String? {
     BuildContext context, {
     Color? color,
     FontWeight? weight,
+    double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
@@ -354,6 +371,7 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.subtitle1?.copyWith(
+            letterSpacing: spacing,
             fontWeight:
                 weight ?? Theme.of(context).textTheme.subtitle1?.fontWeight,
             color: color?.withOpacity(emphasis) ??
@@ -367,6 +385,7 @@ extension TextX on String? {
     BuildContext context, {
     Color? color,
     FontWeight? weight,
+    double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
@@ -374,6 +393,7 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.subtitle2?.copyWith(
+            letterSpacing: spacing,
             fontWeight:
                 weight ?? Theme.of(context).textTheme.subtitle2?.fontWeight,
             color: color?.withOpacity(emphasis) ??
@@ -387,6 +407,7 @@ extension TextX on String? {
     BuildContext context, {
     Color? color,
     FontWeight? weight,
+    double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
@@ -394,6 +415,7 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.caption?.copyWith(
+            letterSpacing: spacing,
             fontWeight:
                 weight ?? Theme.of(context).textTheme.caption?.fontWeight,
             color: color?.withOpacity(emphasis) ??
@@ -407,6 +429,7 @@ extension TextX on String? {
     BuildContext context, {
     Color? color,
     FontWeight? weight,
+    double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
@@ -414,6 +437,7 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.overline?.copyWith(
+            letterSpacing: spacing,
             fontWeight:
                 weight ?? Theme.of(context).textTheme.overline?.fontWeight,
             color: color?.withOpacity(emphasis) ??
@@ -427,6 +451,7 @@ extension TextX on String? {
     BuildContext context, {
     Color? color,
     FontWeight? weight,
+    double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
   }) =>
@@ -434,6 +459,7 @@ extension TextX on String? {
         this ?? '',
         textAlign: alignment,
         style: Theme.of(context).textTheme.button?.copyWith(
+            letterSpacing: spacing,
             fontWeight:
                 weight ?? Theme.of(context).textTheme.button?.fontWeight,
             color: color?.withOpacity(emphasis) ??
