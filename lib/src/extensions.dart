@@ -546,7 +546,7 @@ extension TextX on String? {
     assert(this != null);
     return this!
         .split(' ')
-        .map((str) => '${str[0].toUpperCase()}${str.substring(1)}')
+        .map((str) => '${str[0].toUpperCase()}${str.substring(1).toLowerCase()}')
         .join(' ');
   }
 

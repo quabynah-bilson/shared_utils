@@ -1,4 +1,4 @@
-## [0.0.7-dev.7] - January 3, 2022.
+## [0.0.8-dev.8] - January 3, 2022.
 
 - Shared utilities for personal Flutter projects
 - Updated use cases result
