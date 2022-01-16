@@ -613,8 +613,6 @@ void kUseDefaultOverlays(
         systemNavigationBarDividerColor:
             navigationBarColor ?? SizeConfig.kColorScheme.background,
         systemNavigationBarIconBrightness: navigationBarIconBrightness,
-        statusBarBrightness: statusBarIconBrightness == Brightness.light
-            ? Brightness.dark
-            : Brightness.light,
+        statusBarBrightness: statusBarIconBrightness,
       ),
     );
