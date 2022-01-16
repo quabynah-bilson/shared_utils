@@ -1,9 +1,10 @@
-## [0.0.8-dev.8] - January 3, 2022.
+## [0.0.9-dev.9] - January 16, 2022.
 
 - Shared utilities for personal Flutter projects
 - Updated use cases result
 - added `doAfterDelay` functions (serves as a workaround for calling `setState` in the `initState` of
   a `StatefulWidget`)
+- updated status bar color for IOS devices
 
 ## Note
 

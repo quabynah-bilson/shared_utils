@@ -546,7 +546,8 @@ extension TextX on String? {
     assert(this != null);
     return this!
         .split(' ')
-        .map((str) => '${str[0].toUpperCase()}${str.substring(1).toLowerCase()}')
+        .map(
+            (str) => '${str[0].toUpperCase()}${str.substring(1).toLowerCase()}')
         .join(' ');
   }
 
@@ -612,5 +613,8 @@ void kUseDefaultOverlays(
         systemNavigationBarDividerColor:
             navigationBarColor ?? SizeConfig.kColorScheme.background,
         systemNavigationBarIconBrightness: navigationBarIconBrightness,
+        statusBarBrightness: statusBarIconBrightness == Brightness.light
+            ? Brightness.dark
+            : Brightness.light,
       ),
     );
