@@ -614,5 +614,7 @@ void kUseDefaultOverlays(
             navigationBarColor ?? SizeConfig.kColorScheme.background,
         systemNavigationBarIconBrightness: navigationBarIconBrightness,
         statusBarBrightness: statusBarIconBrightness,
+        systemStatusBarContrastEnforced: true,
+        systemNavigationBarContrastEnforced: true,
       ),
     );
