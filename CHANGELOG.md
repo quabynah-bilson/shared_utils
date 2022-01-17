@@ -1,4 +1,5 @@
 ## [0.0.10-dev.10] - January 17, 2022.
+##### Created and maintained by <strong>Quabynah Bilson Jr.</strong>
 
 - Shared utilities for personal Flutter projects
 - Updated use cases result
