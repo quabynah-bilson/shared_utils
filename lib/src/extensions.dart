@@ -602,6 +602,7 @@ void kUseDefaultOverlays(
   Color? statusBarColor,
   Color? navigationBarColor,
   Brightness statusBarIconBrightness = Brightness.dark,
+  Brightness statusBarBrightness = Brightness.dark,
   Brightness navigationBarIconBrightness = Brightness.dark,
 }) =>
     SystemChrome.setSystemUIOverlayStyle(
@@ -613,8 +614,8 @@ void kUseDefaultOverlays(
         systemNavigationBarDividerColor:
             navigationBarColor ?? SizeConfig.kColorScheme.background,
         systemNavigationBarIconBrightness: navigationBarIconBrightness,
-        statusBarBrightness: statusBarIconBrightness,
-        systemStatusBarContrastEnforced: true,
-        systemNavigationBarContrastEnforced: true,
+        statusBarBrightness: statusBarBrightness,
+        systemStatusBarContrastEnforced: false,
+        systemNavigationBarContrastEnforced: false,
       ),
     );
