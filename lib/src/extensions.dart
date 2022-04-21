@@ -59,12 +59,7 @@ extension WidgetX on Widget {
     BorderRadius? radius,
     Color? color,
   }) =>
-      InkWell(
-        onTap: onTap,
-        borderRadius: radius,
-        splashColor: color,
-        child: this,
-      );
+      GestureDetector(onTap: onTap, child: this);
 
   Widget hero({required String tag}) => Hero(tag: tag, child: this);
 
@@ -190,10 +185,14 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
+    int maxLines = 1,
+    TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
+        maxLines: maxLines,
+        overflow: overflow,
         style: Theme.of(context).textTheme.headline1?.copyWith(
             letterSpacing: spacing,
             fontWeight:
@@ -212,10 +211,14 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
+    int maxLines = 1,
+    TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
+        maxLines: maxLines,
+        overflow: overflow,
         style: Theme.of(context).textTheme.headline2?.copyWith(
             letterSpacing: spacing,
             fontWeight:
@@ -234,10 +237,14 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
+    int maxLines = 1,
+    TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
+        maxLines: maxLines,
+        overflow: overflow,
         style: Theme.of(context).textTheme.headline3?.copyWith(
             letterSpacing: spacing,
             fontWeight:
@@ -256,10 +263,14 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
+    int maxLines = 1,
+    TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
+        maxLines: maxLines,
+        overflow: overflow,
         style: Theme.of(context).textTheme.headline4?.copyWith(
             letterSpacing: spacing,
             fontWeight:
@@ -278,10 +289,14 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
+    int maxLines = 1,
+    TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
+        maxLines: maxLines,
+        overflow: overflow,
         style: Theme.of(context).textTheme.headline5?.copyWith(
             letterSpacing: spacing,
             fontWeight:
@@ -300,10 +315,14 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
+    int maxLines = 1,
+    TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
+        maxLines: maxLines,
+        overflow: overflow,
         style: Theme.of(context).textTheme.headline6?.copyWith(
             letterSpacing: spacing,
             fontWeight:
@@ -322,10 +341,14 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
+    int maxLines = 1,
+    TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
+        maxLines: maxLines,
+        overflow: overflow,
         style: Theme.of(context).textTheme.bodyText1?.copyWith(
             letterSpacing: spacing,
             fontWeight:
@@ -344,10 +367,14 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
+    int maxLines = 1,
+    TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
+        maxLines: maxLines,
+        overflow: overflow,
         style: Theme.of(context).textTheme.bodyText2?.copyWith(
             letterSpacing: spacing,
             fontWeight:
@@ -366,10 +393,14 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
+    int maxLines = 1,
+    TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
+        maxLines: maxLines,
+        overflow: overflow,
         style: Theme.of(context).textTheme.subtitle1?.copyWith(
             letterSpacing: spacing,
             fontWeight:
@@ -388,10 +419,14 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
+    int maxLines = 1,
+    TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
+        maxLines: maxLines,
+        overflow: overflow,
         style: Theme.of(context).textTheme.subtitle2?.copyWith(
             letterSpacing: spacing,
             fontWeight:
@@ -410,10 +445,14 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
+    int maxLines = 1,
+    TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
+        maxLines: maxLines,
+        overflow: overflow,
         style: Theme.of(context).textTheme.caption?.copyWith(
             letterSpacing: spacing,
             fontWeight:
@@ -432,10 +471,14 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
+    int maxLines = 1,
+    TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
+        maxLines: maxLines,
+        overflow: overflow,
         style: Theme.of(context).textTheme.overline?.copyWith(
             letterSpacing: spacing,
             fontWeight:
@@ -454,10 +497,14 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
+    int maxLines = 1,
+    TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
         this ?? '',
         textAlign: alignment,
+        maxLines: maxLines,
+        overflow: overflow,
         style: Theme.of(context).textTheme.button?.copyWith(
             letterSpacing: spacing,
             fontWeight:
@@ -474,61 +521,60 @@ extension TextX on String? {
     double? height,
     double? width,
     BoxFit fit = BoxFit.cover,
-  }) {
-    assert(size != null || (height != null && width != null));
-
-    return SvgPicture.asset(
-      this ?? '',
-      height: size ?? height,
-      width: size ?? width,
-      fit: fit,
-      placeholderBuilder: (_) => SizedBox.shrink(),
-    );
-  }
+  }) =>
+      SvgPicture.asset(
+        this ?? '',
+        height: size ?? height,
+        width: size ?? width,
+        fit: fit,
+        placeholderBuilder: (_) => SizedBox.shrink(),
+      );
 
   Widget asAssetImage({
     double? size,
     double? height,
     double? width,
     BoxFit fit = BoxFit.cover,
-  }) {
-    assert(size != null || (height != null && width != null));
-    return Image.asset(
-      this ?? '',
-      height: size ?? height,
-      width: size ?? width,
-      fit: fit,
-    );
-  }
+  }) =>
+      Image.asset(
+        this ?? '',
+        height: size ?? height,
+        width: size ?? width,
+        fit: fit,
+      );
 
   Widget asNetworkImage({
     double? size,
     double? height,
     double? width,
     BoxFit fit = BoxFit.cover,
-  }) {
-    assert(size != null || (height != null && width != null));
-    return CachedNetworkImage(
-      imageUrl: this ?? '',
-      height: size ?? height,
-      width: size ?? width,
-      fit: fit,
-      placeholder: (_, __) => Container(
-        decoration: BoxDecoration(
-          color: kPlaceholderColor,
-        ),
-        height: size ?? height,
-        width: size ?? width,
-      ),
-      errorWidget: (_, __, ___) => Container(
-        decoration: BoxDecoration(
-          color: kPlaceholderColor,
-        ),
-        height: size ?? height,
-        width: size ?? width,
-      ),
-    );
-  }
+  }) =>
+      isNullOrEmpty()
+          ? Container(
+              decoration: BoxDecoration(color: kPlaceholderColor),
+              height: size ?? height,
+              width: size ?? width,
+            )
+          : CachedNetworkImage(
+              imageUrl: this ?? '',
+              height: size ?? height,
+              width: size ?? width,
+              fit: fit,
+              placeholder: (_, __) => Container(
+                decoration: BoxDecoration(
+                  color: kPlaceholderColor,
+                ),
+                height: size ?? height,
+                width: size ?? width,
+              ),
+              errorWidget: (_, __, ___) => Container(
+                decoration: BoxDecoration(
+                  color: kPlaceholderColor,
+                ),
+                height: size ?? height,
+                width: size ?? width,
+              ),
+            );
 
   Widget avatar({
     required double size,

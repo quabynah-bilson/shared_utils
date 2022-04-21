@@ -1,5 +1,8 @@
-## [0.0.11-dev.11] - February 17, 2022.
+## [0.0.12-dev.12] - April 21, 2022.
 ##### Created and maintained by <strong>Quabynah Bilson Jr.</strong>
+
+## v0.0.12-dev-12
+- Fixed minor bugs
 
 ## v0.0.11-dev-11
 - text capitalization fix with `String#capitalize()`
