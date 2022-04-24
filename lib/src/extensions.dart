@@ -185,7 +185,7 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
-    int maxLines = 1,
+    int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
@@ -211,7 +211,7 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
-    int maxLines = 1,
+    int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
@@ -237,7 +237,7 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
-    int maxLines = 1,
+    int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
@@ -263,7 +263,7 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
-    int maxLines = 1,
+    int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
@@ -289,7 +289,7 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
-    int maxLines = 1,
+    int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
@@ -315,7 +315,7 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
-    int maxLines = 1,
+    int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
@@ -341,7 +341,7 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
-    int maxLines = 1,
+    int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
@@ -367,7 +367,7 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
-    int maxLines = 1,
+    int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
@@ -393,7 +393,7 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
-    int maxLines = 1,
+    int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
@@ -419,7 +419,7 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
-    int maxLines = 1,
+    int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
@@ -445,7 +445,7 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
-    int maxLines = 1,
+    int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
@@ -471,7 +471,7 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
-    int maxLines = 1,
+    int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
@@ -497,7 +497,7 @@ extension TextX on String? {
     double? spacing,
     double emphasis = kEmphasisHighest,
     TextAlign alignment = TextAlign.start,
-    int maxLines = 1,
+    int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
   }) =>
       Text(
