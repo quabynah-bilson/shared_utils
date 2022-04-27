@@ -589,12 +589,13 @@ extension TextX on String? {
               .circularClip(circular ? size : size / 4);
 
   String capitalize() {
-    assert(this != null);
-    return this!
-        .split(' ')
-        .map(
-            (str) => '${str[0].toUpperCase()}${str.substring(1).toLowerCase()}')
-        .join(' ');
+    return isNullOrEmpty()
+        ? ''
+        : this!
+            .split(' ')
+            .map((str) =>
+                '${str[0].toUpperCase()}${str.substring(1).toLowerCase()}')
+            .join(' ');
   }
 
   bool isNullOrEmpty() => this == null || this!.isEmpty;

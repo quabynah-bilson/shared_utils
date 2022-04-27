@@ -1,6 +1,7 @@
 library shared_utils;
 
 import 'package:flutter/material.dart';
+import 'package:shared_utils/src/config.dart';
 
 import 'colors.dart';
 import 'constants.dart';
@@ -10,16 +11,29 @@ import 'spacing.dart';
 ThemeData kLightTheme({required BuildContext context}) =>
     ThemeData.light().copyWith(
       textTheme: kPrimaryFonts.copyWith(
-        button: kSecondaryFonts.button?.copyWith(fontWeight: FontWeight.bold),
-        subtitle1: kSecondaryFonts.subtitle1,
-        subtitle2: kPrimaryFonts.subtitle2?.copyWith(fontSize: kSpacingX16),
-        bodyText1: kSecondaryFonts.bodyText1,
-        caption: kSecondaryFonts.caption,
-        overline: kSecondaryFonts.overline,
-        headline4:
-            kPrimaryFonts.headline4?.copyWith(fontWeight: FontWeight.bold),
+        button: kSecondaryFonts.button?.copyWith(
+          fontWeight: FontWeight.bold,
+          color: SizeConfig.kColorScheme.onPrimary,
+        ),
+        subtitle1: kSecondaryFonts.subtitle1
+            ?.copyWith(color: SizeConfig.kColorScheme.onBackground),
+        subtitle2: kPrimaryFonts.subtitle2?.copyWith(
+          fontSize: kSpacingX16,
+          color: SizeConfig.kColorScheme.onBackground,
+        ),
+        bodyText1: kSecondaryFonts.bodyText1
+            ?.copyWith(color: SizeConfig.kColorScheme.onBackground),
+        caption: kSecondaryFonts.caption
+            ?.copyWith(color: SizeConfig.kColorScheme.onBackground),
+        overline: kSecondaryFonts.overline
+            ?.copyWith(color: SizeConfig.kColorScheme.onBackground),
+        headline4: kPrimaryFonts.headline4?.copyWith(
+          fontWeight: FontWeight.bold,
+          color: SizeConfig.kColorScheme.onBackground,
+        ),
         headline6: kPrimaryFonts.headline6?.copyWith(
           fontWeight: FontWeight.bold,
+          color: SizeConfig.kColorScheme.onBackground,
         ),
       ),
       colorScheme: ColorScheme.light(
@@ -42,14 +56,30 @@ ThemeData kDarkTheme({required BuildContext context}) =>
     ThemeData.dark().copyWith(
       scaffoldBackgroundColor: kDarkBackgroundColor,
       textTheme: kPrimaryFonts.copyWith(
-        button: kSecondaryFonts.button?.copyWith(fontWeight: FontWeight.bold),
-        subtitle1: kSecondaryFonts.subtitle1,
-        subtitle2: kPrimaryFonts.subtitle2?.copyWith(fontSize: kSpacingX16),
-        bodyText1: kSecondaryFonts.bodyText1,
-        caption: kSecondaryFonts.caption,
-        overline: kSecondaryFonts.overline,
-        headline4:
-            kPrimaryFonts.headline4?.copyWith(fontWeight: FontWeight.bold),
+        button: kSecondaryFonts.button?.copyWith(
+          fontWeight: FontWeight.bold,
+          color: SizeConfig.kColorScheme.onPrimary,
+        ),
+        subtitle1: kSecondaryFonts.subtitle1
+            ?.copyWith(color: SizeConfig.kColorScheme.onBackground),
+        subtitle2: kPrimaryFonts.subtitle2?.copyWith(
+          fontSize: kSpacingX16,
+          color: SizeConfig.kColorScheme.onBackground,
+        ),
+        bodyText1: kSecondaryFonts.bodyText1
+            ?.copyWith(color: SizeConfig.kColorScheme.onBackground),
+        caption: kSecondaryFonts.caption
+            ?.copyWith(color: SizeConfig.kColorScheme.onBackground),
+        overline: kSecondaryFonts.overline
+            ?.copyWith(color: SizeConfig.kColorScheme.onBackground),
+        headline4: kPrimaryFonts.headline4?.copyWith(
+          fontWeight: FontWeight.bold,
+          color: SizeConfig.kColorScheme.onBackground,
+        ),
+        headline6: kPrimaryFonts.headline6?.copyWith(
+          fontWeight: FontWeight.bold,
+          color: SizeConfig.kColorScheme.onBackground,
+        ),
       ),
       colorScheme: ColorScheme.dark().copyWith(
         background: kDarkBackgroundColor,
