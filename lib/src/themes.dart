@@ -13,27 +13,27 @@ ThemeData kLightTheme({required BuildContext context}) =>
       textTheme: kPrimaryFonts.copyWith(
         button: kSecondaryFonts.button?.copyWith(
           fontWeight: FontWeight.bold,
-          color: SizeConfig.kColorScheme.onPrimary,
+          color: kWhiteColor,
         ),
         subtitle1: kSecondaryFonts.subtitle1
-            ?.copyWith(color: SizeConfig.kColorScheme.onBackground),
+            ?.copyWith(color: kBlackColor),
         subtitle2: kPrimaryFonts.subtitle2?.copyWith(
           fontSize: kSpacingX16,
-          color: SizeConfig.kColorScheme.onBackground,
+          color: kBlackColor,
         ),
         bodyText1: kSecondaryFonts.bodyText1
-            ?.copyWith(color: SizeConfig.kColorScheme.onBackground),
+            ?.copyWith(color: kBlackColor),
         caption: kSecondaryFonts.caption
-            ?.copyWith(color: SizeConfig.kColorScheme.onBackground),
+            ?.copyWith(color: kBlackColor),
         overline: kSecondaryFonts.overline
-            ?.copyWith(color: SizeConfig.kColorScheme.onBackground),
+            ?.copyWith(color: kBlackColor),
         headline4: kPrimaryFonts.headline4?.copyWith(
           fontWeight: FontWeight.bold,
-          color: SizeConfig.kColorScheme.onBackground,
+          color: kBlackColor,
         ),
         headline6: kPrimaryFonts.headline6?.copyWith(
           fontWeight: FontWeight.bold,
-          color: SizeConfig.kColorScheme.onBackground,
+          color: kBlackColor,
         ),
       ),
       colorScheme: ColorScheme.light(
@@ -58,27 +58,27 @@ ThemeData kDarkTheme({required BuildContext context}) =>
       textTheme: kPrimaryFonts.copyWith(
         button: kSecondaryFonts.button?.copyWith(
           fontWeight: FontWeight.bold,
-          color: SizeConfig.kColorScheme.onPrimary,
+          color: kBlackColor,
         ),
         subtitle1: kSecondaryFonts.subtitle1
-            ?.copyWith(color: SizeConfig.kColorScheme.onBackground),
+            ?.copyWith(color: kWhiteColor),
         subtitle2: kPrimaryFonts.subtitle2?.copyWith(
           fontSize: kSpacingX16,
-          color: SizeConfig.kColorScheme.onBackground,
+          color: kWhiteColor,
         ),
         bodyText1: kSecondaryFonts.bodyText1
-            ?.copyWith(color: SizeConfig.kColorScheme.onBackground),
+            ?.copyWith(color: kWhiteColor),
         caption: kSecondaryFonts.caption
-            ?.copyWith(color: SizeConfig.kColorScheme.onBackground),
+            ?.copyWith(color: kWhiteColor),
         overline: kSecondaryFonts.overline
-            ?.copyWith(color: SizeConfig.kColorScheme.onBackground),
+            ?.copyWith(color: kWhiteColor),
         headline4: kPrimaryFonts.headline4?.copyWith(
           fontWeight: FontWeight.bold,
-          color: SizeConfig.kColorScheme.onBackground,
+          color: kWhiteColor,
         ),
         headline6: kPrimaryFonts.headline6?.copyWith(
           fontWeight: FontWeight.bold,
-          color: SizeConfig.kColorScheme.onBackground,
+          color: kWhiteColor,
         ),
       ),
       colorScheme: ColorScheme.dark().copyWith(
