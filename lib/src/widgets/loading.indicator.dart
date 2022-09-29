@@ -125,7 +125,7 @@ class LoadingIndicatorItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          LottieBuilder.asset(
+          LottieBuilder.network(
             kDefaultLottieLoadingAnim,
             width: context.width,
             height: context.height * 0.25,

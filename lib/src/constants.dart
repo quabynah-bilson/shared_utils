@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:logger/logger.dart';
 
 /// anim
-const kDefaultLottieLoadingAnim = 'assets/anim/loading_anim.json';
+const kDefaultLottieLoadingAnim = 'https://assets4.lottiefiles.com/packages/lf20_poqmycwy.json';
 /// fonts
 TextTheme kPrimaryFonts = GoogleFonts.poppinsTextTheme();
 TextTheme kSecondaryFonts = GoogleFonts.rubikTextTheme();

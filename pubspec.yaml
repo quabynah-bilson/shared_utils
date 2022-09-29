@@ -1,6 +1,6 @@
 name: shared_utils
 description: Shared utilities for personal Flutter projects
-version: 0.0.17-dev.17
+version: 0.0.18-dev.18
 homepage: https://github.com/quabynah-bilson/shared_utils/tree/main
 
 environment:
@@ -30,7 +30,5 @@ dev_dependencies:
     sdk: flutter
   pedantic: ^1.11.0
 
-flutter:
-  assets:
-    - assets/anim/
+flutter: null
 # flutter pub publish --dry-run
