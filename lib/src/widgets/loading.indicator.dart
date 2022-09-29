@@ -96,9 +96,10 @@ class _LoadingIndicatorState extends State<LoadingIndicator>
                 /// loading indicator
                 Positioned.fill(
                   child: LoadingIndicatorItem(
-                          message: widget.message,
-                          foregroundColor: widget.foregroundColor)
-                      .centered(),
+                    message: widget.message,
+                    foregroundColor: widget.foregroundColor,
+                    loadingAnimationUrl: widget.lottieAnimResource,
+                  ).centered(),
                 ),
               ],
             ),
@@ -112,11 +113,13 @@ class _LoadingIndicatorState extends State<LoadingIndicator>
 class LoadingIndicatorItem extends StatelessWidget {
   final Color? foregroundColor;
   final String message;
+  final String loadingAnimationUrl;
 
   const LoadingIndicatorItem({
     Key? key,
     required this.message,
     this.foregroundColor,
+    this.loadingAnimationUrl = kDefaultLottieLoadingAnim,
   }) : super(key: key);
 
   @override
@@ -126,7 +129,7 @@ class LoadingIndicatorItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           LottieBuilder.network(
-            kDefaultLottieLoadingAnim,
+            loadingAnimationUrl,
             width: context.width,
             height: context.height * 0.25,
             animate: true,
