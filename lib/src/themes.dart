@@ -1,7 +1,6 @@
 library shared_utils;
 
 import 'package:flutter/material.dart';
-import 'package:shared_utils/src/config.dart';
 
 import 'colors.dart';
 import 'constants.dart';

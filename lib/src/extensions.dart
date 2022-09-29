@@ -5,22 +5,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_utils/shared_utils.dart';
+import 'package:sliding_sheet/sliding_sheet.dart';
 
-import 'colors.dart';
-import 'config.dart';
-import 'spacing.dart';
+import 'widgets/animated.column.dart';
+import 'widgets/app.rounded.button.dart';
 
 /// extensions on any [Widget]
 extension WidgetX on Widget {
-  Widget fillMaxHeight([double ratio = 1.0]) =>
-      SizedBox(height: SizeConfig.kDeviceHeight * ratio, child: this);
+  Widget fillMaxHeight(BuildContext context, [double ratio = 1.0]) =>
+      SizedBox(height: context.height * ratio, child: this);
 
-  Widget fillMaxWidth([double ratio = 1.0]) =>
-      SizedBox(width: SizeConfig.kDeviceWidth * ratio, child: this);
+  Widget fillMaxWidth(BuildContext context, [double ratio = 1.0]) =>
+      SizedBox(width: context.width * ratio, child: this);
 
-  Widget fillMaxSize([double ratio = 1.0]) => SizedBox(
-        height: SizeConfig.kDeviceHeight * ratio,
-        width: SizeConfig.kDeviceWidth * ratio,
+  Widget fillMaxSize(BuildContext context, [double ratio = 1.0]) => SizedBox(
+        height: context.height * ratio,
+        width: context.width * ratio,
         child: this,
       );
 
@@ -601,18 +601,110 @@ extension TextX on String? {
   bool isNullOrEmpty() => this == null || this!.isEmpty;
 }
 
+/// actions for dialogs
+class DialogAction {
+  final String label;
+  final Function()? onTap;
+
+  const DialogAction({required this.label, this.onTap});
+}
+
 /// extensions on [BuildContext]
 extension ContextX on BuildContext {
-  /// navigator state
-  NavigatorState get navigator => Navigator.of(this);
+  double get height => mediaQuery.size.height;
 
-  /// screen dimensions
-  ///
-  /// Must have called `SizeConfig().init(context)` already
-  /// in the initial widget (possible splash screen)
-  double get width => SizeConfig.kDeviceWidth;
+  double get width => mediaQuery.size.width;
 
-  double get height => SizeConfig.kDeviceHeight;
+  ThemeData get theme => Theme.of(this);
+
+  ColorScheme get colorScheme => theme.colorScheme;
+
+  bool get isMobile => width < 650;
+
+  bool get isTablet => width >= 650 && width < 1080;
+
+  bool get isDesktop => width >= 1080;
+
+  MediaQueryData get mediaQuery => MediaQuery.of(this);
+
+  Brightness get invertedThemeBrightness =>
+      theme.brightness == Brightness.light ? Brightness.dark : Brightness.light;
+
+  Future<void> showCustomDialog({
+    required String headerIconAsset,
+    required String message,
+    List<DialogAction> actions = const <DialogAction>[],
+    bool showDismissButton = true,
+    String negativeButtonText = 'Okay',
+  }) async =>
+      await showSlidingBottomSheet(this, builder: (context) {
+        return SlidingSheetDialog(
+          elevation: 8,
+          cornerRadius: 16,
+          duration: kSidebarFooterDuration,
+          dismissOnBackdropTap: false,
+          snapSpec: const SnapSpec(
+            snap: true,
+            snappings: [0.4, 0.7, 1.0],
+            positioning: SnapPositioning.relativeToAvailableSpace,
+          ),
+          headerBuilder: (context, _) => Material(
+            color: colorScheme.surface,
+            child: headerIconAsset
+                .asAssetImage(size: 64, fit: BoxFit.fitHeight)
+                .top(8),
+          ),
+          builder: (context, state) {
+            return Material(
+              color: colorScheme.surface,
+              child: SafeArea(
+                top: false,
+                child: AnimatedColumn(
+                  animateType: AnimateType.slideUp,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    message
+                        .subtitle1(
+                          context,
+                          alignment: TextAlign.center,
+                          color: colorScheme.onSurface,
+                        )
+                        .centered(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize:
+                          actions.isEmpty ? MainAxisSize.min : MainAxisSize.max,
+                      children: [
+                        if (showDismissButton) ...{
+                          Expanded(
+                            child: AppRoundedButton(
+                              text: negativeButtonText,
+                              onTap: () => Navigator.pop(this),
+                              outlined: true,
+                            ).right(actions.isEmpty ? 0 : 12),
+                          ),
+                        },
+                        ...actions
+                            .map(
+                              (e) => AppRoundedButton(
+                                      onTap: () {
+                                        Navigator.pop(this);
+                                        if (e.onTap != null) e.onTap!();
+                                      },
+                                      text: e.label)
+                                  .centered(),
+                            )
+                            .toList(),
+                      ],
+                    ).centered().top(16),
+                  ],
+                ).horizontal(24).vertical(12),
+              ),
+            );
+          },
+        );
+      });
 
   /// shows a [SnackBar]
   void showSnackBar(String message, [Color? background, Color? foreground]) {
@@ -654,12 +746,12 @@ void kUseDefaultOverlays(
 }) =>
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        statusBarColor: statusBarColor ?? SizeConfig.kColorScheme.background,
+        statusBarColor: statusBarColor ?? context.colorScheme.background,
         systemNavigationBarColor:
-            navigationBarColor ?? SizeConfig.kColorScheme.background,
+            navigationBarColor ?? context.colorScheme.background,
         statusBarIconBrightness: statusBarIconBrightness,
         systemNavigationBarDividerColor:
-            navigationBarColor ?? SizeConfig.kColorScheme.background,
+            navigationBarColor ?? context.colorScheme.background,
         systemNavigationBarIconBrightness: navigationBarIconBrightness,
         statusBarBrightness: statusBarBrightness,
         systemStatusBarContrastEnforced: false,

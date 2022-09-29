@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'config.dart';
+import 'package:shared_utils/src/extensions.dart';
 
 /// creates a responsive layout for mobile, tablet & desktop
 class ResponsiveLayout extends StatelessWidget {
@@ -18,9 +18,9 @@ class ResponsiveLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: LayoutBuilder(
-      builder: (_, constraints) => SizeConfig.kIsMobile
+      builder: (_, constraints) => context.isMobile
           ? mobile
-          : SizeConfig.kIsTablet
+          : context.isTablet
               ? tablet ?? mobile
               : desktop ?? mobile,
     ));

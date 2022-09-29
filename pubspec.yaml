@@ -1,6 +1,6 @@
 name: shared_utils
 description: Shared utilities for personal Flutter projects
-version: 0.0.15-dev.15
+version: 0.0.16-dev.16
 homepage: https://github.com/quabynah-bilson/shared_utils/tree/main
 
 environment:
@@ -20,12 +20,17 @@ dependencies:
   google_fonts: ^2.0.0
   logger: ^1.0.0
   simple_animations: ^3.1.1
+  sliding_sheet:
+  flutter_staggered_animations:
+  flutter_multi_formatter:
+  lottie:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   pedantic: ^1.11.0
 
-flutter: null
-
+flutter:
+  assets:
+    - assets/anim/
 # flutter pub publish --dry-run
