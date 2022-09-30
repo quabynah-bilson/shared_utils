@@ -653,7 +653,6 @@ extension ContextX on BuildContext {
             color: colorScheme.surface,
             child: headerIconAsset
                 .asAssetImage(size: iconSize, fit: BoxFit.fitHeight)
-                .centered()
                 .vertical(8),
           ).fillMaxWidth(context),
           builder: (context, state) {
