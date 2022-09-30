@@ -636,6 +636,7 @@ extension ContextX on BuildContext {
     List<DialogAction> actions = const <DialogAction>[],
     bool showDismissButton = true,
     String negativeButtonText = 'Okay',
+    double iconSize = 56,
   }) async =>
       await showSlidingBottomSheet(this, builder: (context) {
         return SlidingSheetDialog(
@@ -651,9 +652,10 @@ extension ContextX on BuildContext {
           headerBuilder: (context, _) => Material(
             color: colorScheme.surface,
             child: headerIconAsset
-                .asAssetImage(size: 64, fit: BoxFit.fitHeight)
-                .top(8),
-          ),
+                .asAssetImage(size: iconSize, fit: BoxFit.fitHeight)
+                .centered()
+                .vertical(8),
+          ).fillMaxWidth(context),
           builder: (context, state) {
             return Material(
               color: colorScheme.surface,
