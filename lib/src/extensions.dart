@@ -642,6 +642,7 @@ extension ContextX on BuildContext {
         return SlidingSheetDialog(
           elevation: 8,
           cornerRadius: 16,
+          color: colorScheme.surface,
           duration: kSidebarFooterDuration,
           dismissOnBackdropTap: false,
           snapSpec: const SnapSpec(
