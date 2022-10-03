@@ -112,6 +112,7 @@ class _AppTextFieldState extends State<AppTextField> {
             ),
             counter: const SizedBox.shrink(),
             // border: InputBorder.none,
+            labelStyle: TextStyle(color: context.colorScheme.onSurface),
             labelText: widget.label,
             hintText: widget.label.toString().contains('Account Number')
                 ? '#### #### #### ####'
@@ -119,7 +120,7 @@ class _AppTextFieldState extends State<AppTextField> {
                     ? '***'
                     : 'mm/yy',
             filled: true,
-            fillColor: context.theme.disabledColor.withOpacity(0.03),
+            fillColor: context.theme.disabledColor.withOpacity(0.3),
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             focusedBorder: OutlineInputBorder(
@@ -161,8 +162,9 @@ class _AppTextFieldState extends State<AppTextField> {
                 ),
                 counter: const SizedBox.shrink(),
                 labelText: widget.label,
+                labelStyle: TextStyle(color: context.colorScheme.onSurface),
                 filled: true,
-                fillColor: context.theme.disabledColor.withOpacity(0.03),
+                fillColor: context.theme.disabledColor.withOpacity(0.3),
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 focusedBorder: OutlineInputBorder(
@@ -201,8 +203,9 @@ class _AppTextFieldState extends State<AppTextField> {
           ),
           counter: const SizedBox.shrink(),
           labelText: widget.label,
+          labelStyle: TextStyle(color: context.colorScheme.onSurface),
           filled: true,
-          fillColor: context.theme.disabledColor.withOpacity(0.03),
+          fillColor: context.theme.disabledColor.withOpacity(0.3),
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           focusedBorder: OutlineInputBorder(
@@ -211,7 +214,7 @@ class _AppTextFieldState extends State<AppTextField> {
           ),
           enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(
-                color: context.theme.disabledColor.withOpacity(0.03)),
+                color: context.theme.disabledColor.withOpacity(0.3)),
             borderRadius: BorderRadius.circular(radius),
           ),
           suffixIcon: const Icon(Icons.arrow_drop_down_circle_outlined),
@@ -257,10 +260,11 @@ class _AppTextFieldState extends State<AppTextField> {
               borderSide: BorderSide.none,
               borderRadius: BorderRadius.circular(radius),
             ),
+            labelStyle: TextStyle(color: context.colorScheme.onSurface),
             counter: const SizedBox.shrink(),
             labelText: widget.label,
             filled: true,
-            fillColor: context.theme.disabledColor.withOpacity(0.03),
+            fillColor: context.theme.disabledColor.withOpacity(0.3),
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             focusedBorder: OutlineInputBorder(
@@ -269,7 +273,7 @@ class _AppTextFieldState extends State<AppTextField> {
             ),
             enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(
-                  color: context.theme.disabledColor.withOpacity(0.03)),
+                  color: context.theme.disabledColor.withOpacity(0.3)),
               borderRadius: BorderRadius.circular(radius),
             ),
             suffixIcon: widget.suffixIcon),
@@ -300,8 +304,9 @@ class _AppTextFieldState extends State<AppTextField> {
         ),
         counter: const SizedBox.shrink(),
         labelText: widget.label,
+        labelStyle: TextStyle(color: context.colorScheme.onSurface),
         filled: true,
-        fillColor: context.theme.disabledColor.withOpacity(0.03),
+        fillColor: context.theme.disabledColor.withOpacity(0.3),
         contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: context.colorScheme.primary),
@@ -337,8 +342,9 @@ class _AppTextFieldState extends State<AppTextField> {
             ),
             counter: const SizedBox.shrink(),
             labelText: widget.label,
+            labelStyle: TextStyle(color: context.colorScheme.onSurface),
             filled: true,
-            fillColor: context.theme.disabledColor.withOpacity(0.03),
+            fillColor: context.theme.disabledColor.withOpacity(0.3),
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             focusedBorder: OutlineInputBorder(
@@ -403,8 +409,9 @@ class AppDropdownField extends StatelessWidget {
           ),
           counter: const SizedBox.shrink(),
           labelText: label,
+          labelStyle: TextStyle(color: context.colorScheme.onSurface),
           filled: true,
-          fillColor: context.theme.disabledColor.withOpacity(0.03),
+          fillColor: context.theme.disabledColor.withOpacity(0.3),
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           focusedBorder: OutlineInputBorder(

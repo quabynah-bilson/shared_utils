@@ -1,6 +1,10 @@
-## [0.0.21-dev.21] - September 30, 2022.
+## [0.0.22-dev.22] - October 3, 2022.
 
 ##### Created and maintained by <strong>Quabynah Bilson Jr.</strong>
+
+## v0.0.22-dev-22
+
+- Fixed header of custom dialog
 
 ## v0.0.21-dev-21
 

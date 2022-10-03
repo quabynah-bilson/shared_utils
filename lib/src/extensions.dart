@@ -694,7 +694,7 @@ extension ContextX on BuildContext {
                                         Navigator.pop(this);
                                         if (e.onTap != null) e.onTap!();
                                       },
-                                      text: e.label)
+                                      text: e.label).horizontal(8)
                                   .centered(),
                             )
                             .toList(),
