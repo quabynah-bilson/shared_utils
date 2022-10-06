@@ -213,8 +213,8 @@ class _AppTextFieldState extends State<AppTextField> {
             borderRadius: BorderRadius.circular(radius),
           ),
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(
-                color: context.theme.disabledColor.withOpacity(0.3)),
+            borderSide:
+                BorderSide(color: context.theme.disabledColor.withOpacity(0.3)),
             borderRadius: BorderRadius.circular(radius),
           ),
           suffixIcon: const Icon(Icons.arrow_drop_down_circle_outlined),
@@ -412,6 +412,10 @@ class AppDropdownField extends StatelessWidget {
           labelStyle: TextStyle(color: context.colorScheme.onSurface),
           filled: true,
           fillColor: context.theme.disabledColor.withOpacity(0.3),
+          suffixIcon: Icon(
+            Icons.arrow_drop_down,
+            color: context.colorScheme.onSurface,
+          ),
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           focusedBorder: OutlineInputBorder(
