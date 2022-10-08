@@ -1,4 +1,4 @@
-## [0.0.24-dev.24] - October 8, 2022.
+## [0.0.25-dev.25] - October 8, 2022.
 
 ##### Created and maintained by <strong>Quabynah Bilson Jr.</strong>
 
