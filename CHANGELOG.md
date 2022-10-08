@@ -1,10 +1,14 @@
-## [0.0.23-dev.23] - October 3, 2022.
+## [0.0.24-dev.24] - October 8, 2022.
 
 ##### Created and maintained by <strong>Quabynah Bilson Jr.</strong>
 
+## v0.0.24-dev-24
+
+- Added deprecated header to old classes (SizeConfig)
+
 ## v0.0.23-dev-23
 
-- Fixed header of custom dialog
+- Fixed buttons alignment of custom dialog
 
 ## v0.0.21-dev-21
 
