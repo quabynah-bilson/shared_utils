@@ -7,9 +7,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_utils/shared_utils.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
 
-import 'widgets/animated.column.dart';
-import 'widgets/app.rounded.button.dart';
-
 /// extensions on any [Widget]
 extension WidgetX on Widget {
   Widget fillMaxHeight(BuildContext context, [double ratio = 1.0]) =>
