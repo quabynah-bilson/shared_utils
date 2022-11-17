@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_utils/shared_utils.dart';
 
-import 'animated.column.dart';
 
 /// loading indicator with some sort of animation
 class LoadingIndicator extends StatefulWidget {
