@@ -66,7 +66,7 @@ extension WidgetX on Widget {
         decoration: BoxDecoration(
           border: Border(
             bottom: BorderSide(
-              color: Theme.of(context)
+              color: context.theme
                   .colorScheme
                   .primary
                   .withOpacity(kEmphasisMedium),
@@ -74,7 +74,7 @@ extension WidgetX on Widget {
               width: kSpacingX4,
             ),
             left: BorderSide(
-              color: Theme.of(context)
+              color: context.theme
                   .colorScheme
                   .primary
                   .withOpacity(kEmphasisMedium),
@@ -99,7 +99,7 @@ extension WidgetX on Widget {
     bool showAsIndicator = true,
     int count = 0,
   }) {
-    var kTheme = Theme.of(context);
+    var kTheme = context.theme;
 
     /// show badge only when count > 0 or showAsIndicator is true
     var showBadge = showAsIndicator || count > 0;
@@ -190,12 +190,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: Theme.of(context).textTheme.headline1?.copyWith(
+        style: context.theme.textTheme.headline1?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? Theme.of(context).textTheme.headline1?.fontWeight,
+                weight ?? context.theme.textTheme.headline1?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                Theme.of(context)
+                context.theme
                     .colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
@@ -216,12 +216,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: Theme.of(context).textTheme.headline2?.copyWith(
+        style: context.theme.textTheme.headline2?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? Theme.of(context).textTheme.headline2?.fontWeight,
+                weight ?? context.theme.textTheme.headline2?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                Theme.of(context)
+                context.theme
                     .colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
@@ -242,12 +242,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: Theme.of(context).textTheme.headline3?.copyWith(
+        style: context.theme.textTheme.headline3?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? Theme.of(context).textTheme.headline3?.fontWeight,
+                weight ?? context.theme.textTheme.headline3?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                Theme.of(context)
+                context.theme
                     .colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
@@ -268,12 +268,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: Theme.of(context).textTheme.headline4?.copyWith(
+        style: context.theme.textTheme.headline4?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? Theme.of(context).textTheme.headline4?.fontWeight,
+                weight ?? context.theme.textTheme.headline4?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                Theme.of(context)
+                context.theme
                     .colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
@@ -294,12 +294,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: Theme.of(context).textTheme.headline5?.copyWith(
+        style: context.theme.textTheme.headline5?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? Theme.of(context).textTheme.headline5?.fontWeight,
+                weight ?? context.theme.textTheme.headline5?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                Theme.of(context)
+                context.theme
                     .colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
@@ -320,12 +320,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: Theme.of(context).textTheme.headline6?.copyWith(
+        style: context.theme.textTheme.headline6?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? Theme.of(context).textTheme.headline6?.fontWeight,
+                weight ?? context.theme.textTheme.headline6?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                Theme.of(context)
+                context.theme
                     .colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
@@ -346,12 +346,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: Theme.of(context).textTheme.bodyText1?.copyWith(
+        style: context.theme.textTheme.bodyText1?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? Theme.of(context).textTheme.bodyText1?.fontWeight,
+                weight ?? context.theme.textTheme.bodyText1?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                Theme.of(context)
+                context.theme
                     .colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
@@ -372,12 +372,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: Theme.of(context).textTheme.bodyText2?.copyWith(
+        style: context.theme.textTheme.bodyText2?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? Theme.of(context).textTheme.bodyText2?.fontWeight,
+                weight ?? context.theme.textTheme.bodyText2?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                Theme.of(context)
+                context.theme
                     .colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
@@ -398,12 +398,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: Theme.of(context).textTheme.subtitle1?.copyWith(
+        style: context.theme.textTheme.subtitle1?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? Theme.of(context).textTheme.subtitle1?.fontWeight,
+                weight ?? context.theme.textTheme.subtitle1?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                Theme.of(context)
+                context.theme
                     .colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
@@ -424,12 +424,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: Theme.of(context).textTheme.subtitle2?.copyWith(
+        style: context.theme.textTheme.subtitle2?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? Theme.of(context).textTheme.subtitle2?.fontWeight,
+                weight ?? context.theme.textTheme.subtitle2?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                Theme.of(context)
+                context.theme
                     .colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
@@ -450,12 +450,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: Theme.of(context).textTheme.caption?.copyWith(
+        style: context.theme.textTheme.caption?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? Theme.of(context).textTheme.caption?.fontWeight,
+                weight ?? context.theme.textTheme.caption?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                Theme.of(context)
+                context.theme
                     .colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
@@ -476,12 +476,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: Theme.of(context).textTheme.overline?.copyWith(
+        style: context.theme.textTheme.overline?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? Theme.of(context).textTheme.overline?.fontWeight,
+                weight ?? context.theme.textTheme.overline?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                Theme.of(context)
+                context.theme
                     .colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
@@ -502,12 +502,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: Theme.of(context).textTheme.button?.copyWith(
+        style: context.theme.textTheme.button?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? Theme.of(context).textTheme.button?.fontWeight,
+                weight ?? context.theme.textTheme.button?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                Theme.of(context)
+                context.theme
                     .colorScheme
                     .onBackground
                     .withOpacity(emphasis)),

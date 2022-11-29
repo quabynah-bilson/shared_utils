@@ -7,7 +7,8 @@ import 'package:logger/logger.dart';
 /// anim
 const kDefaultLottieLoadingAnim = 'https://assets4.lottiefiles.com/packages/lf20_poqmycwy.json';
 /// fonts
-TextTheme kPrimaryFonts = GoogleFonts.poppinsTextTheme();
+TextTheme kPrimaryFonts = GoogleFonts.dmSansTextTheme();
+TextStyle kPrimaryTextStyle = GoogleFonts.dmSans();
 TextTheme kSecondaryFonts = GoogleFonts.rubikTextTheme();
 
 // debugging

@@ -11,6 +11,7 @@ export 'package:fluttericon/entypo_icons.dart';
 export 'package:fluttericon/font_awesome_icons.dart';
 export 'package:fluttericon/octicons_icons.dart';
 export 'package:simple_animations/simple_animations.dart';
+export 'package:tabler_icons/tabler_icons.dart';
 
 export 'src/bloc/base_bloc.dart';
 export 'src/bloc/bloc_state.dart';
@@ -31,6 +32,7 @@ export 'src/widgets/animated.row.dart';
 export 'src/widgets/app.rounded.button.dart';
 export 'src/widgets/app.text.field.dart';
 export 'src/widgets/dismiss.keyboard.dart';
+export 'src/widgets/glassmorphism.dart';
 export 'src/widgets/empty.content.placeholder.dart';
 export 'src/widgets/loading.indicator.dart';
 

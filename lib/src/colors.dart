@@ -21,3 +21,4 @@ const kEmphasisHighest = 1.0;
 const kEmphasisHigh = 0.85;
 const kEmphasisMedium = 0.67;
 const kEmphasisLow = 0.38;
+const kEmphasisLowest = 0.1;
