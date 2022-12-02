@@ -179,6 +179,7 @@ class _AppTextFieldState extends State<AppTextField> {
                 labelText: widget.label,
                 floatingLabelBehavior: FloatingLabelBehavior.never,
                 alignLabelWithHint: true,
+                hintText: widget.label,
                 labelStyle: TextStyle(
                     color: widget.foreground ?? context.colorScheme.onSurface),
                 filled: true,
@@ -227,6 +228,7 @@ class _AppTextFieldState extends State<AppTextField> {
           labelText: widget.label,
           floatingLabelBehavior: FloatingLabelBehavior.never,
           alignLabelWithHint: true,
+          hintText: widget.label,
           labelStyle: TextStyle(
               color: widget.foreground ?? context.colorScheme.onSurface),
           filled: true,
@@ -295,6 +297,7 @@ class _AppTextFieldState extends State<AppTextField> {
             labelText: widget.label,
             floatingLabelBehavior: FloatingLabelBehavior.never,
             alignLabelWithHint: true,
+            hintText: widget.label,
             filled: true,
             fillColor: widget.background ??
                 context.theme.disabledColor.withOpacity(0.3),
@@ -343,6 +346,7 @@ class _AppTextFieldState extends State<AppTextField> {
         labelText: widget.label,
         floatingLabelBehavior: FloatingLabelBehavior.never,
         alignLabelWithHint: true,
+        hintText: widget.label,
         labelStyle: TextStyle(
             color: widget.foreground ?? context.colorScheme.onSurface),
         filled: true,
@@ -388,6 +392,7 @@ class _AppTextFieldState extends State<AppTextField> {
             labelText: widget.label,
             floatingLabelBehavior: FloatingLabelBehavior.never,
             alignLabelWithHint: true,
+            hintText: widget.label,
             labelStyle: TextStyle(
                 color: widget.foreground ?? context.colorScheme.onSurface),
             filled: true,
