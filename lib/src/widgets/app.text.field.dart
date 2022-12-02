@@ -139,6 +139,7 @@ class _AppTextFieldState extends State<AppTextField> {
               borderSide: const BorderSide(color: Colors.transparent),
               borderRadius: BorderRadius.circular(radius),
             ),
+            prefixIcon: widget.prefixIcon,
             suffixIcon: widget.suffixIcon),
       ).bottom(widget.bottom);
 
@@ -185,6 +186,7 @@ class _AppTextFieldState extends State<AppTextField> {
                   borderSide: const BorderSide(color: Colors.transparent),
                   borderRadius: BorderRadius.circular(radius),
                 ),
+                prefixIcon: widget.prefixIcon,
                 suffixIcon: widget.suffixIcon,
               ))
         ],
@@ -292,6 +294,7 @@ class _AppTextFieldState extends State<AppTextField> {
                       context.theme.disabledColor.withOpacity(0.3)),
               borderRadius: BorderRadius.circular(radius),
             ),
+            prefixIcon: widget.prefixIcon,
             suffixIcon: widget.suffixIcon),
       ).bottom(widget.bottom);
 
@@ -334,6 +337,7 @@ class _AppTextFieldState extends State<AppTextField> {
           borderSide: const BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(radius),
         ),
+        prefixIcon: widget.prefixIcon,
         suffixIcon: widget.suffixIcon,
       )).bottom(widget.bottom);
 
