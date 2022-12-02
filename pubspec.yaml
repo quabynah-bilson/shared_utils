@@ -10,21 +10,21 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bloc:
-  cached_network_image:
-  equatable:
-  feather_icons:
-  flutter_bloc:
-  flutter_svg:
-  fluttericon:
-  google_fonts:
-  logger:
-  simple_animations:
-  sliding_sheet:
-  flutter_staggered_animations:
-  flutter_multi_formatter:
-  lottie:
-  tabler_icons:
+  bloc: ^8.1.0
+  cached_network_image: ^3.2.3
+  equatable: ^2.0.5
+  feather_icons: ^1.2.0
+  flutter_bloc: ^8.1.1
+  flutter_svg: ^1.1.6
+  fluttericon: ^2.0.0
+  google_fonts: ^3.0.1
+  logger: ^1.1.0
+  simple_animations: ^5.0.0+3
+  sliding_sheet: ^0.5.2
+  flutter_staggered_animations: ^1.1.1
+  flutter_multi_formatter: ^2.9.10
+  lottie: ^2.0.0
+  tabler_icons: ^0.0.3
 
 dev_dependencies:
   flutter_test:
