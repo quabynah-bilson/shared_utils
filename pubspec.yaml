@@ -1,6 +1,6 @@
 name: shared_utils
 description: Shared utilities for personal Flutter projects
-version: 0.0.27-dev.27
+version: 0.0.28-dev.28
 homepage: https://github.com/quabynah-bilson/shared_utils/tree/main
 
 environment:
@@ -24,7 +24,7 @@ dependencies:
   flutter_staggered_animations: ^1.1.1
   flutter_multi_formatter: ^2.9.10
   lottie: ^2.0.0
-  tabler_icons: ^0.0.3
+  flutter_tabler_icons: ^1.1.2
 
 dev_dependencies:
   flutter_test:

@@ -11,7 +11,7 @@ export 'package:fluttericon/entypo_icons.dart';
 export 'package:fluttericon/font_awesome_icons.dart';
 export 'package:fluttericon/octicons_icons.dart';
 export 'package:simple_animations/simple_animations.dart';
-export 'package:tabler_icons/tabler_icons.dart';
+export 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
 export 'src/bloc/base_bloc.dart';
 export 'src/bloc/bloc_state.dart';
