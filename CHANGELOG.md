@@ -1,6 +1,10 @@
-## [0.0.26-dev.26] - November 29, 2022.
+## [0.0.27-dev.27] - Dec 02, 2022.
 
 ##### Created and maintained by <strong>Quabynah Bilson Jr.</strong>
+
+## v0.0.27-dev-27
+
+- Updated input fields
 
 ## v0.0.26-dev-26
 
