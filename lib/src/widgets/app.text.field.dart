@@ -123,6 +123,7 @@ class _AppTextFieldState extends State<AppTextField> {
             labelStyle: TextStyle(
                 color: widget.foreground ?? context.colorScheme.onSurface),
             labelText: widget.label,
+            floatingLabelBehavior: FloatingLabelBehavior.never,
             hintText: widget.label.toString().contains('Account Number')
                 ? '#### #### #### ####'
                 : widget.label.toString().contains('CVC')
@@ -175,6 +176,7 @@ class _AppTextFieldState extends State<AppTextField> {
                 ),
                 counter: const SizedBox.shrink(),
                 labelText: widget.label,
+                floatingLabelBehavior: FloatingLabelBehavior.never,
                 labelStyle: TextStyle(
                     color: widget.foreground ?? context.colorScheme.onSurface),
                 filled: true,
@@ -221,6 +223,7 @@ class _AppTextFieldState extends State<AppTextField> {
           ),
           counter: const SizedBox.shrink(),
           labelText: widget.label,
+          floatingLabelBehavior: FloatingLabelBehavior.never,
           labelStyle: TextStyle(
               color: widget.foreground ?? context.colorScheme.onSurface),
           filled: true,
@@ -287,6 +290,7 @@ class _AppTextFieldState extends State<AppTextField> {
                 color: widget.foreground ?? context.colorScheme.onSurface),
             counter: const SizedBox.shrink(),
             labelText: widget.label,
+            floatingLabelBehavior: FloatingLabelBehavior.never,
             filled: true,
             fillColor: widget.background ??
                 context.theme.disabledColor.withOpacity(0.3),
@@ -333,6 +337,7 @@ class _AppTextFieldState extends State<AppTextField> {
         ),
         counter: const SizedBox.shrink(),
         labelText: widget.label,
+        floatingLabelBehavior: FloatingLabelBehavior.never,
         labelStyle: TextStyle(
             color: widget.foreground ?? context.colorScheme.onSurface),
         filled: true,
@@ -376,6 +381,7 @@ class _AppTextFieldState extends State<AppTextField> {
             ),
             counter: const SizedBox.shrink(),
             labelText: widget.label,
+            floatingLabelBehavior: FloatingLabelBehavior.never,
             labelStyle: TextStyle(
                 color: widget.foreground ?? context.colorScheme.onSurface),
             filled: true,
