@@ -1,8 +1,8 @@
-## [0.0.31-dev.31] - Dec 02, 2022.
+## [0.0.32-dev.32] - Dec 02, 2022.
 
 ##### Created and maintained by <strong>Quabynah Bilson Jr.</strong>
 
-## v0.0.31-dev-31
+## v0.0.32-dev-32
 
 - Updated input fields
 
