@@ -89,237 +89,233 @@ class _AppTextFieldState extends State<AppTextField> {
   }
 
   Widget _cardTextField() => TextFormField(
-        style: TextStyle(
+    style: TextStyle(
+        color: widget.foreground ?? context.colorScheme.onSurface),
+    maxLength: widget.maxLength,
+    controller: widget.controller,
+    keyboardType: TextInputType.number,
+    initialValue: widget.initialValue,
+    readOnly: widget.readOnly,
+    textCapitalization: widget.capitalization,
+    onTap: widget.onTap,
+    validator: widget.validator,
+    autofocus: widget.autofocus,
+    focusNode: widget.focusNode,
+    onSaved: widget.onSave,
+    onChanged: widget.onChange,
+    textInputAction: widget.action,
+    enabled: widget.enabled,
+    // textAlign: TextAlign.center,
+    inputFormatters: [
+      widget.label.toString().contains('Account Number')
+          ? CreditCardNumberInputFormatter()
+          : widget.label.toString().contains('CVC')
+          ? CreditCardCvcInputFormatter()
+          : CreditCardExpirationDateFormatter(),
+    ],
+    decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.transparent),
+          borderRadius: BorderRadius.circular(radius),
+        ),
+        counter: const SizedBox.shrink(),
+        // border: InputBorder.none,
+        labelStyle: TextStyle(
             color: widget.foreground ?? context.colorScheme.onSurface),
-        maxLength: widget.maxLength,
-        controller: widget.controller,
-        keyboardType: TextInputType.number,
-        initialValue: widget.initialValue,
-        readOnly: widget.readOnly,
-        textCapitalization: widget.capitalization,
-        onTap: widget.onTap,
-        validator: widget.validator,
-        autofocus: widget.autofocus,
-        focusNode: widget.focusNode,
-        onSaved: widget.onSave,
-        onChanged: widget.onChange,
-        textInputAction: widget.action,
-        enabled: widget.enabled,
-        // textAlign: TextAlign.center,
-        inputFormatters: [
-          widget.label.toString().contains('Account Number')
-              ? CreditCardNumberInputFormatter()
-              : widget.label.toString().contains('CVC')
-                  ? CreditCardCvcInputFormatter()
-                  : CreditCardExpirationDateFormatter(),
-        ],
-        decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.transparent),
-              borderRadius: BorderRadius.circular(radius),
-            ),
-            counter: const SizedBox.shrink(),
-            // border: InputBorder.none,
-            labelStyle: TextStyle(
-                color: widget.foreground ?? context.colorScheme.onSurface),
-            labelText: widget.label,
-            floatingLabelBehavior: FloatingLabelBehavior.never,
-            alignLabelWithHint: true,
-            hintText: widget.label.toString().contains('Account Number')
-                ? '#### #### #### ####'
-                : widget.label.toString().contains('CVC')
-                    ? '***'
-                    : 'mm/yy',
-            filled: true,
-            fillColor: widget.background ??
-                context.theme.disabledColor.withOpacity(0.3),
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: context.colorScheme.primary),
-              borderRadius: BorderRadius.circular(radius),
-            ),
-            enabledBorder: UnderlineInputBorder(
-              borderSide: const BorderSide(color: Colors.transparent),
-              borderRadius: BorderRadius.circular(radius),
-            ),
-            prefixIcon: widget.prefixIcon,
-            suffixIcon: widget.suffixIcon),
-      ).bottom(widget.bottom);
+        floatingLabelBehavior: FloatingLabelBehavior.never,
+        alignLabelWithHint: true,
+        hintText: widget.label.toString().contains('Account Number')
+            ? '#### #### #### ####'
+            : widget.label.toString().contains('CVC')
+            ? '***'
+            : 'mm/yy',
+        filled: true,
+        fillColor: widget.background ??
+            context.theme.disabledColor.withOpacity(0.3),
+        contentPadding:
+        const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: context.colorScheme.primary),
+          borderRadius: BorderRadius.circular(radius),
+        ),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: const BorderSide(color: Colors.transparent),
+          borderRadius: BorderRadius.circular(radius),
+        ),
+        prefixIcon: widget.prefixIcon,
+        suffixIcon: widget.suffixIcon),
+  ).bottom(widget.bottom);
 
   Widget _currencyTextField() => Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TextFormField(
-              style: TextStyle(
-                  color: widget.foreground ?? context.colorScheme.onSurface),
-              maxLength: widget.maxLength,
-              controller: widget.controller,
-              keyboardType:
-                  const TextInputType.numberWithOptions(decimal: true),
-              initialValue: widget.initialValue,
-              textCapitalization: widget.capitalization,
-              readOnly: widget.readOnly,
-              onTap: widget.onTap,
-              validator: widget.validator,
-              autofocus: widget.autofocus,
-              focusNode: widget.focusNode,
-              onSaved: widget.onSave,
-              onChanged: widget.onChange,
-              textInputAction: widget.action,
-              enabled: widget.enabled,
-              inputFormatters: [CurrencyInputFormatter()],
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.transparent),
-                  borderRadius: BorderRadius.circular(radius),
-                ),
-                counter: const SizedBox.shrink(),
-                labelText: widget.label,
-                floatingLabelBehavior: FloatingLabelBehavior.never,
-                alignLabelWithHint: true,
-                hintText: widget.label,
-                labelStyle: TextStyle(
-                    color: widget.foreground ?? context.colorScheme.onSurface),
-                filled: true,
-                fillColor: widget.background ??
-                    context.theme.disabledColor.withOpacity(0.3),
-                contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: context.colorScheme.primary),
-                  borderRadius: BorderRadius.circular(radius),
-                ),
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.transparent),
-                  borderRadius: BorderRadius.circular(radius),
-                ),
-                prefixIcon: widget.prefixIcon,
-                suffixIcon: widget.suffixIcon,
-              ))
-        ],
-      ).bottom(widget.bottom);
-
-  Widget _selectTextField() => TextFormField(
-        style: TextStyle(
-            color: widget.foreground ?? context.colorScheme.onSurface),
-        maxLength: widget.maxLength,
-        controller: widget.controller,
-        keyboardType: widget.inputType,
-        initialValue: widget.initialValue,
-        textCapitalization: widget.capitalization,
-        readOnly: true,
-        onTap: widget.onTap,
-        validator: widget.validator,
-        onSaved: widget.onSave,
-        autofocus: widget.autofocus,
-        focusNode: widget.focusNode,
-        onChanged: widget.onChange,
-        textInputAction: widget.action,
-        enabled: widget.enabled,
-        maxLines: widget.maxLines,
-        decoration: InputDecoration(
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(radius),
-          ),
-          counter: const SizedBox.shrink(),
-          labelText: widget.label,
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          alignLabelWithHint: true,
-          hintText: widget.label,
-          labelStyle: TextStyle(
+    mainAxisSize: MainAxisSize.min,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      TextFormField(
+          style: TextStyle(
               color: widget.foreground ?? context.colorScheme.onSurface),
-          filled: true,
-          fillColor:
-              widget.background ?? context.theme.disabledColor.withOpacity(0.3),
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: context.colorScheme.primary),
-            borderRadius: BorderRadius.circular(radius),
-          ),
-          enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(
-                color: widget.background ??
-                    context.theme.disabledColor.withOpacity(0.3)),
-            borderRadius: BorderRadius.circular(radius),
-          ),
-          suffixIcon: const Icon(Icons.arrow_drop_down_circle_outlined),
-          prefixIcon: widget.prefixIconUrl.isNullOrEmpty()
-              ? null
-              : SizedBox(
-                  height: 30,
-                  child: InkWell(
-                      onTap: widget.onPrefixIconTapped ?? () {},
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          widget.prefixIconUrl
-                              .asNetworkImage(
-                                size: 20,
-                                fit: BoxFit.contain,
-                              )
-                              .left(10),
-                        ],
-                      )),
-                ),
-        ),
-      ).bottom(widget.bottom);
-
-  Widget _regularTextField() => TextFormField(
-        style: TextStyle(
-            color: widget.foreground ?? context.colorScheme.onSurface),
-        maxLength: widget.maxLength,
-        controller: widget.controller,
-        keyboardType: widget.inputType,
-        initialValue: widget.initialValue,
-        readOnly: widget.readOnly,
-        onTap: widget.onTap,
-        validator: widget.validator,
-        autofocus: widget.autofocus,
-        focusNode: widget.focusNode,
-        onSaved: widget.onSave,
-        onChanged: widget.onChange,
-        textInputAction: widget.action,
-        enabled: widget.enabled,
-        maxLines: widget.maxLines,
-        textCapitalization: widget.capitalization,
-        decoration: InputDecoration(
+          maxLength: widget.maxLength,
+          controller: widget.controller,
+          keyboardType:
+          const TextInputType.numberWithOptions(decimal: true),
+          initialValue: widget.initialValue,
+          textCapitalization: widget.capitalization,
+          readOnly: widget.readOnly,
+          onTap: widget.onTap,
+          validator: widget.validator,
+          autofocus: widget.autofocus,
+          focusNode: widget.focusNode,
+          onSaved: widget.onSave,
+          onChanged: widget.onChange,
+          textInputAction: widget.action,
+          enabled: widget.enabled,
+          inputFormatters: [CurrencyInputFormatter()],
+          decoration: InputDecoration(
             border: OutlineInputBorder(
-              borderSide: BorderSide.none,
+              borderSide: const BorderSide(color: Colors.transparent),
               borderRadius: BorderRadius.circular(radius),
             ),
-            labelStyle: TextStyle(
-                color: widget.foreground ?? context.colorScheme.onSurface),
             counter: const SizedBox.shrink(),
-            labelText: widget.label,
             floatingLabelBehavior: FloatingLabelBehavior.never,
             alignLabelWithHint: true,
             hintText: widget.label,
+            labelStyle: TextStyle(
+                color: widget.foreground ?? context.colorScheme.onSurface),
             filled: true,
             fillColor: widget.background ??
                 context.theme.disabledColor.withOpacity(0.3),
             contentPadding:
-                const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: context.colorScheme.primary),
               borderRadius: BorderRadius.circular(radius),
             ),
             enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(
-                  color: widget.background ??
-                      context.theme.disabledColor.withOpacity(0.3)),
+              borderSide: const BorderSide(color: Colors.transparent),
               borderRadius: BorderRadius.circular(radius),
             ),
             prefixIcon: widget.prefixIcon,
-            suffixIcon: widget.suffixIcon),
-      ).bottom(widget.bottom);
+            suffixIcon: widget.suffixIcon,
+          ))
+    ],
+  ).bottom(widget.bottom);
+
+  Widget _selectTextField() => TextFormField(
+    style: TextStyle(
+        color: widget.foreground ?? context.colorScheme.onSurface),
+    maxLength: widget.maxLength,
+    controller: widget.controller,
+    keyboardType: widget.inputType,
+    initialValue: widget.initialValue,
+    textCapitalization: widget.capitalization,
+    readOnly: true,
+    onTap: widget.onTap,
+    validator: widget.validator,
+    onSaved: widget.onSave,
+    autofocus: widget.autofocus,
+    focusNode: widget.focusNode,
+    onChanged: widget.onChange,
+    textInputAction: widget.action,
+    enabled: widget.enabled,
+    maxLines: widget.maxLines,
+    decoration: InputDecoration(
+      border: OutlineInputBorder(
+        borderSide: BorderSide.none,
+        borderRadius: BorderRadius.circular(radius),
+      ),
+      counter: const SizedBox.shrink(),
+      floatingLabelBehavior: FloatingLabelBehavior.never,
+      alignLabelWithHint: true,
+      hintText: widget.label,
+      labelStyle: TextStyle(
+          color: widget.foreground ?? context.colorScheme.onSurface),
+      filled: true,
+      fillColor:
+      widget.background ?? context.theme.disabledColor.withOpacity(0.3),
+      contentPadding:
+      const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: context.colorScheme.primary),
+        borderRadius: BorderRadius.circular(radius),
+      ),
+      enabledBorder: UnderlineInputBorder(
+        borderSide: BorderSide(
+            color: widget.background ??
+                context.theme.disabledColor.withOpacity(0.3)),
+        borderRadius: BorderRadius.circular(radius),
+      ),
+      suffixIcon: const Icon(Icons.arrow_drop_down_circle_outlined),
+      prefixIcon: widget.prefixIconUrl.isNullOrEmpty()
+          ? null
+          : SizedBox(
+        height: 30,
+        child: InkWell(
+            onTap: widget.onPrefixIconTapped ?? () {},
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                widget.prefixIconUrl
+                    .asNetworkImage(
+                  size: 20,
+                  fit: BoxFit.contain,
+                )
+                    .left(10),
+              ],
+            )),
+      ),
+    ),
+  ).bottom(widget.bottom);
+
+  Widget _regularTextField() => TextFormField(
+    style: TextStyle(
+        color: widget.foreground ?? context.colorScheme.onSurface),
+    maxLength: widget.maxLength,
+    controller: widget.controller,
+    keyboardType: widget.inputType,
+    initialValue: widget.initialValue,
+    readOnly: widget.readOnly,
+    onTap: widget.onTap,
+    validator: widget.validator,
+    autofocus: widget.autofocus,
+    focusNode: widget.focusNode,
+    onSaved: widget.onSave,
+    onChanged: widget.onChange,
+    textInputAction: widget.action,
+    enabled: widget.enabled,
+    maxLines: widget.maxLines,
+    textCapitalization: widget.capitalization,
+    decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.circular(radius),
+        ),
+        labelStyle: TextStyle(
+            color: widget.foreground ?? context.colorScheme.onSurface),
+        counter: const SizedBox.shrink(),
+        floatingLabelBehavior: FloatingLabelBehavior.never,
+        alignLabelWithHint: true,
+        hintText: widget.label,
+        filled: true,
+        fillColor: widget.background ??
+            context.theme.disabledColor.withOpacity(0.3),
+        contentPadding:
+        const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: context.colorScheme.primary),
+          borderRadius: BorderRadius.circular(radius),
+        ),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(
+              color: widget.background ??
+                  context.theme.disabledColor.withOpacity(0.3)),
+          borderRadius: BorderRadius.circular(radius),
+        ),
+        prefixIcon: widget.prefixIcon,
+        suffixIcon: widget.suffixIcon),
+  ).bottom(widget.bottom);
 
   Widget _phoneTextField() => TextFormField(
       style:
-          TextStyle(color: widget.foreground ?? context.colorScheme.onSurface),
+      TextStyle(color: widget.foreground ?? context.colorScheme.onSurface),
       maxLength: widget.maxLength,
       controller: widget.controller,
       keyboardType: TextInputType.phone,
@@ -334,16 +330,13 @@ class _AppTextFieldState extends State<AppTextField> {
       textInputAction: widget.action,
       enabled: widget.enabled,
       onChanged: widget.onChange,
-      inputFormatters: [
-        PhoneInputFormatter(),
-      ],
+      inputFormatters: [PhoneInputFormatter()],
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderSide: const BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(radius),
         ),
         counter: const SizedBox.shrink(),
-        labelText: widget.label,
         floatingLabelBehavior: FloatingLabelBehavior.never,
         alignLabelWithHint: true,
         hintText: widget.label,
@@ -351,8 +344,9 @@ class _AppTextFieldState extends State<AppTextField> {
             color: widget.foreground ?? context.colorScheme.onSurface),
         filled: true,
         fillColor:
-            widget.background ?? context.theme.disabledColor.withOpacity(0.3),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        widget.background ?? context.theme.disabledColor.withOpacity(0.3),
+        contentPadding:
+        const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: context.colorScheme.primary),
           borderRadius: BorderRadius.circular(radius),
@@ -366,55 +360,54 @@ class _AppTextFieldState extends State<AppTextField> {
       )).bottom(widget.bottom);
 
   Widget _passwordTextField() => TextFormField(
-        style: TextStyle(
+    style: TextStyle(
+        color: widget.foreground ?? context.colorScheme.onSurface),
+    maxLength: widget.maxLength,
+    controller: widget.controller,
+    keyboardType: widget.inputType,
+    initialValue: widget.initialValue,
+    readOnly: widget.readOnly,
+    textCapitalization: widget.capitalization,
+    onTap: widget.onTap,
+    autofocus: widget.autofocus,
+    focusNode: widget.focusNode,
+    validator: widget.validator,
+    onSaved: widget.onSave,
+    obscureText: _obscureText,
+    enabled: widget.enabled,
+    textInputAction: widget.action,
+    onChanged: widget.onChange,
+    decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.circular(radius),
+        ),
+        counter: const SizedBox.shrink(),
+        floatingLabelBehavior: FloatingLabelBehavior.never,
+        alignLabelWithHint: true,
+        hintText: widget.label,
+        labelStyle: TextStyle(
             color: widget.foreground ?? context.colorScheme.onSurface),
-        maxLength: widget.maxLength,
-        controller: widget.controller,
-        keyboardType: widget.inputType,
-        initialValue: widget.initialValue,
-        readOnly: widget.readOnly,
-        textCapitalization: widget.capitalization,
-        onTap: widget.onTap,
-        autofocus: widget.autofocus,
-        focusNode: widget.focusNode,
-        validator: widget.validator,
-        onSaved: widget.onSave,
-        obscureText: _obscureText,
-        enabled: widget.enabled,
-        textInputAction: widget.action,
-        onChanged: widget.onChange,
-        decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(radius),
-            ),
-            counter: const SizedBox.shrink(),
-            labelText: widget.label,
-            floatingLabelBehavior: FloatingLabelBehavior.never,
-            alignLabelWithHint: true,
-            hintText: widget.label,
-            labelStyle: TextStyle(
-                color: widget.foreground ?? context.colorScheme.onSurface),
-            filled: true,
-            fillColor: widget.background ??
-                context.theme.disabledColor.withOpacity(0.3),
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: context.colorScheme.primary),
-              borderRadius: BorderRadius.circular(radius),
-            ),
-            enabledBorder: UnderlineInputBorder(
-              borderSide: const BorderSide(color: Colors.transparent),
-              borderRadius: BorderRadius.circular(radius),
-            ),
-            suffixIcon: UnconstrainedBox(
-              child: IconButton(
-                  icon: Icon(
-                      _obscureText ? Icons.visibility : Icons.visibility_off),
-                  onPressed: _togglePasswordVisibility),
-            )),
-      ).bottom(widget.bottom);
+        filled: true,
+        fillColor: widget.background ??
+            context.theme.disabledColor.withOpacity(0.3),
+        contentPadding:
+        const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: context.colorScheme.primary),
+          borderRadius: BorderRadius.circular(radius),
+        ),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: const BorderSide(color: Colors.transparent),
+          borderRadius: BorderRadius.circular(radius),
+        ),
+        suffixIcon: UnconstrainedBox(
+          child: IconButton(
+              icon: Icon(
+                  _obscureText ? Icons.visibility : Icons.visibility_off),
+              onPressed: _togglePasswordVisibility),
+        )),
+  ).bottom(widget.bottom);
 
   void _togglePasswordVisibility() =>
       setState(() => _obscureText = !_obscureText);
