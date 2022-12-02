@@ -89,6 +89,8 @@ class _AppTextFieldState extends State<AppTextField> {
   }
 
   Widget _cardTextField() => TextFormField(
+        style: TextStyle(
+            color: widget.foreground ?? context.colorScheme.onSurface),
         maxLength: widget.maxLength,
         controller: widget.controller,
         keyboardType: TextInputType.number,
@@ -148,6 +150,8 @@ class _AppTextFieldState extends State<AppTextField> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextFormField(
+              style: TextStyle(
+                  color: widget.foreground ?? context.colorScheme.onSurface),
               maxLength: widget.maxLength,
               controller: widget.controller,
               keyboardType:
@@ -193,6 +197,8 @@ class _AppTextFieldState extends State<AppTextField> {
       ).bottom(widget.bottom);
 
   Widget _selectTextField() => TextFormField(
+        style: TextStyle(
+            color: widget.foreground ?? context.colorScheme.onSurface),
         maxLength: widget.maxLength,
         controller: widget.controller,
         keyboardType: widget.inputType,
@@ -255,6 +261,8 @@ class _AppTextFieldState extends State<AppTextField> {
       ).bottom(widget.bottom);
 
   Widget _regularTextField() => TextFormField(
+        style: TextStyle(
+            color: widget.foreground ?? context.colorScheme.onSurface),
         maxLength: widget.maxLength,
         controller: widget.controller,
         keyboardType: widget.inputType,
@@ -299,6 +307,8 @@ class _AppTextFieldState extends State<AppTextField> {
       ).bottom(widget.bottom);
 
   Widget _phoneTextField() => TextFormField(
+      style:
+          TextStyle(color: widget.foreground ?? context.colorScheme.onSurface),
       maxLength: widget.maxLength,
       controller: widget.controller,
       keyboardType: TextInputType.phone,
@@ -342,6 +352,8 @@ class _AppTextFieldState extends State<AppTextField> {
       )).bottom(widget.bottom);
 
   Widget _passwordTextField() => TextFormField(
+        style: TextStyle(
+            color: widget.foreground ?? context.colorScheme.onSurface),
         maxLength: widget.maxLength,
         controller: widget.controller,
         keyboardType: widget.inputType,
@@ -426,6 +438,8 @@ class AppDropdownField extends StatelessWidget {
       enableFeedback: true,
       enabled: enabled,
       child: TextFormField(
+        style: TextStyle(
+            color: foreground ?? context.colorScheme.onSurface),
         controller: TextEditingController(text: current),
         readOnly: true,
         onTap: null,
