@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_utils/shared_utils.dart';
 
-import 'animated.column.dart';
-
 class EmptyContentPlaceholder extends StatelessWidget {
   final String title;
   final String subtitle;
