@@ -183,11 +183,7 @@ class _AppTextFieldState extends State<AppTextField> {
                 color: widget.foreground ?? context.colorScheme.onSurface),
             floatingLabelBehavior: FloatingLabelBehavior.never,
             alignLabelWithHint: true,
-            hintText: widget.label.toString().contains('Account Number')
-                ? '#### #### #### ####'
-                : widget.label.toString().contains('CVC')
-                    ? '***'
-                    : 'mm/yy',
+            hintText: 'mm/yy',
             filled: true,
             fillColor: widget.background ??
                 context.theme.disabledColor.withOpacity(0.3),
@@ -211,6 +207,7 @@ class _AppTextFieldState extends State<AppTextField> {
         maxLength: widget.maxLength,
         controller: widget.controller,
         keyboardType: TextInputType.number,
+        obscureText: true,
         initialValue: widget.initialValue,
         readOnly: widget.readOnly,
         textCapitalization: widget.capitalization,
@@ -235,11 +232,7 @@ class _AppTextFieldState extends State<AppTextField> {
                 color: widget.foreground ?? context.colorScheme.onSurface),
             floatingLabelBehavior: FloatingLabelBehavior.never,
             alignLabelWithHint: true,
-            hintText: widget.label.toString().contains('Account Number')
-                ? '#### #### #### ####'
-                : widget.label.toString().contains('CVC')
-                    ? '***'
-                    : 'mm/yy',
+            hintText: '***',
             filled: true,
             fillColor: widget.background ??
                 context.theme.disabledColor.withOpacity(0.3),
