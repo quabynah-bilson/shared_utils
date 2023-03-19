@@ -1,3 +1,7 @@
+## [0.0.36-dev.36] - Mar 19, 2023.
+
+##### Updated text fields to support credit card year and cvv separately
+
 ## [0.0.35-dev.35] - Dec 02, 2022.
 
 ##### Created and maintained by <strong>Quabynah Bilson Jr.</strong>
