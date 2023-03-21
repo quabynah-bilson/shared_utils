@@ -1,3 +1,7 @@
+## [0.0.39-dev.39] - Mar 21, 2023.
+
+##### Updated text fields to support input formatting
+
 ## [0.0.38-dev.38] - Mar 21, 2023.
 
 ##### Updated text fields to support input formatting

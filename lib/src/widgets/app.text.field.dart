@@ -73,7 +73,7 @@ class AppTextField extends StatefulWidget {
     this.foreground,
     this.prefixIcon,
     this.formatters = const [],
-    this.allowSpecialCharacters = false,
+    this.allowSpecialCharacters = true,
   }) : super(key: key);
 
   @override
