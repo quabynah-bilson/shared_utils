@@ -1,3 +1,7 @@
+## [0.0.38-dev.38] - Mar 21, 2023.
+
+##### Updated text fields to support input formatting
+
 ## [0.0.37-dev.37] - Mar 19, 2023.
 
 ##### Updated text fields to support credit card year and cvv separately

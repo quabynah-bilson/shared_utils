@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 import 'package:shared_utils/shared_utils.dart';
 
@@ -40,6 +41,8 @@ class AppTextField extends StatefulWidget {
   final Widget? prefixIcon;
   final Color? background;
   final Color? foreground;
+  final List<TextInputFormatter> formatters;
+  final bool allowSpecialCharacters;
 
   const AppTextField(
     this.label, {
@@ -69,6 +72,8 @@ class AppTextField extends StatefulWidget {
     this.background,
     this.foreground,
     this.prefixIcon,
+    this.formatters = const [],
+    this.allowSpecialCharacters = false,
   }) : super(key: key);
 
   @override
@@ -119,7 +124,13 @@ class _AppTextFieldState extends State<AppTextField> {
         textInputAction: widget.action,
         enabled: widget.enabled,
         // textAlign: TextAlign.center,
-        inputFormatters: [CreditCardNumberInputFormatter()],
+        inputFormatters: [
+          CreditCardNumberInputFormatter(),
+          if (!widget.allowSpecialCharacters) ...{
+            FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+          },
+          ...widget.formatters,
+        ],
         decoration: InputDecoration(
             border: OutlineInputBorder(
               borderSide: const BorderSide(color: Colors.transparent),
@@ -140,7 +151,7 @@ class _AppTextFieldState extends State<AppTextField> {
             fillColor: widget.background ??
                 context.theme.disabledColor.withOpacity(0.3),
             contentPadding:
-                const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: context.colorScheme.primary),
               borderRadius: BorderRadius.circular(radius),
@@ -171,7 +182,13 @@ class _AppTextFieldState extends State<AppTextField> {
         textInputAction: widget.action,
         enabled: widget.enabled,
         // textAlign: TextAlign.center,
-        inputFormatters: [CreditCardExpirationDateFormatter()],
+        inputFormatters: [
+          CreditCardExpirationDateFormatter(),
+          if (!widget.allowSpecialCharacters) ...{
+            FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+          },
+          ...widget.formatters,
+        ],
         decoration: InputDecoration(
             border: OutlineInputBorder(
               borderSide: const BorderSide(color: Colors.transparent),
@@ -188,7 +205,7 @@ class _AppTextFieldState extends State<AppTextField> {
             fillColor: widget.background ??
                 context.theme.disabledColor.withOpacity(0.3),
             contentPadding:
-                const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: context.colorScheme.primary),
               borderRadius: BorderRadius.circular(radius),
@@ -220,7 +237,13 @@ class _AppTextFieldState extends State<AppTextField> {
         textInputAction: widget.action,
         enabled: widget.enabled,
         // textAlign: TextAlign.center,
-        inputFormatters: [CreditCardCvcInputFormatter()],
+        inputFormatters: [
+          CreditCardCvcInputFormatter(),
+          if (!widget.allowSpecialCharacters) ...{
+            FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+          },
+          ...widget.formatters,
+        ],
         decoration: InputDecoration(
             border: OutlineInputBorder(
               borderSide: const BorderSide(color: Colors.transparent),
@@ -237,7 +260,7 @@ class _AppTextFieldState extends State<AppTextField> {
             fillColor: widget.background ??
                 context.theme.disabledColor.withOpacity(0.3),
             contentPadding:
-                const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: context.colorScheme.primary),
               borderRadius: BorderRadius.circular(radius),
@@ -272,7 +295,13 @@ class _AppTextFieldState extends State<AppTextField> {
               onChanged: widget.onChange,
               textInputAction: widget.action,
               enabled: widget.enabled,
-              inputFormatters: [CurrencyInputFormatter()],
+              inputFormatters: [
+                CurrencyInputFormatter(),
+                if (!widget.allowSpecialCharacters) ...{
+                  FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                },
+                ...widget.formatters,
+              ],
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderSide: const BorderSide(color: Colors.transparent),
@@ -288,7 +317,7 @@ class _AppTextFieldState extends State<AppTextField> {
                 fillColor: widget.background ??
                     context.theme.disabledColor.withOpacity(0.3),
                 contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: context.colorScheme.primary),
                   borderRadius: BorderRadius.circular(radius),
@@ -321,6 +350,12 @@ class _AppTextFieldState extends State<AppTextField> {
         textInputAction: widget.action,
         enabled: widget.enabled,
         maxLines: widget.maxLines,
+        inputFormatters: [
+          if (!widget.allowSpecialCharacters) ...{
+            FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+          },
+          ...widget.formatters,
+        ],
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderSide: BorderSide.none,
@@ -336,7 +371,7 @@ class _AppTextFieldState extends State<AppTextField> {
           fillColor:
               widget.background ?? context.theme.disabledColor.withOpacity(0.3),
           contentPadding:
-              const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: context.colorScheme.primary),
             borderRadius: BorderRadius.circular(radius),
@@ -387,6 +422,12 @@ class _AppTextFieldState extends State<AppTextField> {
         enabled: widget.enabled,
         maxLines: widget.maxLines,
         textCapitalization: widget.capitalization,
+        inputFormatters: [
+          if (!widget.allowSpecialCharacters) ...{
+            FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+          },
+          ...widget.formatters,
+        ],
         decoration: InputDecoration(
             border: OutlineInputBorder(
               borderSide: BorderSide.none,
@@ -402,7 +443,7 @@ class _AppTextFieldState extends State<AppTextField> {
             fillColor: widget.background ??
                 context.theme.disabledColor.withOpacity(0.3),
             contentPadding:
-                const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: context.colorScheme.primary),
               borderRadius: BorderRadius.circular(radius),
@@ -434,7 +475,13 @@ class _AppTextFieldState extends State<AppTextField> {
       textInputAction: widget.action,
       enabled: widget.enabled,
       onChanged: widget.onChange,
-      inputFormatters: [PhoneInputFormatter()],
+      inputFormatters: [
+        PhoneInputFormatter(),
+        if (!widget.allowSpecialCharacters) ...{
+          FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+        },
+        ...widget.formatters,
+      ],
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderSide: const BorderSide(color: Colors.transparent),
@@ -481,6 +528,12 @@ class _AppTextFieldState extends State<AppTextField> {
         enabled: widget.enabled,
         textInputAction: widget.action,
         onChanged: widget.onChange,
+        inputFormatters: [
+          if (!widget.allowSpecialCharacters) ...{
+            FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+          },
+          ...widget.formatters,
+        ],
         decoration: InputDecoration(
             border: OutlineInputBorder(
               borderSide: BorderSide.none,
@@ -496,7 +549,7 @@ class _AppTextFieldState extends State<AppTextField> {
             fillColor: widget.background ??
                 context.theme.disabledColor.withOpacity(0.3),
             contentPadding:
-                const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: context.colorScheme.primary),
               borderRadius: BorderRadius.circular(radius),
@@ -573,7 +626,7 @@ class AppDropdownField extends StatelessWidget {
             color: foreground ?? context.colorScheme.onSurface,
           ),
           contentPadding:
-              const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: context.colorScheme.primary),
             borderRadius: BorderRadius.circular(radius),
