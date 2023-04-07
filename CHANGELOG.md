@@ -1,4 +1,4 @@
-## [0.0.41-dev.41] - Apr 07, 2023.
+## [0.0.42-dev.42] - Apr 07, 2023.
 
 ##### Updated text fields to support floating labels
 
