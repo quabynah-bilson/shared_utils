@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
-enum AnimateType { slideLeft, slideUp }
+enum AnimateType { slideLeft, slideUp, slideRight, slideDown }
 
 class AnimatedColumn extends StatelessWidget {
   final List<Widget> children;
@@ -10,6 +10,7 @@ class AnimatedColumn extends StatelessWidget {
   final CrossAxisAlignment crossAxisAlignment;
   final MainAxisSize mainAxisSize;
   final int duration;
+  final double slideOffset;
 
   const AnimatedColumn({
     Key? key,
@@ -18,13 +19,15 @@ class AnimatedColumn extends StatelessWidget {
     this.mainAxisAlignment = MainAxisAlignment.start,
     this.mainAxisSize = MainAxisSize.min,
     this.duration = 500,
+    this.slideOffset = 50.0,
     this.crossAxisAlignment = CrossAxisAlignment.center,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Widget widget = const SizedBox.shrink();
     if (animateType == AnimateType.slideUp) {
-      return AnimationLimiter(
+      widget =  AnimationLimiter(
         child: Column(
           mainAxisAlignment: mainAxisAlignment,
           mainAxisSize: mainAxisSize,
@@ -32,22 +35,24 @@ class AnimatedColumn extends StatelessWidget {
           children: AnimationConfiguration.toStaggeredList(
             duration: Duration(milliseconds: duration),
             childAnimationBuilder: (widget) => SlideAnimation(
-              verticalOffset: 50.0,
+              verticalOffset: slideOffset,
               child: SlideAnimation(child: widget),
             ),
             children: children,
           ),
         ),
       );
-    } else {
-      return AnimationLimiter(
+    }
+    if (animateType == AnimateType.slideLeft) {
+      widget = AnimationLimiter(
         child: Column(
           mainAxisAlignment: mainAxisAlignment,
           mainAxisSize: mainAxisSize,
+          crossAxisAlignment: crossAxisAlignment,
           children: AnimationConfiguration.toStaggeredList(
             duration: Duration(milliseconds: duration),
             childAnimationBuilder: (widget) => SlideAnimation(
-              horizontalOffset: 50.0,
+              horizontalOffset: slideOffset,
               child: FadeInAnimation(child: widget),
             ),
             children: children,
@@ -55,5 +60,40 @@ class AnimatedColumn extends StatelessWidget {
         ),
       );
     }
+    if (animateType == AnimateType.slideRight) {
+      widget = AnimationLimiter(
+        child: Column(
+          mainAxisAlignment: mainAxisAlignment,
+          mainAxisSize: mainAxisSize,
+          crossAxisAlignment: crossAxisAlignment,
+          children: AnimationConfiguration.toStaggeredList(
+            duration: Duration(milliseconds: duration),
+            childAnimationBuilder: (widget) => SlideAnimation(
+              horizontalOffset: -slideOffset,
+              child: FadeInAnimation(child: widget),
+            ),
+            children: children,
+          ),
+        ),
+      );
+    }
+    if (animateType == AnimateType.slideDown) {
+      widget = AnimationLimiter(
+        child: Column(
+          mainAxisAlignment: mainAxisAlignment,
+          mainAxisSize: mainAxisSize,
+          crossAxisAlignment: crossAxisAlignment,
+          children: AnimationConfiguration.toStaggeredList(
+            duration: Duration(milliseconds: duration),
+            childAnimationBuilder: (widget) => SlideAnimation(
+              verticalOffset: -slideOffset,
+              child: FadeInAnimation(child: widget),
+            ),
+            children: children,
+          ),
+        ),
+      );
+    }
+    return widget;
   }
 }
