@@ -140,7 +140,7 @@ class _AppTextFieldState extends State<AppTextField> {
             // border: InputBorder.none,
             labelStyle: TextStyle(
                 color: widget.foreground ?? context.colorScheme.onSurface),
-            floatingLabelBehavior: FloatingLabelBehavior.never,
+            floatingLabelBehavior: FloatingLabelBehavior.always,
             alignLabelWithHint: true,
             hintText: widget.label.toString().contains('Account Number')
                 ? '#### #### #### ####'
@@ -198,7 +198,7 @@ class _AppTextFieldState extends State<AppTextField> {
             // border: InputBorder.none,
             labelStyle: TextStyle(
                 color: widget.foreground ?? context.colorScheme.onSurface),
-            floatingLabelBehavior: FloatingLabelBehavior.never,
+            floatingLabelBehavior: FloatingLabelBehavior.always,
             alignLabelWithHint: true,
             hintText: 'mm/yy',
             filled: true,
@@ -253,7 +253,7 @@ class _AppTextFieldState extends State<AppTextField> {
             // border: InputBorder.none,
             labelStyle: TextStyle(
                 color: widget.foreground ?? context.colorScheme.onSurface),
-            floatingLabelBehavior: FloatingLabelBehavior.never,
+            floatingLabelBehavior: FloatingLabelBehavior.always,
             alignLabelWithHint: true,
             hintText: '***',
             filled: true,
@@ -308,7 +308,7 @@ class _AppTextFieldState extends State<AppTextField> {
                   borderRadius: BorderRadius.circular(radius),
                 ),
                 counter: const SizedBox.shrink(),
-                floatingLabelBehavior: FloatingLabelBehavior.never,
+                floatingLabelBehavior: FloatingLabelBehavior.always,
                 alignLabelWithHint: true,
                 hintText: widget.label,
                 labelStyle: TextStyle(
@@ -362,7 +362,7 @@ class _AppTextFieldState extends State<AppTextField> {
             borderRadius: BorderRadius.circular(radius),
           ),
           counter: const SizedBox.shrink(),
-          floatingLabelBehavior: FloatingLabelBehavior.never,
+          floatingLabelBehavior: FloatingLabelBehavior.always,
           alignLabelWithHint: true,
           hintText: widget.label,
           labelStyle: TextStyle(
@@ -436,7 +436,7 @@ class _AppTextFieldState extends State<AppTextField> {
             labelStyle: TextStyle(
                 color: widget.foreground ?? context.colorScheme.onSurface),
             counter: const SizedBox.shrink(),
-            floatingLabelBehavior: FloatingLabelBehavior.never,
+            floatingLabelBehavior: FloatingLabelBehavior.always,
             alignLabelWithHint: true,
             hintText: widget.label,
             filled: true,
@@ -488,7 +488,7 @@ class _AppTextFieldState extends State<AppTextField> {
           borderRadius: BorderRadius.circular(radius),
         ),
         counter: const SizedBox.shrink(),
-        floatingLabelBehavior: FloatingLabelBehavior.never,
+        floatingLabelBehavior: FloatingLabelBehavior.always,
         alignLabelWithHint: true,
         hintText: widget.label,
         labelStyle: TextStyle(
@@ -540,7 +540,7 @@ class _AppTextFieldState extends State<AppTextField> {
               borderRadius: BorderRadius.circular(radius),
             ),
             counter: const SizedBox.shrink(),
-            floatingLabelBehavior: FloatingLabelBehavior.never,
+            floatingLabelBehavior: FloatingLabelBehavior.always,
             alignLabelWithHint: true,
             hintText: widget.label,
             labelStyle: TextStyle(

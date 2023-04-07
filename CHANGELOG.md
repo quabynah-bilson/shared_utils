@@ -1,3 +1,7 @@
+## [0.0.40-dev.40] - Apr 07, 2023.
+
+##### Updated text fields to support floating labels
+
 ## [0.0.39-dev.39] - Mar 21, 2023.
 
 ##### Updated text fields to support input formatting
