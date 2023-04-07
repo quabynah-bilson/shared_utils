@@ -558,6 +558,7 @@ class _AppTextFieldState extends State<AppTextField> {
               borderSide: const BorderSide(color: Colors.transparent),
               borderRadius: BorderRadius.circular(radius),
             ),
+            prefixIcon: widget.prefixIcon,
             suffixIcon: UnconstrainedBox(
               child: IconButton(
                   icon: Icon(
