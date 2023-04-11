@@ -1,3 +1,11 @@
+## [0.0.44-dev.44] - Apr 11, 2023.
+
+##### Updated text fields to support credit card year and cvv separately
+
+##### Updated text fields to support floating labels
+
+##### Updated loading overlay to support animation from assets
+
 ## [0.0.43-dev.43] - Apr 07, 2023.
 
 ##### Updated text fields to support floating labels

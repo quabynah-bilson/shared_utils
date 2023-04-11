@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_utils/shared_utils.dart';
 
-
 /// loading indicator with some sort of animation
 class LoadingIndicator extends StatefulWidget {
   final Color? color;
@@ -11,6 +10,7 @@ class LoadingIndicator extends StatefulWidget {
   final Widget child;
   final String message;
   final String lottieAnimResource;
+  final bool loadingAnimIsAsset;
 
   const LoadingIndicator({
     Key? key,
@@ -20,6 +20,7 @@ class LoadingIndicator extends StatefulWidget {
     this.isLoading = false,
     this.message = 'Please wait',
     this.lottieAnimResource = kDefaultLottieLoadingAnim,
+    this.loadingAnimIsAsset = false,
   }) : super(key: key);
 
   @override
@@ -69,57 +70,61 @@ class _LoadingIndicatorState extends State<LoadingIndicator>
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        /// underlying UI
-        Positioned.fill(child: widget.child),
+  Widget build(BuildContext context) => Stack(
+        children: [
+          /// underlying UI
+          Positioned.fill(child: widget.child),
 
-        /// loading indicator semi-opaque background
-        if (_overlayVisible) ...{
-          FadeTransition(
-            opacity: _animation,
-            child: Stack(
-              children: <Widget>[
-                Positioned.fill(
-                  child: Opacity(
-                    opacity: kEmphasisHighest,
-                    child: ModalBarrier(
-                      dismissible: false,
-                      color: (widget.color ?? context.colorScheme.surface)
-                          .withOpacity(kEmphasisMedium),
+          /// loading indicator semi-opaque background
+          if (_overlayVisible) ...{
+            FadeTransition(
+              opacity: _animation,
+              child: Stack(
+                children: <Widget>[
+                  Positioned.fill(
+                    child: Opacity(
+                      opacity: kEmphasisHighest,
+                      child: ModalBarrier(
+                        dismissible: false,
+                        color: (widget.color ?? context.colorScheme.surface)
+                            .withOpacity(kEmphasisMedium),
+                      ),
                     ),
                   ),
-                ),
 
-                /// loading indicator
-                Positioned.fill(
-                  child: LoadingIndicatorItem(
-                    message: widget.message,
-                    foregroundColor: widget.foregroundColor,
-                    loadingAnimationUrl: widget.lottieAnimResource,
-                  ).centered(),
-                ),
-              ],
+                  /// loading indicator
+                  Positioned.fill(
+                    child: LoadingIndicatorItem(
+                      message: widget.message,
+                      foregroundColor: widget.foregroundColor,
+                      loadingAnimationUrl: widget.lottieAnimResource,
+                      loadingAnimIsAsset: widget.loadingAnimIsAsset,
+                    ).centered(),
+                  ),
+                ],
+              ),
             ),
-          ),
-        },
-      ],
-    );
-  }
+          },
+        ],
+      );
 }
 
 class LoadingIndicatorItem extends StatelessWidget {
   final Color? foregroundColor;
   final String message;
   final String loadingAnimationUrl;
+  final bool loadingAnimIsAsset;
+  final String? package;
 
   const LoadingIndicatorItem({
     Key? key,
     required this.message,
     this.foregroundColor,
     this.loadingAnimationUrl = kDefaultLottieLoadingAnim,
-  }) : super(key: key);
+    this.loadingAnimIsAsset = false,
+    this.package,
+  })  : assert(loadingAnimIsAsset ? package != null : true),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) => AnimatedColumn(
@@ -127,12 +132,22 @@ class LoadingIndicatorItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          LottieBuilder.network(
-            loadingAnimationUrl,
-            width: context.width,
-            height: context.height * 0.25,
-            animate: true,
-          ).align(Alignment.center),
+          if (loadingAnimationUrl.isNotEmpty) ...{
+            Lottie.asset(
+              loadingAnimationUrl,
+              width: context.width,
+              height: context.height * 0.25,
+              animate: true,
+              package: package,
+            ).align(Alignment.center),
+          } else ...{
+            Lottie.network(
+              loadingAnimationUrl,
+              width: context.width,
+              height: context.height * 0.25,
+              animate: true,
+            ).align(Alignment.center),
+          },
           message
               .subtitle1(context,
                   color: foregroundColor ?? context.colorScheme.onBackground,

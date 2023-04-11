@@ -608,6 +608,13 @@ class DialogAction {
 
 /// extensions on [BuildContext]
 extension ContextX on BuildContext {
+  // get the default locale language code
+  String get languageId =>
+      Localizations.maybeLocaleOf(this)?.languageCode ?? 'en';
+
+  // flutter widget navigator state
+  NavigatorState get navigator => Navigator.of(this);
+
   double get height => mediaQuery.size.height;
 
   double get width => mediaQuery.size.width;
