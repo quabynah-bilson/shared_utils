@@ -1,6 +1,6 @@
 name: shared_utils
 description: Shared utilities for personal Flutter projects
-version: 0.0.44-dev.44
+version: 0.0.45-dev.45
 homepage: https://github.com/quabynah-bilson/shared_utils/tree/main
 publish_to: https://github.com/quabynah-bilson/shared_utils.git
 
