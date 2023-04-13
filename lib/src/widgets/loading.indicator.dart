@@ -12,7 +12,6 @@ class LoadingIndicator extends StatefulWidget {
   final String message;
   final String lottieAnimResource;
   final bool loadingAnimIsAsset;
-  final String? package;
 
   const LoadingIndicator({
     Key? key,
@@ -23,7 +22,6 @@ class LoadingIndicator extends StatefulWidget {
     this.message = 'Please wait',
     this.lottieAnimResource = kDefaultLottieLoadingAnim,
     this.loadingAnimIsAsset = false,
-    this.package,
   }) : super(key: key);
 
   @override
@@ -102,7 +100,6 @@ class _LoadingIndicatorState extends State<LoadingIndicator>
                       foregroundColor: widget.foregroundColor,
                       loadingAnimationUrl: widget.lottieAnimResource,
                       loadingAnimIsAsset: widget.loadingAnimIsAsset,
-                      package: widget.package,
                     ).centered(),
                   ),
                 ],
@@ -118,7 +115,6 @@ class LoadingIndicatorItem extends StatelessWidget {
   final String message;
   final String loadingAnimationUrl;
   final bool loadingAnimIsAsset;
-  final String? package;
 
   const LoadingIndicatorItem({
     Key? key,
@@ -126,9 +122,7 @@ class LoadingIndicatorItem extends StatelessWidget {
     this.foregroundColor,
     this.loadingAnimationUrl = kDefaultLottieLoadingAnim,
     this.loadingAnimIsAsset = false,
-    this.package,
-  })  : assert(loadingAnimIsAsset ? package != null : true),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) => AnimatedColumn(
