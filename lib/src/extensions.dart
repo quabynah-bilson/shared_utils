@@ -517,9 +517,16 @@ extension TextX on String? {
     double? size,
     double? height,
     double? width,
+    bool fromAsset = true,
     BoxFit fit = BoxFit.cover,
   }) =>
-      SvgPicture.asset(
+      fromAsset ? SvgPicture.asset(
+        this ?? '',
+        height: size ?? height,
+        width: size ?? width,
+        fit: fit,
+        placeholderBuilder: (_) => SizedBox.shrink(),
+      ) : SvgPicture.network(
         this ?? '',
         height: size ?? height,
         width: size ?? width,
