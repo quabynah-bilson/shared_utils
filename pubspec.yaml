@@ -1,6 +1,6 @@
 name: shared_utils
 description: Shared utilities for personal Flutter projects
-version: 0.0.45-dev.45
+version: 0.0.46-dev.46
 homepage: https://github.com/quabynah-bilson/shared_utils/tree/main
 publish_to: https://github.com/quabynah-bilson/shared_utils.git
 
@@ -34,3 +34,4 @@ dev_dependencies:
 
 flutter: null
 # flutter pub publish --dry-run
+# flutter pub publish

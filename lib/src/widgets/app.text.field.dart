@@ -589,6 +589,7 @@ class AppDropdownField extends StatelessWidget {
   final bool enabled;
   final Color? background;
   final Color? foreground;
+  final Widget? prefixIcon;
 
   const AppDropdownField({
     Key? key,
@@ -599,6 +600,7 @@ class AppDropdownField extends StatelessWidget {
     this.enabled = true,
     this.foreground,
     this.background,
+    this.prefixIcon,
   }) : super(key: key);
 
   @override
@@ -633,9 +635,10 @@ class AppDropdownField extends StatelessWidget {
           filled: true,
           fillColor: background ?? context.theme.disabledColor.withOpacity(0.3),
           suffixIcon: Icon(
-            Icons.arrow_drop_down,
+            Icons.arrow_drop_down_circle_outlined,
             color: foreground ?? context.colorScheme.onSurface,
           ),
+          prefixIcon: prefixIcon,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
           focusedBorder: OutlineInputBorder(

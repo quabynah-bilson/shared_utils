@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_utils/shared_utils.dart';
 
@@ -135,13 +136,13 @@ class LoadingIndicatorItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (loadingAnimationUrl.isNotEmpty) ...{
+          if (loadingAnimationUrl.isNotEmpty && loadingAnimIsAsset) ...{
             Lottie.asset(
               loadingAnimationUrl,
               width: context.width,
               height: context.height * 0.25,
               animate: true,
-              package: package,
+              bundle: rootBundle,
             ).align(Alignment.center),
           } else ...{
             Lottie.network(
