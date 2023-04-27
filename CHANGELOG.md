@@ -1,3 +1,7 @@
+## [0.0.49-dev.49] - Apr 27, 2023.
+
+#### Updated rounded buttons
+
 ## [0.0.48-dev.48] - Apr 13, 2023.
 
 ##### Updated text fields to support credit card year and cvv separately

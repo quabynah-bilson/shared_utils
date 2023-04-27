@@ -190,13 +190,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: context.theme.textTheme.displayLarge?.copyWith(
+        style: context.textTheme.displayLarge?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? context.theme.textTheme.displayLarge?.fontWeight,
+                weight ?? context.textTheme.displayLarge?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.theme
-                    .colorScheme
+                context.colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
       );
@@ -216,13 +215,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: context.theme.textTheme.displayMedium?.copyWith(
+        style: context.textTheme.displayMedium?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? context.theme.textTheme.displayMedium?.fontWeight,
+                weight ?? context.textTheme.displayMedium?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.theme
-                    .colorScheme
+                context.colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
       );
@@ -242,13 +240,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: context.theme.textTheme.displaySmall?.copyWith(
+        style: context.textTheme.displaySmall?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? context.theme.textTheme.displaySmall?.fontWeight,
+                weight ?? context.textTheme.displaySmall?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.theme
-                    .colorScheme
+                context.colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
       );
@@ -268,13 +265,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: context.theme.textTheme.headlineMedium?.copyWith(
+        style: context.textTheme.headlineMedium?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? context.theme.textTheme.headlineMedium?.fontWeight,
+                weight ?? context.textTheme.headlineMedium?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.theme
-                    .colorScheme
+                context.colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
       );
@@ -294,13 +290,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: context.theme.textTheme.headlineSmall?.copyWith(
+        style: context.textTheme.headlineSmall?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? context.theme.textTheme.headlineSmall?.fontWeight,
+                weight ?? context.textTheme.headlineSmall?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.theme
-                    .colorScheme
+                context.colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
       );
@@ -320,13 +315,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: context.theme.textTheme.titleLarge?.copyWith(
+        style: context.textTheme.titleLarge?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? context.theme.textTheme.titleLarge?.fontWeight,
+                weight ?? context.textTheme.titleLarge?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.theme
-                    .colorScheme
+                context.colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
       );
@@ -346,13 +340,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: context.theme.textTheme.bodyLarge?.copyWith(
+        style: context.textTheme.bodyLarge?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? context.theme.textTheme.bodyLarge?.fontWeight,
+                weight ?? context.textTheme.bodyLarge?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.theme
-                    .colorScheme
+                context.colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
       );
@@ -372,13 +365,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: context.theme.textTheme.bodyMedium?.copyWith(
+        style: context.textTheme.bodyMedium?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? context.theme.textTheme.bodyMedium?.fontWeight,
+                weight ?? context.textTheme.bodyMedium?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.theme
-                    .colorScheme
+                context.colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
       );
@@ -398,13 +390,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: context.theme.textTheme.titleMedium?.copyWith(
+        style: context.textTheme.titleMedium?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? context.theme.textTheme.titleMedium?.fontWeight,
+                weight ?? context.textTheme.titleMedium?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.theme
-                    .colorScheme
+                context.colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
       );
@@ -424,13 +415,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: context.theme.textTheme.titleSmall?.copyWith(
+        style: context.textTheme.titleSmall?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? context.theme.textTheme.titleSmall?.fontWeight,
+                weight ?? context.textTheme.titleSmall?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.theme
-                    .colorScheme
+                context.colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
       );
@@ -450,13 +440,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: context.theme.textTheme.bodySmall?.copyWith(
+        style: context.textTheme.bodySmall?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? context.theme.textTheme.bodySmall?.fontWeight,
+                weight ?? context.textTheme.bodySmall?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.theme
-                    .colorScheme
+                context.colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
       );
@@ -476,13 +465,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: context.theme.textTheme.labelSmall?.copyWith(
+        style: context.textTheme.labelSmall?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? context.theme.textTheme.labelSmall?.fontWeight,
+                weight ?? context.textTheme.labelSmall?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.theme
-                    .colorScheme
+                context.colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
       );
@@ -502,13 +490,12 @@ extension TextX on String? {
         textAlign: alignment,
         maxLines: maxLines,
         overflow: overflow,
-        style: context.theme.textTheme.labelLarge?.copyWith(
+        style: context.textTheme.labelLarge?.copyWith(
             letterSpacing: spacing,
             fontWeight:
-                weight ?? context.theme.textTheme.labelLarge?.fontWeight,
+                weight ?? context.textTheme.labelLarge?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.theme
-                    .colorScheme
+                context.colorScheme
                     .onBackground
                     .withOpacity(emphasis)),
       );
@@ -629,6 +616,8 @@ extension ContextX on BuildContext {
   ThemeData get theme => Theme.of(this);
 
   ColorScheme get colorScheme => theme.colorScheme;
+
+  TextTheme get textTheme => theme.textTheme;
 
   bool get isMobile => width < 650;
 

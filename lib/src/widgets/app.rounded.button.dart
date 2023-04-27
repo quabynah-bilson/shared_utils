@@ -68,30 +68,31 @@ class AppRoundedButton extends StatelessWidget {
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     if (icon != null) ...{
                       Icon(
                         icon,
+                        size: context.textTheme.labelLarge!.fontSize! * 1.4,
                         color: enabled
                             ? backgroundColor ??
                                 (buttonType == AppButtonType.primary
                                     ? context.colorScheme.primary
                                     : context.colorScheme.secondary)
                             : context.theme.disabledColor,
-                      ),
+                      ).right(12),
                     },
-                    Expanded(
-                      child: text.button(
-                        context,
-                        alignment: TextAlign.center,
-                        color: enabled
-                            ? backgroundColor ??
-                                (buttonType == AppButtonType.primary
-                                    ? context.colorScheme.primary
-                                    : context.colorScheme.secondary)
-                            : context.theme.disabledColor,
-                        emphasis: enabled ? kEmphasisHighest : kEmphasisMedium,
-                      ),
+                    text.button(
+                      context,
+                      alignment: TextAlign.center,
+                      color: enabled
+                          ? backgroundColor ??
+                              (buttonType == AppButtonType.primary
+                                  ? context.colorScheme.primary
+                                  : context.colorScheme.secondary)
+                          : context.theme.disabledColor,
+                      emphasis: enabled ? kEmphasisHighest : kEmphasisMedium,
                     ),
                   ],
                 ),
@@ -137,21 +138,20 @@ class AppRoundedButton extends StatelessWidget {
                   if (icon != null) ...{
                     Icon(
                       icon,
+                      size: context.textTheme.labelLarge!.fontSize! * 1.4,
                       color: enabled
                           ? textColor ?? context.colorScheme.onPrimary
                           : context.colorScheme.background
                               .withOpacity(kEmphasisMedium),
-                    ),
+                    ).right(12),
                   },
-                  Expanded(
-                    child: text.button(
-                      context,
-                      alignment: TextAlign.center,
-                      color: enabled
-                          ? textColor ?? context.colorScheme.onPrimary
-                          : context.colorScheme.background,
-                      emphasis: enabled ? kEmphasisHighest : kEmphasisMedium,
-                    ),
+                  text.button(
+                    context,
+                    alignment: TextAlign.center,
+                    color: enabled
+                        ? textColor ?? context.colorScheme.onPrimary
+                        : context.colorScheme.background,
+                    emphasis: enabled ? kEmphasisHighest : kEmphasisMedium,
                   ),
                 ],
               ),
