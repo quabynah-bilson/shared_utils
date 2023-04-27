@@ -98,62 +98,78 @@ class AppRoundedButton extends StatelessWidget {
                 ),
               ),
             )
-          : ElevatedButton(
-              onPressed: enabled ? onTap : null,
-              style: ButtonStyle(
-                padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
-                    (states) => const EdgeInsets.symmetric(
-                        horizontal: 24, vertical: 16)),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50.0),
-                )),
-                elevation: MaterialStateProperty.resolveWith<double>(
-                    (states) => enabled ? elevation : 0),
-                backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                  (Set<MaterialState> states) {
-                    if (backgroundColor != null) {
-                      return backgroundColor!;
-                    }
-
-                    if (states.contains(MaterialState.pressed)) {
-                      return enabled
-                          ? buttonType == AppButtonType.primary
-                              ? context.colorScheme.primaryContainer
-                              : context.colorScheme.secondaryContainer
-                          : context.theme.disabledColor;
-                    }
-
-                    return enabled
-                        ? buttonType == AppButtonType.primary
-                            ? context.colorScheme.primary
-                            : context.colorScheme.secondary
-                        : context.theme.disabledColor;
-                  },
+          : Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                border: Border.all(
+                  color: enabled
+                      ? backgroundColor ??
+                          (buttonType == AppButtonType.primary
+                              ? context.colorScheme.primary
+                              : context.colorScheme.secondary)
+                      : context.theme.disabledColor,
+                  width: 2,
                 ),
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  if (icon != null) ...{
-                    Icon(
-                      icon,
-                      size: context.textTheme.labelLarge!.fontSize! * 1.4,
+              child: ElevatedButton(
+                onPressed: enabled ? onTap : null,
+                style: ButtonStyle(
+                  enableFeedback: true,
+                  padding:
+                      MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
+                          (states) => const EdgeInsets.symmetric(
+                              horizontal: 24, vertical: 16)),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50.0),
+                  )),
+                  elevation: MaterialStateProperty.resolveWith<double>(
+                      (states) => enabled ? elevation : 0),
+                  backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                    (Set<MaterialState> states) {
+                      if (backgroundColor != null) {
+                        return backgroundColor!;
+                      }
+
+                      if (states.contains(MaterialState.pressed)) {
+                        return enabled
+                            ? buttonType == AppButtonType.primary
+                                ? context.colorScheme.primaryContainer
+                                : context.colorScheme.secondaryContainer
+                            : context.theme.disabledColor;
+                      }
+
+                      return enabled
+                          ? buttonType == AppButtonType.primary
+                              ? context.colorScheme.primary
+                              : context.colorScheme.secondary
+                          : context.theme.disabledColor;
+                    },
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (icon != null) ...{
+                      Icon(
+                        icon,
+                        size: context.textTheme.labelLarge!.fontSize! * 1.4,
+                        color: enabled
+                            ? textColor ?? context.colorScheme.onPrimary
+                            : context.colorScheme.background
+                                .withOpacity(kEmphasisMedium),
+                      ).right(12),
+                    },
+                    text.button(
+                      context,
+                      alignment: TextAlign.center,
                       color: enabled
                           ? textColor ?? context.colorScheme.onPrimary
-                          : context.colorScheme.background
-                              .withOpacity(kEmphasisMedium),
-                    ).right(12),
-                  },
-                  text.button(
-                    context,
-                    alignment: TextAlign.center,
-                    color: enabled
-                        ? textColor ?? context.colorScheme.onPrimary
-                        : context.colorScheme.background,
-                    emphasis: enabled ? kEmphasisHighest : kEmphasisMedium,
-                  ),
-                ],
+                          : context.colorScheme.background,
+                      emphasis: enabled ? kEmphasisHighest : kEmphasisMedium,
+                    ),
+                  ],
+                ),
               ),
             ),
     );
