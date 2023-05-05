@@ -8,6 +8,7 @@ class AnimatedListView extends StatelessWidget {
   final AnimateType animateType;
   final EdgeInsets padding;
   final int duration;
+  final double slideOffset;
 
   const AnimatedListView({
     Key? key,
@@ -15,34 +16,37 @@ class AnimatedListView extends StatelessWidget {
     this.animateType = AnimateType.slideLeft,
     this.padding = EdgeInsets.zero,
     this.duration = 500,
+    this.slideOffset = 50.0,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Widget widget = const SizedBox.shrink();
     if (animateType == AnimateType.slideUp) {
-      return AnimationLimiter(
+      widget = AnimationLimiter(
         child: ListView(
           shrinkWrap: true,
           padding: padding,
           children: AnimationConfiguration.toStaggeredList(
             duration: Duration(milliseconds: duration),
             childAnimationBuilder: (widget) => SlideAnimation(
-              verticalOffset: 50.0,
+              verticalOffset: slideOffset,
               child: SlideAnimation(child: widget),
             ),
             children: children,
           ),
         ),
       );
-    } else {
-      return AnimationLimiter(
+    }
+    if (animateType == AnimateType.slideLeft) {
+      widget = AnimationLimiter(
         child: ListView(
           shrinkWrap: true,
           padding: padding,
           children: AnimationConfiguration.toStaggeredList(
             duration: Duration(milliseconds: duration),
             childAnimationBuilder: (widget) => SlideAnimation(
-              horizontalOffset: 50.0,
+              horizontalOffset: slideOffset,
               child: FadeInAnimation(child: widget),
             ),
             children: children,
@@ -50,5 +54,41 @@ class AnimatedListView extends StatelessWidget {
         ),
       );
     }
+
+    if (animateType == AnimateType.slideRight) {
+      widget = AnimationLimiter(
+        child: ListView(
+          shrinkWrap: true,
+          padding: padding,
+          children: AnimationConfiguration.toStaggeredList(
+            duration: Duration(milliseconds: duration),
+            childAnimationBuilder: (widget) => SlideAnimation(
+              horizontalOffset: -slideOffset,
+              child: FadeInAnimation(child: widget),
+            ),
+            children: children,
+          ),
+        ),
+      );
+    }
+
+    if (animateType == AnimateType.slideDown) {
+      widget = AnimationLimiter(
+        child: ListView(
+          shrinkWrap: true,
+          padding: padding,
+          children: AnimationConfiguration.toStaggeredList(
+            duration: Duration(milliseconds: duration),
+            childAnimationBuilder: (widget) => SlideAnimation(
+              verticalOffset: -slideOffset,
+              child: FadeInAnimation(child: widget),
+            ),
+            children: children,
+          ),
+        ),
+      );
+    }
+
+    return widget;
   }
 }

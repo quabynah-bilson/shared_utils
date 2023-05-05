@@ -4,16 +4,20 @@ import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 import 'package:shared_utils/shared_utils.dart';
 
 enum AppTextFieldType {
-  regular,
-  phone,
+  email,
   password,
+  text,
+  number,
+  phone,
   select,
+  creditCardNumber,
+  creditCardExpiry,
+  creditCardCvv,
   currency,
-  card,
-  cardMonthAndYear,
-  cardCvv
 }
 
+@Deprecated(
+    'AppTextField is deprecated and shouldn\'t be used. use FilledTextField instead')
 class AppTextField extends StatefulWidget {
   final String label;
   final bool readOnly;
@@ -63,7 +67,7 @@ class AppTextField extends StatefulWidget {
     this.autofocus = false,
     this.showCurrency = false,
     this.enabled = true,
-    this.textFieldType = AppTextFieldType.regular,
+    this.textFieldType = AppTextFieldType.text,
     this.tag = '',
     this.validator,
     this.bottom = 16,
@@ -82,6 +86,8 @@ class AppTextField extends StatefulWidget {
   _AppTextFieldState createState() => _AppTextFieldState();
 }
 
+@Deprecated(
+    'AppTextField is deprecated and shouldn\'t be used. use FilledTextField instead')
 class _AppTextFieldState extends State<AppTextField> {
   bool _obscureText = true;
   final radius = 40.0;
@@ -97,11 +103,11 @@ class _AppTextFieldState extends State<AppTextField> {
         return _selectTextField();
       case AppTextFieldType.currency:
         return _currencyTextField();
-      case AppTextFieldType.card:
+      case AppTextFieldType.creditCardNumber:
         return _cardTextField();
-      case AppTextFieldType.cardCvv:
+      case AppTextFieldType.creditCardCvv:
         return _cardCvvTextField();
-      case AppTextFieldType.cardMonthAndYear:
+      case AppTextFieldType.creditCardExpiry:
         return _cardMonthAndYearTextField();
       default:
         return _regularTextField();
@@ -579,6 +585,211 @@ class _AppTextFieldState extends State<AppTextField> {
 
   void _togglePasswordVisibility() =>
       setState(() => _obscureText = !_obscureText);
+}
+
+/// A [TextFormField] with a filled background
+class FilledTextField extends StatelessWidget {
+  final String label;
+  final String? hint;
+  final IconData? prefixIcon;
+  final IconData? suffixIcon;
+  final bool readOnly;
+  final bool enabled;
+  final bool autofocus;
+  final VoidCallback? onTap;
+  final VoidCallback? onPrefixIconTap;
+  final TextInputType keyboardType;
+  final TextCapitalization textCapitalization;
+  final Function(String)? onChanged;
+  final String? Function(String?)? validator;
+  final double horizontalPadding;
+  final double verticalPadding;
+  final AppTextFieldType type;
+  final TextEditingController? controller;
+  final TextInputAction? inputAction;
+  final int? maxLength;
+  final int? maxLines;
+  final String countryCode;
+  final String currency;
+
+  const FilledTextField({
+    Key? key,
+    required this.label,
+    this.readOnly = false,
+    this.enabled = true,
+    this.autofocus = false,
+    this.suffixIcon,
+    this.hint,
+    this.prefixIcon,
+    this.onTap,
+    this.keyboardType = TextInputType.text,
+    this.textCapitalization = TextCapitalization.none,
+    this.onChanged,
+    this.validator,
+    this.horizontalPadding = 20,
+    this.verticalPadding = 16,
+    this.type = AppTextFieldType.text,
+    this.controller,
+    this.onPrefixIconTap,
+    this.inputAction,
+    this.maxLength,
+    this.maxLines,
+    this.countryCode = 'GH', // by default set to Ghana
+    this.currency = 'GH₵', // by default set to Ghana
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var hidePassword = type == AppTextFieldType.password;
+
+    return StatefulBuilder(
+        builder: (context, setState) => TextFormField(
+              decoration: InputDecoration(
+                labelText: label,
+                hintText: hint ?? label,
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                prefixIcon: prefixIcon == null
+                    ? null
+                    : GestureDetector(
+                        onTap: onPrefixIconTap, child: Icon(prefixIcon)),
+                suffixIcon: type == AppTextFieldType.password
+                    ? IconButton(
+                        onPressed: () =>
+                            setState(() => hidePassword = !hidePassword),
+                        icon: Icon(hidePassword
+                            ? TablerIcons.eye
+                            : TablerIcons.eye_off),
+                      ).right(8)
+                    : Icon(suffixIcon),
+                enabled: enabled,
+              ),
+              readOnly: readOnly,
+              autofocus: autofocus,
+              obscureText: hidePassword,
+              onTap: onTap,
+              keyboardType: _createKeyboardTypeByType,
+              textCapitalization: textCapitalization,
+              onChanged: onChanged,
+              validator: validator,
+              inputFormatters: _createFormatterByType,
+              controller: controller,
+              enabled: enabled,
+              textInputAction: inputAction,
+              maxLines: type == AppTextFieldType.password ? 1 : maxLines,
+              maxLength: maxLength,
+              maxLengthEnforcement: MaxLengthEnforcement.enforced,
+            ).bottom(verticalPadding).horizontal(horizontalPadding));
+  }
+
+  // create keyboard type by type
+  TextInputType get _createKeyboardTypeByType {
+    switch (type) {
+      case AppTextFieldType.email:
+        return TextInputType.emailAddress;
+      case AppTextFieldType.password:
+        return TextInputType.visiblePassword;
+      case AppTextFieldType.text:
+        return TextInputType.text;
+      case AppTextFieldType.number:
+        return TextInputType.number;
+      case AppTextFieldType.phone:
+        return TextInputType.phone;
+      case AppTextFieldType.creditCardNumber:
+        return TextInputType.number;
+      case AppTextFieldType.creditCardCvv:
+        return TextInputType.number;
+      case AppTextFieldType.creditCardExpiry:
+        return TextInputType.number;
+      case AppTextFieldType.currency:
+        return TextInputType.number;
+      default:
+        return TextInputType.text;
+    }
+  }
+
+  // create formatter by type
+  List<TextInputFormatter> get _createFormatterByType {
+    switch (type) {
+      // validate email: set max length to 254, and use email formatter
+      case AppTextFieldType.email:
+        return [
+          LengthLimitingTextInputFormatter(254),
+          FilteringTextInputFormatter.deny(RegExp(r'[A-Z]')),
+          FilteringTextInputFormatter.allow(RegExp(r'[a-z0-9@\._-]')),
+        ];
+      // validate password: set max length to 32, and use password formatter
+      case AppTextFieldType.password:
+        return [
+          LengthLimitingTextInputFormatter(32),
+          FilteringTextInputFormatter.deny(RegExp(r'\s')),
+        ];
+
+      // validate text: no max length, and no formatter
+      case AppTextFieldType.text:
+        return [];
+
+      // validate number: set max length to 32, and use number formatter
+      case AppTextFieldType.number:
+        return [
+          LengthLimitingTextInputFormatter(32),
+          FilteringTextInputFormatter.deny(RegExp(r'\s')),
+          FilteringTextInputFormatter.deny(RegExp(r'[A-Z]')),
+          FilteringTextInputFormatter.deny(RegExp(r'[a-z]')),
+          FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+        ];
+
+      // validate phone: set max length to 32, allow international number formatting ,and use phone formatter
+      case AppTextFieldType.phone:
+        return [
+          PhoneInputFormatter(
+              defaultCountryCode: countryCode, allowEndlessPhone: true)
+        ];
+
+      // validate credit card number: set max length to 19, and use credit card number formatter
+      case AppTextFieldType.creditCardNumber:
+        return [
+          LengthLimitingTextInputFormatter(19),
+          FilteringTextInputFormatter.deny(RegExp(r'\s')),
+          FilteringTextInputFormatter.deny(RegExp(r'[A-Z]')),
+          FilteringTextInputFormatter.deny(RegExp(r'[a-z]')),
+          CreditCardNumberInputFormatter(),
+        ];
+
+      // validate credit card cvv: set max length to 3, and use credit card cvv formatter
+      case AppTextFieldType.creditCardCvv:
+        return [
+          LengthLimitingTextInputFormatter(4),
+          FilteringTextInputFormatter.deny(RegExp(r'\s')),
+          FilteringTextInputFormatter.deny(RegExp(r'[A-Z]')),
+          FilteringTextInputFormatter.deny(RegExp(r'[a-z]')),
+          CreditCardCvcInputFormatter(),
+        ];
+
+      // validate credit card expiry: set max length to 5, and use credit card expiry formatter
+      case AppTextFieldType.creditCardExpiry:
+        return [
+          LengthLimitingTextInputFormatter(5),
+          FilteringTextInputFormatter.deny(RegExp(r'\s')),
+          FilteringTextInputFormatter.deny(RegExp(r'[A-Z]')),
+          FilteringTextInputFormatter.deny(RegExp(r'[a-z]')),
+          CreditCardExpirationDateFormatter(),
+        ];
+
+      // validate currency: set max length to 7, and use currency formatter
+      case AppTextFieldType.currency:
+        return [
+          LengthLimitingTextInputFormatter(16),
+          FilteringTextInputFormatter.deny(RegExp(r'\s')),
+          FilteringTextInputFormatter.deny(RegExp(r'[A-Z]')),
+          FilteringTextInputFormatter.deny(RegExp(r'[a-z]')),
+          CurrencyInputFormatter(leadingSymbol: currency),
+        ];
+
+      case AppTextFieldType.select:
+        return [];
+    }
+  }
 }
 
 class AppDropdownField extends StatelessWidget {
