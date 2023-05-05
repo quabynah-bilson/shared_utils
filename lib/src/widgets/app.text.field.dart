@@ -599,7 +599,7 @@ class FilledTextField extends StatelessWidget {
   final VoidCallback? onTap;
   final VoidCallback? onPrefixIconTap;
   final TextInputType keyboardType;
-  final TextCapitalization textCapitalization;
+  final TextCapitalization capitalization;
   final Function(String)? onChanged;
   final String? Function(String?)? validator;
   final double horizontalPadding;
@@ -612,9 +612,9 @@ class FilledTextField extends StatelessWidget {
   final String countryCode;
   final String currency;
 
-  const FilledTextField({
+  const FilledTextField(
+    this.label, {
     Key? key,
-    required this.label,
     this.readOnly = false,
     this.enabled = true,
     this.autofocus = false,
@@ -623,7 +623,7 @@ class FilledTextField extends StatelessWidget {
     this.prefixIcon,
     this.onTap,
     this.keyboardType = TextInputType.text,
-    this.textCapitalization = TextCapitalization.none,
+    this.capitalization = TextCapitalization.none,
     this.onChanged,
     this.validator,
     this.horizontalPadding = 20,
@@ -669,7 +669,7 @@ class FilledTextField extends StatelessWidget {
               obscureText: hidePassword,
               onTap: onTap,
               keyboardType: _createKeyboardTypeByType,
-              textCapitalization: textCapitalization,
+              textCapitalization: capitalization,
               onChanged: onChanged,
               validator: validator,
               inputFormatters: _createFormatterByType,
