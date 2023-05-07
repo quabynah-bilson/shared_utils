@@ -592,6 +592,8 @@ class FilledTextField extends StatelessWidget {
   final String label;
   final String? hint;
   final IconData? prefixIcon;
+  final Widget? prefix;
+  final Widget? suffix;
   final IconData? suffixIcon;
   final bool readOnly;
   final bool enabled;
@@ -634,6 +636,8 @@ class FilledTextField extends StatelessWidget {
     this.inputAction,
     this.maxLength,
     this.maxLines,
+    this.suffix,
+    this.prefix,
     this.countryCode = 'GH', // by default set to Ghana
     this.currency = 'GH₵', // by default set to Ghana
   }) : super(key: key);
@@ -647,6 +651,8 @@ class FilledTextField extends StatelessWidget {
               decoration: InputDecoration(
                 labelText: label,
                 hintText: hint ?? label,
+                prefix: prefix,
+                suffix: suffix,
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                 prefixIcon: prefixIcon == null
