@@ -1,4 +1,4 @@
-## [0.1.0-alpha.1] - May 7, 2023.
+## [0.1.0-alpha.2] - May 7, 2023.
 
 #### Updated animated listview and buttons
 

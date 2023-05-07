@@ -654,7 +654,7 @@ class FilledTextField extends StatelessWidget {
                 prefix: prefixIcon == null
                     ? null
                     : GestureDetector(
-                    onTap: onPrefixIconTap, child: Icon(prefixIcon)),
+                    onTap: onPrefixIconTap, child: Icon(prefixIcon)).right(6),
                 suffix: suffix,
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
