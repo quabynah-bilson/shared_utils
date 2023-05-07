@@ -628,7 +628,7 @@ class FilledTextField extends StatelessWidget {
     this.capitalization = TextCapitalization.none,
     this.onChanged,
     this.validator,
-    this.horizontalPadding = 20,
+    this.horizontalPadding = 0,
     this.verticalPadding = 16,
     this.type = AppTextFieldType.text,
     this.controller,
@@ -651,14 +651,14 @@ class FilledTextField extends StatelessWidget {
               decoration: InputDecoration(
                 labelText: label,
                 hintText: hint ?? label,
-                prefix: prefix,
+                prefix: prefixIcon == null
+                    ? null
+                    : GestureDetector(
+                    onTap: onPrefixIconTap, child: Icon(prefixIcon)),
                 suffix: suffix,
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                prefixIcon: prefixIcon == null
-                    ? null
-                    : GestureDetector(
-                        onTap: onPrefixIconTap, child: Icon(prefixIcon)),
+                prefixIcon: prefix,
                 suffixIcon: type == AppTextFieldType.password
                     ? IconButton(
                         onPressed: () =>
@@ -747,10 +747,7 @@ class FilledTextField extends StatelessWidget {
 
       // validate phone: set max length to 32, allow international number formatting ,and use phone formatter
       case AppTextFieldType.phone:
-        return [
-          PhoneInputFormatter(
-              defaultCountryCode: countryCode, allowEndlessPhone: true)
-        ];
+        return [PhoneInputFormatter(allowEndlessPhone: true)];
 
       // validate credit card number: set max length to 19, and use credit card number formatter
       case AppTextFieldType.creditCardNumber:
