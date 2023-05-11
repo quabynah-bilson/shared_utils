@@ -1,3 +1,7 @@
+## [0.1.0-alpha.3] - May 11, 2023.
+
+#### removed sliding_sheet
+
 ## [0.1.0-alpha.2] - May 7, 2023.
 
 #### Updated animated listview and buttons
@@ -80,4 +84,4 @@
 
 ## Note
 
-You must call `initializeSharedUtils(context)` in your initial route/widget to setup this library
+You must call `initializeSharedUtils(context)` in your initial route/widget to set up this library

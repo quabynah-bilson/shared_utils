@@ -4,8 +4,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:shared_utils/shared_utils.dart';
-import 'package:sliding_sheet/sliding_sheet.dart';
 
 /// extensions on any [Widget]
 extension WidgetX on Widget {
@@ -66,17 +66,13 @@ extension WidgetX on Widget {
         decoration: BoxDecoration(
           border: Border(
             bottom: BorderSide(
-              color: context.theme
-                  .colorScheme
-                  .primary
+              color: context.theme.colorScheme.primary
                   .withOpacity(kEmphasisMedium),
               style: show && !left ? BorderStyle.solid : BorderStyle.none,
               width: kSpacingX4,
             ),
             left: BorderSide(
-              color: context.theme
-                  .colorScheme
-                  .primary
+              color: context.theme.colorScheme.primary
                   .withOpacity(kEmphasisMedium),
               style: show && left ? BorderStyle.solid : BorderStyle.none,
               width: kSpacingX4,
@@ -192,12 +188,9 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.displayLarge?.copyWith(
             letterSpacing: spacing,
-            fontWeight:
-                weight ?? context.textTheme.displayLarge?.fontWeight,
+            fontWeight: weight ?? context.textTheme.displayLarge?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.colorScheme
-                    .onBackground
-                    .withOpacity(emphasis)),
+                context.colorScheme.onBackground.withOpacity(emphasis)),
       );
 
   Widget h2(
@@ -217,12 +210,9 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.displayMedium?.copyWith(
             letterSpacing: spacing,
-            fontWeight:
-                weight ?? context.textTheme.displayMedium?.fontWeight,
+            fontWeight: weight ?? context.textTheme.displayMedium?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.colorScheme
-                    .onBackground
-                    .withOpacity(emphasis)),
+                context.colorScheme.onBackground.withOpacity(emphasis)),
       );
 
   Widget h3(
@@ -242,12 +232,9 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.displaySmall?.copyWith(
             letterSpacing: spacing,
-            fontWeight:
-                weight ?? context.textTheme.displaySmall?.fontWeight,
+            fontWeight: weight ?? context.textTheme.displaySmall?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.colorScheme
-                    .onBackground
-                    .withOpacity(emphasis)),
+                context.colorScheme.onBackground.withOpacity(emphasis)),
       );
 
   Widget h4(
@@ -267,12 +254,9 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.headlineMedium?.copyWith(
             letterSpacing: spacing,
-            fontWeight:
-                weight ?? context.textTheme.headlineMedium?.fontWeight,
+            fontWeight: weight ?? context.textTheme.headlineMedium?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.colorScheme
-                    .onBackground
-                    .withOpacity(emphasis)),
+                context.colorScheme.onBackground.withOpacity(emphasis)),
       );
 
   Widget h5(
@@ -292,12 +276,9 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.headlineSmall?.copyWith(
             letterSpacing: spacing,
-            fontWeight:
-                weight ?? context.textTheme.headlineSmall?.fontWeight,
+            fontWeight: weight ?? context.textTheme.headlineSmall?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.colorScheme
-                    .onBackground
-                    .withOpacity(emphasis)),
+                context.colorScheme.onBackground.withOpacity(emphasis)),
       );
 
   Widget h6(
@@ -317,12 +298,9 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.titleLarge?.copyWith(
             letterSpacing: spacing,
-            fontWeight:
-                weight ?? context.textTheme.titleLarge?.fontWeight,
+            fontWeight: weight ?? context.textTheme.titleLarge?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.colorScheme
-                    .onBackground
-                    .withOpacity(emphasis)),
+                context.colorScheme.onBackground.withOpacity(emphasis)),
       );
 
   Widget bodyText1(
@@ -342,12 +320,9 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.bodyLarge?.copyWith(
             letterSpacing: spacing,
-            fontWeight:
-                weight ?? context.textTheme.bodyLarge?.fontWeight,
+            fontWeight: weight ?? context.textTheme.bodyLarge?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.colorScheme
-                    .onBackground
-                    .withOpacity(emphasis)),
+                context.colorScheme.onBackground.withOpacity(emphasis)),
       );
 
   Widget bodyText2(
@@ -367,12 +342,9 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.bodyMedium?.copyWith(
             letterSpacing: spacing,
-            fontWeight:
-                weight ?? context.textTheme.bodyMedium?.fontWeight,
+            fontWeight: weight ?? context.textTheme.bodyMedium?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.colorScheme
-                    .onBackground
-                    .withOpacity(emphasis)),
+                context.colorScheme.onBackground.withOpacity(emphasis)),
       );
 
   Widget subtitle1(
@@ -392,12 +364,9 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.titleMedium?.copyWith(
             letterSpacing: spacing,
-            fontWeight:
-                weight ?? context.textTheme.titleMedium?.fontWeight,
+            fontWeight: weight ?? context.textTheme.titleMedium?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.colorScheme
-                    .onBackground
-                    .withOpacity(emphasis)),
+                context.colorScheme.onBackground.withOpacity(emphasis)),
       );
 
   Widget subtitle2(
@@ -417,12 +386,9 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.titleSmall?.copyWith(
             letterSpacing: spacing,
-            fontWeight:
-                weight ?? context.textTheme.titleSmall?.fontWeight,
+            fontWeight: weight ?? context.textTheme.titleSmall?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.colorScheme
-                    .onBackground
-                    .withOpacity(emphasis)),
+                context.colorScheme.onBackground.withOpacity(emphasis)),
       );
 
   Widget caption(
@@ -442,12 +408,9 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.bodySmall?.copyWith(
             letterSpacing: spacing,
-            fontWeight:
-                weight ?? context.textTheme.bodySmall?.fontWeight,
+            fontWeight: weight ?? context.textTheme.bodySmall?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.colorScheme
-                    .onBackground
-                    .withOpacity(emphasis)),
+                context.colorScheme.onBackground.withOpacity(emphasis)),
       );
 
   Widget overline(
@@ -467,12 +430,9 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.labelSmall?.copyWith(
             letterSpacing: spacing,
-            fontWeight:
-                weight ?? context.textTheme.labelSmall?.fontWeight,
+            fontWeight: weight ?? context.textTheme.labelSmall?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.colorScheme
-                    .onBackground
-                    .withOpacity(emphasis)),
+                context.colorScheme.onBackground.withOpacity(emphasis)),
       );
 
   Widget button(
@@ -492,12 +452,9 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.labelLarge?.copyWith(
             letterSpacing: spacing,
-            fontWeight:
-                weight ?? context.textTheme.labelLarge?.fontWeight,
+            fontWeight: weight ?? context.textTheme.labelLarge?.fontWeight,
             color: color?.withOpacity(emphasis) ??
-                context.colorScheme
-                    .onBackground
-                    .withOpacity(emphasis)),
+                context.colorScheme.onBackground.withOpacity(emphasis)),
       );
 
   Widget asSvg({
@@ -507,19 +464,21 @@ extension TextX on String? {
     bool fromAsset = true,
     BoxFit fit = BoxFit.cover,
   }) =>
-      fromAsset ? SvgPicture.asset(
-        this ?? '',
-        height: size ?? height,
-        width: size ?? width,
-        fit: fit,
-        placeholderBuilder: (_) => SizedBox.shrink(),
-      ) : SvgPicture.network(
-        this ?? '',
-        height: size ?? height,
-        width: size ?? width,
-        fit: fit,
-        placeholderBuilder: (_) => SizedBox.shrink(),
-      );
+      fromAsset
+          ? SvgPicture.asset(
+              this ?? '',
+              height: size ?? height,
+              width: size ?? width,
+              fit: fit,
+              placeholderBuilder: (_) => SizedBox.shrink(),
+            )
+          : SvgPicture.network(
+              this ?? '',
+              height: size ?? height,
+              width: size ?? width,
+              fit: fit,
+              placeholderBuilder: (_) => SizedBox.shrink(),
+            );
 
   Widget asAssetImage({
     double? size,
@@ -638,25 +597,9 @@ extension ContextX on BuildContext {
     String negativeButtonText = 'Okay',
     double iconSize = 56,
   }) async =>
-      await showSlidingBottomSheet(this, builder: (context) {
-        return SlidingSheetDialog(
-          elevation: 8,
-          cornerRadius: 16,
-          color: colorScheme.surface,
-          duration: kSidebarFooterDuration,
-          dismissOnBackdropTap: false,
-          snapSpec: const SnapSpec(
-            snap: true,
-            snappings: [0.4, 0.7, 1.0],
-            positioning: SnapPositioning.relativeToAvailableSpace,
-          ),
-          headerBuilder: (context, _) => Material(
-            color: colorScheme.surface,
-            child: headerIconAsset
-                .asAssetImage(size: iconSize, fit: BoxFit.fitHeight)
-                .vertical(8),
-          ).fillMaxWidth(context),
-          builder: (context, state) {
+      await showBarModalBottomSheet(
+          context: this,
+          builder: (context) {
             return Material(
               color: colorScheme.surface,
               child: SafeArea(
@@ -666,6 +609,9 @@ extension ContextX on BuildContext {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                    headerIconAsset
+                        .asAssetImage(size: iconSize, fit: BoxFit.fitHeight)
+                        .vertical(8),
                     message
                         .subtitle1(
                           context,
@@ -694,7 +640,8 @@ extension ContextX on BuildContext {
                                         Navigator.pop(this);
                                         if (e.onTap != null) e.onTap!();
                                       },
-                                      text: e.label).horizontal(8)
+                                      text: e.label)
+                                  .horizontal(8)
                                   .centered(),
                             )
                             .toList(),
@@ -704,9 +651,7 @@ extension ContextX on BuildContext {
                 ).horizontal(24).vertical(12),
               ),
             );
-          },
-        );
-      });
+          });
 
   /// shows a [SnackBar]
   void showSnackBar(String message, [Color? background, Color? foreground]) {

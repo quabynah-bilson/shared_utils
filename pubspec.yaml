@@ -1,12 +1,12 @@
 name: shared_utils
 description: Shared utilities for personal Flutter projects
-version: 0.1.0-alpha.2
+version: 0.1.0-alpha.3
 homepage: https://github.com/quabynah-bilson/shared_utils/tree/main
 publish_to: https://github.com/quabynah-bilson/shared_utils.git
 
 environment:
-  sdk: ">=2.18.4 <3.0.0"
-  flutter: ">=2.0.0"
+  sdk: ^3.0.0
+  flutter: '>=3.10.0'
 
 dependencies:
   flutter:
@@ -21,7 +21,7 @@ dependencies:
   google_fonts: ^4.0.3
   logger: ^1.2.2
   simple_animations: ^5.0.0+3
-  sliding_sheet: ^0.5.2
+  modal_bottom_sheet: ^3.0.0-pre
   flutter_staggered_animations: ^1.1.1
   flutter_multi_formatter: ^2.10.2
   lottie: ^2.2.0
