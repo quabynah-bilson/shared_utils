@@ -53,8 +53,6 @@ class AppRoundedButton extends StatelessWidget {
         (context.theme.buttonTheme.shape as RoundedRectangleBorder)
             .borderRadius;
 
-    final buttonPadding =
-        const EdgeInsets.symmetric(horizontal: 24, vertical: 14);
 
     return SizedBox(
       width: buttonWidth,
@@ -62,7 +60,7 @@ class AppRoundedButton extends StatelessWidget {
           ? GestureDetector(
               onTap: enabled ? onTap : null,
               child: Container(
-                padding: buttonPadding,
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
                 clipBehavior: Clip.hardEdge,
                 decoration: BoxDecoration(
                   borderRadius: buttonShape,
@@ -133,7 +131,7 @@ class AppRoundedButton extends StatelessWidget {
                             : context.colorScheme.secondary)
                     : context.theme.disabledColor,
                 child: Padding(
-                  padding: buttonPadding,
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,

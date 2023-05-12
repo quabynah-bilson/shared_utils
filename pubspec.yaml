@@ -1,6 +1,6 @@
 name: shared_utils
 description: Shared utilities for personal Flutter projects
-version: 0.1.0-alpha.5
+version: 0.1.0-alpha.6
 homepage: https://github.com/quabynah-bilson/shared_utils/tree/main
 publish_to: https://github.com/quabynah-bilson/shared_utils.git
 
