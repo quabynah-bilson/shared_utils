@@ -5,6 +5,8 @@ enum AppButtonType { primary, secondary }
 
 enum LayoutSize { matchParent, wrapContent, standard }
 
+enum IconLocation { start, end }
+
 /// rounded button
 class AppRoundedButton extends StatelessWidget {
   final String text;
@@ -14,6 +16,7 @@ class AppRoundedButton extends StatelessWidget {
   final Color? textColor;
   final double elevation;
   final LayoutSize layoutSize;
+  final IconLocation iconLocation;
   final bool enabled;
   final bool outlined;
   final IconData? icon;
@@ -26,17 +29,18 @@ class AppRoundedButton extends StatelessWidget {
     this.buttonType = AppButtonType.primary,
     this.backgroundColor,
     this.textColor,
-    this.layoutSize = LayoutSize.standard,
+    this.layoutSize = LayoutSize.wrapContent,
     this.enabled = true,
     this.outlined = false,
     this.icon,
+    this.iconLocation = IconLocation.start,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final size = context.mediaQuery.size;
 
-    double? buttonWidth;
+    var buttonWidth;
     if (layoutSize == LayoutSize.wrapContent) {
       buttonWidth = null;
     } else if (layoutSize == LayoutSize.matchParent) {
@@ -45,17 +49,23 @@ class AppRoundedButton extends StatelessWidget {
       buttonWidth = size.width / 1.8;
     }
 
+    final buttonShape =
+        (context.theme.buttonTheme.shape as RoundedRectangleBorder)
+            .borderRadius;
+
+    final buttonPadding =
+        const EdgeInsets.symmetric(horizontal: 24, vertical: 14);
+
     return SizedBox(
       width: buttonWidth,
       child: outlined
           ? GestureDetector(
               onTap: enabled ? onTap : null,
               child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                padding: buttonPadding,
                 clipBehavior: Clip.hardEdge,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: buttonShape,
                   border: Border.all(
                     color: enabled
                         ? backgroundColor ??
@@ -71,7 +81,7 @@ class AppRoundedButton extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    if (icon != null) ...{
+                    if (icon != null && iconLocation == IconLocation.start) ...{
                       Icon(
                         icon,
                         size: context.textTheme.labelLarge!.fontSize! * 1.4,
@@ -94,81 +104,79 @@ class AppRoundedButton extends StatelessWidget {
                           : context.theme.disabledColor,
                       emphasis: enabled ? kEmphasisHighest : kEmphasisMedium,
                     ),
-                  ],
-                ),
-              ),
-            )
-          : Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                border: Border.all(
-                  color: enabled
-                      ? backgroundColor ??
-                          (buttonType == AppButtonType.primary
-                              ? context.colorScheme.primary
-                              : context.colorScheme.secondary)
-                      : context.theme.disabledColor,
-                  width: 2,
-                ),
-              ),
-              child: ElevatedButton(
-                onPressed: enabled ? onTap : null,
-                style: ButtonStyle(
-                  enableFeedback: true,
-                  padding:
-                      MaterialStateProperty.resolveWith<EdgeInsetsGeometry>(
-                          (states) => const EdgeInsets.symmetric(
-                              horizontal: 24, vertical: 16)),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50.0),
-                  )),
-                  elevation: MaterialStateProperty.resolveWith<double>(
-                      (states) => enabled ? elevation : 0),
-                  backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                    (Set<MaterialState> states) {
-                      if (backgroundColor != null) {
-                        return backgroundColor!;
-                      }
-
-                      if (states.contains(MaterialState.pressed)) {
-                        return enabled
-                            ? buttonType == AppButtonType.primary
-                                ? context.colorScheme.primaryContainer
-                                : context.colorScheme.secondaryContainer
-                            : context.theme.disabledColor;
-                      }
-
-                      return enabled
-                          ? buttonType == AppButtonType.primary
-                              ? context.colorScheme.primary
-                              : context.colorScheme.secondary
-                          : context.theme.disabledColor;
-                    },
-                  ),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    if (icon != null) ...{
+                    if (icon != null && iconLocation == IconLocation.end) ...{
                       Icon(
                         icon,
                         size: context.textTheme.labelLarge!.fontSize! * 1.4,
                         color: enabled
-                            ? textColor ?? context.colorScheme.onPrimary
-                            : context.colorScheme.background
-                                .withOpacity(kEmphasisMedium),
-                      ).right(12),
+                            ? backgroundColor ??
+                                (buttonType == AppButtonType.primary
+                                    ? context.colorScheme.primary
+                                    : context.colorScheme.secondary)
+                            : context.theme.disabledColor,
+                      ).left(12),
                     },
-                    text.button(
-                      context,
-                      alignment: TextAlign.center,
-                      color: enabled
-                          ? textColor ?? context.colorScheme.onPrimary
-                          : context.colorScheme.background,
-                      emphasis: enabled ? kEmphasisHighest : kEmphasisMedium,
-                    ),
                   ],
+                ),
+              ),
+            )
+          : GestureDetector(
+              onTap: enabled ? onTap : null,
+              child: Material(
+                clipBehavior: Clip.hardEdge,
+                elevation: enabled ? elevation : 0,
+                shape: context.theme.buttonTheme.shape,
+                color: enabled
+                    ? backgroundColor ??
+                        (buttonType == AppButtonType.primary
+                            ? context.colorScheme.primary
+                            : context.colorScheme.secondary)
+                    : context.theme.disabledColor,
+                child: Padding(
+                  padding: buttonPadding,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      if (icon != null &&
+                          iconLocation == IconLocation.start) ...{
+                        Icon(
+                          icon,
+                          size: context.textTheme.labelLarge!.fontSize! * 1.4,
+                          color: enabled
+                              ? backgroundColor ??
+                                  (buttonType == AppButtonType.primary
+                                      ? context.colorScheme.primary
+                                      : context.colorScheme.secondary)
+                              : context.theme.disabledColor,
+                        ).right(12),
+                      },
+                      text.button(
+                        context,
+                        alignment: TextAlign.center,
+                        color: enabled
+                            ? backgroundColor ??
+                                (buttonType == AppButtonType.primary
+                                    ? context.colorScheme.onPrimary
+                                    : context.colorScheme.onSecondary)
+                            : context.theme.disabledColor,
+                        emphasis: enabled ? kEmphasisHighest : kEmphasisMedium,
+                      ),
+                      if (icon != null && iconLocation == IconLocation.end) ...{
+                        Icon(
+                          icon,
+                          size: context.textTheme.labelLarge!.fontSize! * 1.4,
+                          color: enabled
+                              ? backgroundColor ??
+                                  (buttonType == AppButtonType.primary
+                                      ? context.colorScheme.onPrimary
+                                      : context.colorScheme.onSecondary)
+                              : context.theme.disabledColor,
+                        ).left(12),
+                      },
+                    ],
+                  ),
                 ),
               ),
             ),
