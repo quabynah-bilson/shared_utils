@@ -147,8 +147,8 @@ class AppRoundedButton extends StatelessWidget {
                           color: enabled
                               ? backgroundColor ??
                                   (buttonType == AppButtonType.primary
-                                      ? context.colorScheme.primary
-                                      : context.colorScheme.secondary)
+                                      ? context.colorScheme.onPrimary
+                                      : context.colorScheme.onSecondary)
                               : context.theme.disabledColor,
                         ).right(12),
                       },
