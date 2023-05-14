@@ -143,7 +143,7 @@ class AppRoundedButton extends StatelessWidget {
                           icon,
                           size: context.textTheme.labelLarge!.fontSize! * 1.4,
                           color: enabled
-                              ? backgroundColor ??
+                              ? textColor ??
                                   (buttonType == AppButtonType.primary
                                       ? context.colorScheme.onPrimary
                                       : context.colorScheme.onSecondary)
@@ -154,7 +154,7 @@ class AppRoundedButton extends StatelessWidget {
                         context,
                         alignment: TextAlign.center,
                         color: enabled
-                            ? backgroundColor ??
+                            ? textColor ??
                                 (buttonType == AppButtonType.primary
                                     ? context.colorScheme.onPrimary
                                     : context.colorScheme.onSecondary)
@@ -166,7 +166,7 @@ class AppRoundedButton extends StatelessWidget {
                           icon,
                           size: context.textTheme.labelLarge!.fontSize! * 1.4,
                           color: enabled
-                              ? backgroundColor ??
+                              ? textColor ??
                                   (buttonType == AppButtonType.primary
                                       ? context.colorScheme.onPrimary
                                       : context.colorScheme.onSecondary)
