@@ -15,6 +15,9 @@ class GlassMorphism extends StatelessWidget {
   final BorderRadiusGeometry? borderRadius;
   final double blurRadius;
   final Color? glassColor;
+  final Gradient? gradient;
+  final double opacity;
+
 
   const GlassMorphism({
     Key? key,
@@ -25,6 +28,8 @@ class GlassMorphism extends StatelessWidget {
     this.borderRadius,
     this.glassColor,
     this.blurRadius = 10,
+    this.gradient,
+    this.opacity = kEmphasisMedium,
   }) : super(key: key);
 
   @override
@@ -36,12 +41,12 @@ class GlassMorphism extends StatelessWidget {
             duration: const Duration(milliseconds: 150),
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
+              gradient: gradient ?? LinearGradient(
                 colors: [
                   (glassColor ?? context.colorScheme.surface)
-                      .withOpacity(kEmphasisMedium),
+                      .withOpacity(opacity),
                   (glassColor ?? context.colorScheme.surface)
-                      .withOpacity(kEmphasisLow),
+                      .withOpacity(opacity / 2),
                 ],
                 begin: AlignmentDirectional.topStart,
                 end: AlignmentDirectional.bottomEnd,
