@@ -1,3 +1,7 @@
+## [0.1.0-alpha.10] - June 10, 2023.
+
+#### updated responsive layout
+
 ## [0.1.0-alpha.9] - May 14, 2023.
 
 #### updated button

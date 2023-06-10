@@ -1,10 +1,5 @@
 library shared_utils;
 
-import 'package:flutter/material.dart';
-
-import 'src/config.dart';
-import 'src/constants.dart';
-
 export 'package:feather_icons/feather_icons.dart';
 export 'package:fluttericon/brandico_icons.dart';
 export 'package:fluttericon/entypo_icons.dart';
@@ -20,7 +15,7 @@ export 'src/constants.dart';
 export 'src/durations.dart';
 export 'src/extensions.dart';
 export 'src/icons.dart';
-export 'src/responsive.dart';
+export 'src/responsive.layout.dart';
 export 'src/spacing.dart';
 export 'src/themes.dart';
 export 'src/config.dart';
@@ -35,14 +30,3 @@ export 'src/widgets/dismiss.keyboard.dart';
 export 'src/widgets/glassmorphism.dart';
 export 'src/widgets/empty.content.placeholder.dart';
 export 'src/widgets/loading.indicator.dart';
-
-/// initializes all utilities
-@Deprecated('This function will no longer be supported in newer versions')
-void initializeSharedUtils(BuildContext context) {
-  try {
-    /// setup device metrics
-    SizeConfig.init(context);
-  } catch (e) {
-    logger.e('an error occurred while initializing shared_utils -> $e');
-  }
-}

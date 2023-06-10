@@ -1,12 +1,12 @@
 name: shared_utils
 description: Shared utilities for personal Flutter projects
-version: 0.1.0-alpha.9
+version: 0.1.0-alpha.10
 homepage: https://github.com/quabynah-bilson/shared_utils/tree/main
 publish_to: https://github.com/quabynah-bilson/shared_utils.git
 
 environment:
-  sdk: ^3.0.0
-  flutter: '>=3.10.0'
+  sdk: ^3.0.2
+  flutter: '>=3.10.2'
 
 dependencies:
   flutter:
