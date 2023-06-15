@@ -21,55 +21,56 @@ typedef ResponsiveLayoutWidgetBuilder = Widget Function(BuildContext, Widget?);
 /// various responsive breakpoints.
 class ResponsiveLayoutBuilder extends StatelessWidget {
   const ResponsiveLayoutBuilder({
-    required this.extraSmall,
-    required this.small,
-    required this.medium,
-    required this.large,
-    required this.extraLarge,
+    required this.child,
+    this.extraSmall,
+    this.small,
+    this.medium,
+    this.large,
+    this.extraLarge,
     super.key,
-    this.child,
   });
 
   /// [ResponsiveLayoutWidgetBuilder] for extra small layout.
-  final ResponsiveLayoutWidgetBuilder extraSmall;
+  final ResponsiveLayoutWidgetBuilder? extraSmall;
 
   /// [ResponsiveLayoutWidgetBuilder] for small layout.
-  final ResponsiveLayoutWidgetBuilder small;
+  final ResponsiveLayoutWidgetBuilder? small;
 
   /// [ResponsiveLayoutWidgetBuilder] for medium layout.
-  final ResponsiveLayoutWidgetBuilder medium;
+  final ResponsiveLayoutWidgetBuilder? medium;
 
   /// [ResponsiveLayoutWidgetBuilder] for large layout.
-  final ResponsiveLayoutWidgetBuilder large;
+  final ResponsiveLayoutWidgetBuilder? large;
 
   /// [ResponsiveLayoutWidgetBuilder] for extraLarge layout.
-  final ResponsiveLayoutWidgetBuilder extraLarge;
+  final ResponsiveLayoutWidgetBuilder? extraLarge;
 
-  /// Optional child widget which will be passed
+  /// Child widget which will be passed
   /// to builders as a way to share/optimize shared layout.
-  final Widget? child;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth <= Breakpoints.extraSmall) {
-          return extraSmall(context, child);
+          // show the child widget if no builder is provided
+          return extraSmall?.call(context, child) ?? child;
         }
 
         if (constraints.maxWidth <= Breakpoints.small) {
-          return small(context, child);
+          return small?.call(context, child) ?? child;
         }
 
         if (constraints.maxWidth <= Breakpoints.medium) {
-          return medium(context, child);
+          return medium?.call(context, child) ?? child;
         }
 
         if (constraints.maxWidth <= Breakpoints.large) {
-          return large(context, child);
+          return large?.call(context, child) ?? child;
         }
 
-        return extraLarge(context, child);
+        return extraLarge?.call(context, child) ?? child;
       },
     );
   }

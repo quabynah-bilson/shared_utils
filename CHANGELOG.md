@@ -1,3 +1,7 @@
+## [0.1.0-alpha.11] - June 15, 2023.
+
+#### improved breakpoints on responsive layout
+
 ## [0.1.0-alpha.10] - June 10, 2023.
 
 #### updated responsive layout
