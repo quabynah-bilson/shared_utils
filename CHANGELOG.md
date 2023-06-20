@@ -1,3 +1,7 @@
+## [0.1.0-alpha.12] - June 20, 2023.
+
+#### converted breakpoints class to dart 3
+
 ## [0.1.0-alpha.11] - June 15, 2023.
 
 #### improved breakpoints on responsive layout

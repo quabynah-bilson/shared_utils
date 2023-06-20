@@ -52,25 +52,12 @@ class ResponsiveLayoutBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (context, constraints) {
-        if (constraints.maxWidth <= Breakpoints.extraSmall) {
-          // show the child widget if no builder is provided
-          return extraSmall?.call(context, child) ?? child;
-        }
-
-        if (constraints.maxWidth <= Breakpoints.small) {
-          return small?.call(context, child) ?? child;
-        }
-
-        if (constraints.maxWidth <= Breakpoints.medium) {
-          return medium?.call(context, child) ?? child;
-        }
-
-        if (constraints.maxWidth <= Breakpoints.large) {
-          return large?.call(context, child) ?? child;
-        }
-
-        return extraLarge?.call(context, child) ?? child;
+      builder: (context, constraints) => switch (constraints.maxWidth) {
+        <= Breakpoints.extraSmall => extraSmall?.call(context, child) ?? child,
+        <= Breakpoints.small => small?.call(context, child) ?? child,
+        <= Breakpoints.medium => medium?.call(context, child) ?? child,
+        <= Breakpoints.large => large?.call(context, child) ?? child,
+        _ => extraLarge?.call(context, child) ?? child,
       },
     );
   }
