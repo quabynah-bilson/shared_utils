@@ -12,6 +12,7 @@ class LoadingIndicator extends StatefulWidget {
   final String message;
   final String lottieAnimResource;
   final bool loadingAnimIsAsset;
+  final double heightFactor;
 
   const LoadingIndicator({
     Key? key,
@@ -22,6 +23,7 @@ class LoadingIndicator extends StatefulWidget {
     this.message = 'Please wait',
     this.lottieAnimResource = kDefaultLottieLoadingAnim,
     this.loadingAnimIsAsset = false,
+    this.heightFactor = 0.25,
   }) : super(key: key);
 
   @override
@@ -100,6 +102,7 @@ class _LoadingIndicatorState extends State<LoadingIndicator>
                       foregroundColor: widget.foregroundColor,
                       loadingAnimationUrl: widget.lottieAnimResource,
                       loadingAnimIsAsset: widget.loadingAnimIsAsset,
+                      heightFactor: widget.heightFactor,
                     ).centered(),
                   ),
                 ],
@@ -115,6 +118,7 @@ class LoadingIndicatorItem extends StatelessWidget {
   final String message;
   final String loadingAnimationUrl;
   final bool loadingAnimIsAsset;
+  final double heightFactor;
 
   const LoadingIndicatorItem({
     Key? key,
@@ -122,6 +126,7 @@ class LoadingIndicatorItem extends StatelessWidget {
     this.foregroundColor,
     this.loadingAnimationUrl = kDefaultLottieLoadingAnim,
     this.loadingAnimIsAsset = false,
+    this.heightFactor = 0.25,
   }) : super(key: key);
 
   @override
@@ -134,7 +139,7 @@ class LoadingIndicatorItem extends StatelessWidget {
             Lottie.asset(
               loadingAnimationUrl,
               width: context.width,
-              height: context.height * 0.25,
+              height: context.height * heightFactor,
               animate: true,
               bundle: rootBundle,
             ).align(Alignment.center),
@@ -142,7 +147,7 @@ class LoadingIndicatorItem extends StatelessWidget {
             Lottie.network(
               loadingAnimationUrl,
               width: context.width,
-              height: context.height * 0.25,
+              height: context.height * heightFactor,
               animate: true,
             ).align(Alignment.center),
           },

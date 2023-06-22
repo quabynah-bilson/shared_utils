@@ -1,3 +1,7 @@
+## [0.1.0-alpha.13] - June 22, 2023.
+
+#### loading item indicator with dynamic height
+
 ## [0.1.0-alpha.12] - June 20, 2023.
 
 #### converted breakpoints class to dart 3
