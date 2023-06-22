@@ -11,22 +11,20 @@ class EmptyContentPlaceholder extends StatelessWidget {
       : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return AnimatedColumn(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        if (icon != null) ...{
-          Icon(icon, size: 48, color: context.colorScheme.secondary).bottom(16),
-        },
-        title
-            .h6(context,
-                color: context.colorScheme.secondary,
-                alignment: TextAlign.center)
-            .bottom(8),
-        subtitle.subtitle2(context,
-            alignment: TextAlign.center, emphasis: kEmphasisMedium),
-      ],
-    ).horizontal(40).centered();
-  }
+  Widget build(BuildContext context) => AnimatedColumn(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if (icon != null) ...{
+            Icon(icon, size: 48, color: context.colorScheme.primary).bottom(16),
+          },
+          title
+              .h6(context,
+                  color: context.colorScheme.secondary,
+                  alignment: TextAlign.center)
+              .bottom(8),
+          subtitle.subtitle2(context,
+              alignment: TextAlign.center, emphasis: kEmphasisMedium),
+        ],
+      ).horizontal(context.width * 0.1).centered();
 }

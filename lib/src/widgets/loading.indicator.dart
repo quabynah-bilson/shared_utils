@@ -115,14 +115,14 @@ class _LoadingIndicatorState extends State<LoadingIndicator>
 
 class LoadingIndicatorItem extends StatelessWidget {
   final Color? foregroundColor;
-  final String message;
   final String loadingAnimationUrl;
   final bool loadingAnimIsAsset;
+  final String? message;
   final double heightFactor;
 
   const LoadingIndicatorItem({
     Key? key,
-    required this.message,
+    this.message,
     this.foregroundColor,
     this.loadingAnimationUrl = kDefaultLottieLoadingAnim,
     this.loadingAnimIsAsset = false,
@@ -151,11 +151,13 @@ class LoadingIndicatorItem extends StatelessWidget {
               animate: true,
             ).align(Alignment.center),
           },
-          message
-              .subtitle1(context,
-                  color: foregroundColor ?? context.colorScheme.onBackground,
-                  alignment: TextAlign.center)
-              .top(context.height * 0.1),
+          if (message != null) ...{
+            message
+                .subtitle1(context,
+                    color: foregroundColor ?? context.colorScheme.onBackground,
+                    alignment: TextAlign.center)
+                .top(context.height * 0.05),
+          },
         ],
       );
 }
