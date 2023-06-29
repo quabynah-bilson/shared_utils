@@ -156,6 +156,7 @@ extension WidgetX on Widget {
 // }
 }
 
+/// extensions on any [Icon]
 extension IconX on Icon {
   Icon opacity(double emphasis) => Icon(
         icon,
@@ -167,9 +168,16 @@ extension IconX on Icon {
       );
 }
 
+/// extensions on any [Iterable]
+extension IterableX<T> on Iterable<T> {
+  /// returns a [List] of [Widget]s
+  List<Widget> get toWidgets => map((e) => e as Widget).toList();
+
+  /// returns an item at [index] or null if [index] is out of bounds
+  T? operator [](int index) => length > index ? elementAt(index) : null;
+}
+
 /// extensions on any [String]
-///
-/// converts a [String] to a [Text][Widget]
 extension TextX on String? {
   Widget h1(
     BuildContext context, {
@@ -551,14 +559,6 @@ extension TextX on String? {
   bool isNullOrEmpty() => this == null || this!.isEmpty;
 }
 
-/// actions for dialogs
-class DialogAction {
-  final String label;
-  final Function()? onTap;
-
-  const DialogAction({required this.label, this.onTap});
-}
-
 /// extensions on [BuildContext]
 extension ContextX on BuildContext {
   // get the default locale language code
@@ -676,6 +676,14 @@ extension ContextX on BuildContext {
         ),
       );
   }
+}
+
+/// actions for dialogs
+class DialogAction {
+  final String label;
+  final Function()? onTap;
+
+  const DialogAction({required this.label, this.onTap});
 }
 
 /// called in initState

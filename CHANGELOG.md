@@ -1,6 +1,7 @@
-## [0.1.0-alpha.14] - June 22, 2023.
+## [0.1.0-alpha.15] - June 29, 2023.
 
 #### loading item indicator with dynamic height
+#### added list extensions
 
 ## [0.1.0-alpha.12] - June 20, 2023.
 
