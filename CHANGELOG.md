@@ -1,3 +1,7 @@
+## [0.1.0-alpha.16] - July 7, 2023.
+
+#### removed default gradient from glassmorphism 
+
 ## [0.1.0-alpha.15] - June 29, 2023.
 
 #### loading item indicator with dynamic height

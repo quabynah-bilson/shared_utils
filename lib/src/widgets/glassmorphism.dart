@@ -41,16 +41,7 @@ class GlassMorphism extends StatelessWidget {
             duration: const Duration(milliseconds: 150),
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
-              gradient: gradient ?? LinearGradient(
-                colors: [
-                  (glassColor ?? context.colorScheme.surface)
-                      .withOpacity(opacity),
-                  (glassColor ?? context.colorScheme.surface)
-                      .withOpacity(opacity / 2),
-                ],
-                begin: AlignmentDirectional.topStart,
-                end: AlignmentDirectional.bottomEnd,
-              ),
+              gradient: gradient,
               border: border,
               borderRadius: borderRadius,
             ),
