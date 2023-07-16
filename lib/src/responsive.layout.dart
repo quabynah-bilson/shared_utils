@@ -1,18 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract class Breakpoints {
-  /// Max width for a large layout.
-  static const double large = 1500;
-
-  /// Max width for a medium layout.
-  static const double medium = 1100;
-
-  /// Max width for a small layout.
-  static const double small = 800;
-
-  /// Max width for an extra small layout.
-  static const double extraSmall = 500;
-}
+import 'breakpoints.dart';
 
 /// Signature for the individual builders (`small`, `medium`, `large` etc.).
 typedef ResponsiveLayoutWidgetBuilder = Widget Function(BuildContext, Widget?);
@@ -50,15 +38,16 @@ class ResponsiveLayoutBuilder extends StatelessWidget {
   final Widget child;
 
   @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) => switch (constraints.maxWidth) {
-        <= Breakpoints.extraSmall => extraSmall?.call(context, child) ?? child,
-        <= Breakpoints.small => small?.call(context, child) ?? child,
-        <= Breakpoints.medium => medium?.call(context, child) ?? child,
-        <= Breakpoints.large => large?.call(context, child) ?? child,
-        _ => extraLarge?.call(context, child) ?? child,
-      },
-    );
-  }
+  Widget build(BuildContext context) => LayoutBuilder(
+        builder: (context, constraints) => switch (constraints.maxWidth) {
+          >= Breakpoints.extraLarge =>
+            extraLarge?.call(context, child) ?? child,
+          >= Breakpoints.large => large?.call(context, child) ?? child,
+          >= Breakpoints.medium => medium?.call(context, child) ?? child,
+          >= Breakpoints.small => small?.call(context, child) ?? child,
+          >= Breakpoints.extraSmall =>
+            extraSmall?.call(context, child) ?? child,
+          _ => child,
+        },
+      );
 }

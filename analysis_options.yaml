@@ -1,4 +1,3 @@
-include: package:pedantic/analysis_options.1.11.0.yaml
 
 linter:
   rules:

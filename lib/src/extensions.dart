@@ -5,7 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:shared_utils/shared_utils.dart';
+import 'package:shared_utils/src/spacing.dart';
+
+import 'breakpoints.dart';
+import 'colors.dart';
+import 'widgets/animated.column.dart';
+import 'widgets/app.rounded.button.dart';
 
 /// extensions on any [Widget]
 extension WidgetX on Widget {
@@ -565,6 +570,27 @@ extension ContextX on BuildContext {
   String get languageId =>
       Localizations.maybeLocaleOf(this)?.languageCode ?? 'en';
 
+  /// reference => https://medium.com/@pmatatias/responsive-layout-with-buildcontext-dart-extension-3-145e438fb652
+  T responsive<T>(
+    T defaultVal, {
+    T? xs,
+    T? sm,
+    T? md,
+    T? lg,
+    T? xl,
+  }) =>
+      width >= Breakpoints.extraLarge
+          ? (xl ?? lg ?? md ?? sm ?? xs ?? defaultVal)
+          : width >= Breakpoints.large
+              ? (lg ?? md ?? sm ?? xs ?? defaultVal)
+              : width >= Breakpoints.medium
+                  ? (md ?? sm ?? xs ?? defaultVal)
+                  : width >= Breakpoints.small
+                      ? (sm ?? xs ?? defaultVal)
+                      : width >= Breakpoints.extraSmall
+                          ? (xs ?? defaultVal)
+                          : defaultVal;
+
   // flutter widget navigator state
   NavigatorState get navigator => Navigator.of(this);
 
@@ -578,11 +604,11 @@ extension ContextX on BuildContext {
 
   TextTheme get textTheme => theme.textTheme;
 
-  bool get isMobile => width < 650;
+  bool get isMobile => width < Breakpoints.small;
 
-  bool get isTablet => width >= 650 && width < 1080;
+  bool get isTablet => width >= Breakpoints.medium && width < Breakpoints.large;
 
-  bool get isDesktop => width >= 1080;
+  bool get isDesktop => width >= Breakpoints.large;
 
   MediaQueryData get mediaQuery => MediaQuery.of(this);
 

@@ -4,7 +4,6 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:shared_utils/src/colors.dart';
-import 'package:shared_utils/src/extensions.dart';
 
 /// create a glass effect
 class GlassMorphism extends StatelessWidget {

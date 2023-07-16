@@ -1,3 +1,7 @@
+## [0.1.0-alpha.17] - July 16, 2023.
+
+#### removed use cases from shared utils into its own package (api_utils)
+
 ## [0.1.0-alpha.16] - July 7, 2023.
 
 #### removed default gradient from glassmorphism 
