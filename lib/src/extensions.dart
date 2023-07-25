@@ -591,14 +591,38 @@ extension ContextX on BuildContext {
                           ? (xs ?? defaultVal)
                           : defaultVal;
 
+  void withDefaultOverlays({
+    Color? statusBarColor,
+    Color? navigationBarColor,
+    Brightness statusBarIconBrightness = Brightness.dark,
+    Brightness statusBarBrightness = Brightness.dark,
+    Brightness navigationBarIconBrightness = Brightness.dark,
+  }) =>
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarColor: statusBarColor ?? colorScheme.background,
+          systemNavigationBarColor:
+              navigationBarColor ?? colorScheme.background,
+          statusBarIconBrightness: statusBarIconBrightness,
+          systemNavigationBarDividerColor:
+              navigationBarColor ?? colorScheme.background,
+          systemNavigationBarIconBrightness: navigationBarIconBrightness,
+          statusBarBrightness: statusBarBrightness,
+          systemStatusBarContrastEnforced: false,
+          systemNavigationBarContrastEnforced: false,
+        ),
+      );
+
   // flutter widget navigator state
   NavigatorState get navigator => Navigator.of(this);
 
-  double get height => mediaQuery.size.height;
+  double get height => MediaQuery.sizeOf(this).height;
 
-  double get width => mediaQuery.size.width;
+  double get width => MediaQuery.sizeOf(this).width;
 
   ThemeData get theme => Theme.of(this);
+
+  EdgeInsets get padding => MediaQuery.paddingOf(this);
 
   ColorScheme get colorScheme => theme.colorScheme;
 
@@ -662,6 +686,7 @@ extension ContextX on BuildContext {
                         ...actions
                             .map(
                               (e) => AppRoundedButton(
+                                      layoutSize: LayoutSize.wrapContent,
                                       onTap: () {
                                         Navigator.pop(this);
                                         if (e.onTap != null) e.onTap!();
@@ -680,7 +705,8 @@ extension ContextX on BuildContext {
           });
 
   /// shows a [SnackBar]
-  void showSnackBar(String message, [Color? background, Color? foreground]) {
+  void showSnackBar(String message,
+      [Color? background, Color? foreground, String cancelText = 'Dismiss']) {
     var messenger = ScaffoldMessenger.of(this);
     messenger
       ..removeCurrentSnackBar()
@@ -695,7 +721,7 @@ extension ContextX on BuildContext {
           backgroundColor: background ?? Theme.of(this).colorScheme.primary,
           behavior: SnackBarBehavior.floating,
           action: SnackBarAction(
-            label: 'Dismiss',
+            label: cancelText,
             textColor: foreground ?? Theme.of(this).colorScheme.onPrimary,
             onPressed: () => messenger.hideCurrentSnackBar(),
           ),
@@ -717,6 +743,7 @@ void doAfterDelay(Function() block) =>
     Future.delayed(const Duration()).then((value) => block());
 
 /// UI overlay
+@Deprecated('Use BuildContext#withDefaultOverlays instead')
 void kUseDefaultOverlays(
   BuildContext context, {
   Color? statusBarColor,

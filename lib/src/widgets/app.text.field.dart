@@ -588,7 +588,7 @@ class _AppTextFieldState extends State<AppTextField> {
 }
 
 /// A [TextFormField] with a filled background
-class FilledTextField extends StatelessWidget {
+class FilledTextField extends StatefulWidget {
   final String label;
   final String? hint;
   final IconData? prefixIcon;
@@ -643,23 +643,36 @@ class FilledTextField extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<FilledTextField> createState() => _FilledTextFieldState();
+}
+
+class _FilledTextFieldState extends State<FilledTextField> {
+  @override
+  void dispose() {
+    widget.controller?.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    var hidePassword = type == AppTextFieldType.password;
+    var hidePassword = widget.type == AppTextFieldType.password;
 
     return StatefulBuilder(
         builder: (context, setState) => TextFormField(
               decoration: InputDecoration(
-                labelText: label,
-                hintText: hint ?? label,
-                prefix: prefixIcon == null
+                labelText: widget.label,
+                hintText: widget.hint ?? widget.label,
+                prefix: widget.prefixIcon == null
                     ? null
                     : GestureDetector(
-                    onTap: onPrefixIconTap, child: Icon(prefixIcon)).right(6),
-                suffix: suffix,
+                            onTap: widget.onPrefixIconTap,
+                            child: Icon(widget.prefixIcon))
+                        .right(6),
+                suffix: widget.suffix,
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                prefixIcon: prefix,
-                suffixIcon: type == AppTextFieldType.password
+                prefixIcon: widget.prefix,
+                suffixIcon: widget.type == AppTextFieldType.password
                     ? IconButton(
                         onPressed: () =>
                             setState(() => hidePassword = !hidePassword),
@@ -667,30 +680,34 @@ class FilledTextField extends StatelessWidget {
                             ? TablerIcons.eye
                             : TablerIcons.eye_off),
                       ).right(8)
-                    : Icon(suffixIcon),
-                enabled: enabled,
+                    : Icon(widget.suffixIcon),
+                enabled: widget.enabled,
               ),
-              readOnly: readOnly,
-              autofocus: autofocus,
+              readOnly: widget.readOnly,
+              autofocus: widget.autofocus,
               obscureText: hidePassword,
-              onTap: onTap,
+              onTap: widget.onTap,
               keyboardType: _createKeyboardTypeByType,
-              textCapitalization: capitalization,
-              onChanged: onChanged,
-              validator: validator,
+              textCapitalization: widget.capitalization,
+              onChanged: widget.onChanged,
+              validator: widget.validator,
               inputFormatters: _createFormatterByType,
-              controller: controller,
-              enabled: enabled,
-              textInputAction: inputAction,
-              maxLines: type == AppTextFieldType.password ? 1 : maxLines,
-              maxLength: maxLength,
+              controller: widget.controller,
+              enabled: widget.enabled,
+              textInputAction: widget.inputAction,
+              maxLines: widget.type == AppTextFieldType.password
+                  ? 1
+                  : widget.maxLines,
+              maxLength: widget.maxLength,
               maxLengthEnforcement: MaxLengthEnforcement.enforced,
-            ).bottom(verticalPadding).horizontal(horizontalPadding));
+            )
+                .bottom(widget.verticalPadding)
+                .horizontal(widget.horizontalPadding));
   }
 
   // create keyboard type by type
   TextInputType get _createKeyboardTypeByType {
-    switch (type) {
+    switch (widget.type) {
       case AppTextFieldType.email:
         return TextInputType.emailAddress;
       case AppTextFieldType.password:
@@ -716,13 +733,13 @@ class FilledTextField extends StatelessWidget {
 
   // create formatter by type
   List<TextInputFormatter> get _createFormatterByType {
-    switch (type) {
+    switch (widget.type) {
       // validate email: set max length to 254, and use email formatter
       case AppTextFieldType.email:
         return [
           LengthLimitingTextInputFormatter(254),
           FilteringTextInputFormatter.deny(RegExp(r'[A-Z]')),
-          FilteringTextInputFormatter.allow(RegExp(r'[a-z0-9@\._-]')),
+          FilteringTextInputFormatter.allow(RegExp(r'[a-z0-9@._-]')),
         ];
       // validate password: set max length to 32, and use password formatter
       case AppTextFieldType.password:
@@ -786,7 +803,7 @@ class FilledTextField extends StatelessWidget {
           FilteringTextInputFormatter.deny(RegExp(r'\s')),
           FilteringTextInputFormatter.deny(RegExp(r'[A-Z]')),
           FilteringTextInputFormatter.deny(RegExp(r'[a-z]')),
-          CurrencyInputFormatter(leadingSymbol: currency),
+          CurrencyInputFormatter(leadingSymbol: widget.currency),
         ];
 
       case AppTextFieldType.select:
