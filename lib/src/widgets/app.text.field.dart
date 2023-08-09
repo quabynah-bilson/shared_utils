@@ -677,8 +677,8 @@ class _FilledTextFieldState extends State<FilledTextField> {
                         onPressed: () =>
                             setState(() => hidePassword = !hidePassword),
                         icon: Icon(hidePassword
-                            ? TablerIcons.eye
-                            : TablerIcons.eye_off),
+                            ? TablerIcons.eye_off
+                            : TablerIcons.eye),
                       ).right(8)
                     : Icon(widget.suffixIcon),
                 enabled: widget.enabled,
