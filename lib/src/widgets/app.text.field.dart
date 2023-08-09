@@ -647,11 +647,11 @@ class FilledTextField extends StatefulWidget {
 }
 
 class _FilledTextFieldState extends State<FilledTextField> {
-  @override
-  void dispose() {
-    widget.controller?.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   widget.controller?.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {

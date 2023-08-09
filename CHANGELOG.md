@@ -1,6 +1,6 @@
-## [0.1.0-alpha.20] - August 9, 2023.
+## [0.1.0-alpha.21] - August 9, 2023.
 
-#### updated logger
+#### updated text field (removed dispose method)
 
 ## [0.1.0-alpha.19] - July 29, 2023.
 
