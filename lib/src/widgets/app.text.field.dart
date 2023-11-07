@@ -821,6 +821,7 @@ class AppDropdownField extends StatelessWidget {
   final Color? background;
   final Color? foreground;
   final Widget? prefixIcon;
+  final IconData? dropdownIcon;
 
   const AppDropdownField({
     Key? key,
@@ -832,56 +833,55 @@ class AppDropdownField extends StatelessWidget {
     this.foreground,
     this.background,
     this.prefixIcon,
+    this.dropdownIcon,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    const radius = 40.0;
-    return PopupMenuButton(
-      itemBuilder: (context) => values
-          .map((e) => PopupMenuItem(
-                onTap: () => onSelected(e),
-                value: e,
-                child: e.subtitle1(context),
-              ))
-          .toList(),
-      onSelected: onSelected,
-      enableFeedback: true,
-      enabled: enabled,
-      child: TextFormField(
-        style: TextStyle(color: foreground ?? context.colorScheme.onSurface),
-        controller: TextEditingController(text: current),
-        readOnly: true,
-        onTap: null,
-        enabled: false,
-        decoration: InputDecoration(
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(radius),
-          ),
-          counter: const SizedBox.shrink(),
-          labelText: label,
-          labelStyle:
-              TextStyle(color: foreground ?? context.colorScheme.onSurface),
-          filled: true,
-          fillColor: background ?? context.theme.disabledColor.withOpacity(0.3),
-          suffixIcon: Icon(
-            Icons.arrow_drop_down_circle_outlined,
-            color: foreground ?? context.colorScheme.onSurface,
-          ),
-          prefixIcon: prefixIcon,
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: context.colorScheme.primary),
-            borderRadius: BorderRadius.circular(radius),
-          ),
-          enabledBorder: UnderlineInputBorder(
-            borderSide: const BorderSide(color: Colors.transparent),
-            borderRadius: BorderRadius.circular(radius),
+  Widget build(BuildContext context) => PopupMenuButton(
+        itemBuilder: (context) => values
+            .map((e) => PopupMenuItem(
+                  onTap: () => onSelected(e),
+                  value: e,
+                  child: e.subtitle1(context),
+                ))
+            .toList(),
+        onSelected: onSelected,
+        enableFeedback: true,
+        enabled: enabled,
+        child: TextFormField(
+          style: TextStyle(color: foreground ?? context.colorScheme.onSurface),
+          controller: TextEditingController(text: current),
+          readOnly: true,
+          onTap: null,
+          enabled: false,
+          decoration: InputDecoration(
+            // border: OutlineInputBorder(
+            //   borderSide: BorderSide.none,
+            //   borderRadius: BorderRadius.circular(radius),
+            // ),
+            counter: const SizedBox.shrink(),
+            labelText: label,
+            labelStyle:
+                TextStyle(color: foreground ?? context.colorScheme.onSurface),
+            filled: true,
+            fillColor:
+                background ?? context.theme.disabledColor.withOpacity(0.3),
+            suffixIcon: Icon(
+              dropdownIcon ?? Icons.arrow_drop_down_circle_outlined,
+              color: foreground ?? context.colorScheme.onSurface,
+            ),
+            prefixIcon: prefixIcon,
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+            // focusedBorder: OutlineInputBorder(
+            //   borderSide: BorderSide(color: context.colorScheme.primary),
+            //   borderRadius: BorderRadius.circular(radius),
+            // ),
+            // enabledBorder: UnderlineInputBorder(
+            //   borderSide: const BorderSide(color: Colors.transparent),
+            //   borderRadius: BorderRadius.circular(radius),
+            // ),
           ),
         ),
-      ),
-    ).bottom(16);
-  }
+      ).bottom(16);
 }

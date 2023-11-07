@@ -1,3 +1,7 @@
+## [0.1.0-alpha.22] - November 7, 2023.
+
+#### updated dropdown field
+
 ## [0.1.0-alpha.21] - August 9, 2023.
 
 #### updated text field (removed dispose method)
@@ -16,11 +20,12 @@
 
 ## [0.1.0-alpha.16] - July 7, 2023.
 
-#### removed default gradient from glassmorphism 
+#### removed default gradient from glassmorphism
 
 ## [0.1.0-alpha.15] - June 29, 2023.
 
 #### loading item indicator with dynamic height
+
 #### added list extensions
 
 ## [0.1.0-alpha.12] - June 20, 2023.
@@ -119,7 +124,8 @@
 
 - Shared utilities for personal Flutter projects
 - Updated use cases result
-- added `doAfterDelay` functions (serves as a workaround for calling `setState` in the `initState` of
+- added `doAfterDelay` functions (serves as a workaround for calling `setState` in the `initState`
+  of
   a `StatefulWidget`)
 - updated status bar color for IOS devices
 
