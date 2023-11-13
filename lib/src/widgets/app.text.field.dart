@@ -151,11 +151,7 @@ class _AppTextFieldState extends State<AppTextField> {
             floatingLabelBehavior:
                 widget.floatLabel ? null : FloatingLabelBehavior.never,
             alignLabelWithHint: true,
-            hintText: widget.label.toString().contains('Account Number')
-                ? '#### #### #### ####'
-                : widget.label.toString().contains('CVC')
-                    ? '***'
-                    : 'mm/yy',
+            hintText: '#### #### #### ####',
             filled: true,
             fillColor: widget.background ??
                 context.theme.disabledColor.withOpacity(0.3),
@@ -856,8 +852,7 @@ class AppDropdownField extends StatelessWidget {
           enabled: false,
           decoration: InputDecoration(
             // border: OutlineInputBorder(
-            //   borderSide: BorderSide.none,
-            //   borderRadius: BorderRadius.circular(radius),
+            //   borderSide: BorderSide(),
             // ),
             counter: const SizedBox.shrink(),
             labelText: label,
@@ -871,8 +866,9 @@ class AppDropdownField extends StatelessWidget {
               color: foreground ?? context.colorScheme.onSurface,
             ),
             prefixIcon: prefixIcon,
+            enabled: enabled,
             contentPadding:
-                const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             // focusedBorder: OutlineInputBorder(
             //   borderSide: BorderSide(color: context.colorScheme.primary),
             //   borderRadius: BorderRadius.circular(radius),

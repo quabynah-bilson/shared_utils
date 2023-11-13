@@ -1,4 +1,8 @@
-## [0.1.0-alpha.22] - November 7, 2023.
+## [0.1.0-alpha.24] - November 13, 2023.
+
+#### updated text field to show credit card number
+
+## [0.1.0-alpha.23] - November 7, 2023.
 
 #### updated dropdown field
 
