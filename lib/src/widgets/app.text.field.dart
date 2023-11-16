@@ -596,7 +596,7 @@ class FilledTextField extends StatefulWidget {
   final bool autofocus;
   final VoidCallback? onTap;
   final VoidCallback? onPrefixIconTap;
-  final TextInputType keyboardType;
+  final TextInputType? keyboardType;
   final TextCapitalization capitalization;
   final Function(String)? onChanged;
   final String? Function(String?)? validator;
@@ -620,7 +620,7 @@ class FilledTextField extends StatefulWidget {
     this.hint,
     this.prefixIcon,
     this.onTap,
-    this.keyboardType = TextInputType.text,
+    this.keyboardType,
     this.capitalization = TextCapitalization.none,
     this.onChanged,
     this.validator,
@@ -683,7 +683,7 @@ class _FilledTextFieldState extends State<FilledTextField> {
               autofocus: widget.autofocus,
               obscureText: hidePassword,
               onTap: widget.onTap,
-              keyboardType: _createKeyboardTypeByType,
+              keyboardType: widget.keyboardType ?? _createKeyboardTypeByType,
               textCapitalization: widget.capitalization,
               onChanged: widget.onChanged,
               validator: widget.validator,

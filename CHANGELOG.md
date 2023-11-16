@@ -1,3 +1,7 @@
+## [0.1.0-alpha.25] - November 16, 2023.
+
+#### updated text field input type
+
 ## [0.1.0-alpha.24] - November 13, 2023.
 
 #### updated text field to show credit card number
