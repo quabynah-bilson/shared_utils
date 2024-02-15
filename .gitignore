@@ -75,3 +75,5 @@ build/
 
 # remove all files under example
 example/
+
+**/*.lock

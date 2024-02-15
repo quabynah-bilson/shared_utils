@@ -181,6 +181,7 @@ class AppRoundedButton extends StatelessWidget {
             text.button(
               context,
               alignment: TextAlign.center,
+              fontSize: fontSize,
               color: enabled
                   ? textColor ??
                       (buttonType == AppButtonType.primary
