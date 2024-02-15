@@ -21,6 +21,7 @@ class AppRoundedButton extends StatelessWidget {
   final bool outlined;
   final IconData? icon;
   final Gradient? gradient;
+  final double? fontSize;
 
   const AppRoundedButton({
     Key? key,
@@ -36,6 +37,7 @@ class AppRoundedButton extends StatelessWidget {
     this.icon,
     this.iconLocation = IconLocation.start,
     this.gradient,
+    this.fontSize,
   }) : super(key: key);
 
   @override
@@ -98,6 +100,7 @@ class AppRoundedButton extends StatelessWidget {
                     text.button(
                       context,
                       alignment: TextAlign.center,
+                      fontSize: fontSize,
                       color: enabled
                           ? backgroundColor ??
                               (buttonType == AppButtonType.primary

@@ -1,3 +1,7 @@
+## [0.1.0-alpha.26] - February 15, 2024.
+
+#### added `fontSize` extension for `text widgets` & `rounded button`
+
 ## [0.1.0-alpha.25] - November 16, 2023.
 
 #### updated text field input type

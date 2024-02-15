@@ -193,6 +193,7 @@ extension TextX on String? {
     TextAlign alignment = TextAlign.start,
     int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
+    double? fontSize,
   }) =>
       Text(
         this ?? '',
@@ -201,6 +202,7 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.displayLarge?.copyWith(
             letterSpacing: spacing,
+            fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.displayLarge?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 context.colorScheme.onBackground.withOpacity(emphasis)),
@@ -215,6 +217,7 @@ extension TextX on String? {
     TextAlign alignment = TextAlign.start,
     int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
+    double? fontSize,
   }) =>
       Text(
         this ?? '',
@@ -223,6 +226,7 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.displayMedium?.copyWith(
             letterSpacing: spacing,
+            fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.displayMedium?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 context.colorScheme.onBackground.withOpacity(emphasis)),
@@ -237,6 +241,7 @@ extension TextX on String? {
     TextAlign alignment = TextAlign.start,
     int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
+    double? fontSize,
   }) =>
       Text(
         this ?? '',
@@ -245,6 +250,7 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.displaySmall?.copyWith(
             letterSpacing: spacing,
+            fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.displaySmall?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 context.colorScheme.onBackground.withOpacity(emphasis)),
@@ -259,6 +265,7 @@ extension TextX on String? {
     TextAlign alignment = TextAlign.start,
     int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
+    double? fontSize,
   }) =>
       Text(
         this ?? '',
@@ -267,6 +274,7 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.headlineMedium?.copyWith(
             letterSpacing: spacing,
+            fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.headlineMedium?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 context.colorScheme.onBackground.withOpacity(emphasis)),
@@ -281,6 +289,7 @@ extension TextX on String? {
     TextAlign alignment = TextAlign.start,
     int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
+    double? fontSize,
   }) =>
       Text(
         this ?? '',
@@ -289,6 +298,7 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.headlineSmall?.copyWith(
             letterSpacing: spacing,
+            fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.headlineSmall?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 context.colorScheme.onBackground.withOpacity(emphasis)),
@@ -303,6 +313,7 @@ extension TextX on String? {
     TextAlign alignment = TextAlign.start,
     int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
+    double? fontSize,
   }) =>
       Text(
         this ?? '',
@@ -311,6 +322,7 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.titleLarge?.copyWith(
             letterSpacing: spacing,
+            fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.titleLarge?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 context.colorScheme.onBackground.withOpacity(emphasis)),
@@ -325,6 +337,7 @@ extension TextX on String? {
     TextAlign alignment = TextAlign.start,
     int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
+    double? fontSize,
   }) =>
       Text(
         this ?? '',
@@ -333,6 +346,7 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.bodyLarge?.copyWith(
             letterSpacing: spacing,
+            fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.bodyLarge?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 context.colorScheme.onBackground.withOpacity(emphasis)),
@@ -347,6 +361,7 @@ extension TextX on String? {
     TextAlign alignment = TextAlign.start,
     int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
+    double? fontSize,
   }) =>
       Text(
         this ?? '',
@@ -355,6 +370,7 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.bodyMedium?.copyWith(
             letterSpacing: spacing,
+            fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.bodyMedium?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 context.colorScheme.onBackground.withOpacity(emphasis)),
@@ -369,6 +385,7 @@ extension TextX on String? {
     TextAlign alignment = TextAlign.start,
     int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
+    double? fontSize,
   }) =>
       Text(
         this ?? '',
@@ -377,6 +394,7 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.titleMedium?.copyWith(
             letterSpacing: spacing,
+            fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.titleMedium?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 context.colorScheme.onBackground.withOpacity(emphasis)),
@@ -391,6 +409,7 @@ extension TextX on String? {
     TextAlign alignment = TextAlign.start,
     int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
+    double? fontSize,
   }) =>
       Text(
         this ?? '',
@@ -399,6 +418,7 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.titleSmall?.copyWith(
             letterSpacing: spacing,
+            fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.titleSmall?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 context.colorScheme.onBackground.withOpacity(emphasis)),
@@ -413,6 +433,7 @@ extension TextX on String? {
     TextAlign alignment = TextAlign.start,
     int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
+    double? fontSize,
   }) =>
       Text(
         this ?? '',
@@ -421,6 +442,7 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.bodySmall?.copyWith(
             letterSpacing: spacing,
+            fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.bodySmall?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 context.colorScheme.onBackground.withOpacity(emphasis)),
@@ -435,6 +457,7 @@ extension TextX on String? {
     TextAlign alignment = TextAlign.start,
     int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
+    double? fontSize,
   }) =>
       Text(
         this ?? '',
@@ -443,6 +466,7 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.labelSmall?.copyWith(
             letterSpacing: spacing,
+            fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.labelSmall?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 context.colorScheme.onBackground.withOpacity(emphasis)),
@@ -457,6 +481,7 @@ extension TextX on String? {
     TextAlign alignment = TextAlign.start,
     int? maxLines,
     TextOverflow overflow = TextOverflow.visible,
+    double? fontSize,
   }) =>
       Text(
         this ?? '',
@@ -465,6 +490,7 @@ extension TextX on String? {
         overflow: overflow,
         style: context.textTheme.labelLarge?.copyWith(
             letterSpacing: spacing,
+            fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.labelLarge?.fontWeight,
             color: color?.withOpacity(emphasis) ??
                 context.colorScheme.onBackground.withOpacity(emphasis)),
