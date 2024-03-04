@@ -1,3 +1,7 @@
+## [0.1.0-alpha.27] - March 4, 2024.
+
+#### updated `AnimatedListView` to include a scroll physics property
+
 ## [0.1.0-alpha.26] - February 15, 2024.
 
 #### added `fontSize` extension for `text widgets` & `rounded button`

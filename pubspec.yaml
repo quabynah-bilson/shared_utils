@@ -1,6 +1,6 @@
 name: shared_utils
 description: Shared utilities for personal Flutter projects
-version: 0.1.0-alpha.26
+version: 0.1.0-alpha.27
 homepage: https://github.com/quabynah-bilson/shared_utils/tree/main
 publish_to: 'https://github.com/quabynah-bilson/shared_utils.git' # https://github.com/quabynah-bilson/shared_utils.git
 
@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   bloc: ^8.1.0
-  cached_network_image: ^3.2.3
+  cached_network_image: ^3.3.1
   equatable: ^2.0.5
   feather_icons: ^1.2.0
   flutter_bloc: ^8.1.1

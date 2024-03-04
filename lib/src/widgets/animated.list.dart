@@ -9,6 +9,7 @@ class AnimatedListView extends StatelessWidget {
   final EdgeInsets padding;
   final int duration;
   final double slideOffset;
+  final ScrollPhysics? physics;
 
   const AnimatedListView({
     Key? key,
@@ -17,78 +18,52 @@ class AnimatedListView extends StatelessWidget {
     this.padding = EdgeInsets.zero,
     this.duration = 500,
     this.slideOffset = 50.0,
+    this.physics,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    Widget widget = const SizedBox.shrink();
-    if (animateType == AnimateType.slideUp) {
-      widget = AnimationLimiter(
-        child: ListView(
-          shrinkWrap: true,
-          padding: padding,
-          children: AnimationConfiguration.toStaggeredList(
-            duration: Duration(milliseconds: duration),
-            childAnimationBuilder: (widget) => SlideAnimation(
+  Widget build(BuildContext context) =>
+      AnimationLimiter(child: listView(children));
+
+  Widget listView(List<Widget> children) {
+    SlideAnimation Function(Widget) slideAnimation;
+
+    switch (animateType) {
+      case AnimateType.slideUp:
+        slideAnimation = (child) => SlideAnimation(
               verticalOffset: slideOffset,
-              child: SlideAnimation(child: widget),
-            ),
-            children: children,
-          ),
-        ),
-      );
-    }
-    if (animateType == AnimateType.slideLeft) {
-      widget = AnimationLimiter(
-        child: ListView(
-          shrinkWrap: true,
-          padding: padding,
-          children: AnimationConfiguration.toStaggeredList(
-            duration: Duration(milliseconds: duration),
-            childAnimationBuilder: (widget) => SlideAnimation(
+              child: SlideAnimation(child: child),
+            );
+        break;
+      case AnimateType.slideLeft:
+        slideAnimation = (child) => SlideAnimation(
               horizontalOffset: slideOffset,
-              child: FadeInAnimation(child: widget),
-            ),
-            children: children,
-          ),
-        ),
-      );
-    }
-
-    if (animateType == AnimateType.slideRight) {
-      widget = AnimationLimiter(
-        child: ListView(
-          shrinkWrap: true,
-          padding: padding,
-          children: AnimationConfiguration.toStaggeredList(
-            duration: Duration(milliseconds: duration),
-            childAnimationBuilder: (widget) => SlideAnimation(
+              child: FadeInAnimation(child: child),
+            );
+        break;
+      case AnimateType.slideRight:
+        slideAnimation = (child) => SlideAnimation(
               horizontalOffset: -slideOffset,
-              child: FadeInAnimation(child: widget),
-            ),
-            children: children,
-          ),
-        ),
-      );
-    }
-
-    if (animateType == AnimateType.slideDown) {
-      widget = AnimationLimiter(
-        child: ListView(
-          shrinkWrap: true,
-          padding: padding,
-          children: AnimationConfiguration.toStaggeredList(
-            duration: Duration(milliseconds: duration),
-            childAnimationBuilder: (widget) => SlideAnimation(
+              child: FadeInAnimation(child: child),
+            );
+        break;
+      default:
+        slideAnimation = (child) => SlideAnimation(
               verticalOffset: -slideOffset,
-              child: FadeInAnimation(child: widget),
-            ),
-            children: children,
-          ),
-        ),
-      );
+              child: FadeInAnimation(child: child),
+            );
+        break;
     }
 
-    return widget;
+    return ListView(
+      shrinkWrap: true,
+      padding: padding,
+      physics: physics,
+      children: AnimationConfiguration.toStaggeredList(
+        duration: Duration(milliseconds: duration),
+        childAnimationBuilder: (widget) => slideAnimation(widget),
+        children: children,
+      ),
+    );
   }
 }
