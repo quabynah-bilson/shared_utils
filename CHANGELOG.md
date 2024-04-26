@@ -1,3 +1,7 @@
+## [0.1.0-alpha.28] - April 26, 2024.
+
+#### updated `AppRoundedButton` to include additional props
+
 ## [0.1.0-alpha.27] - March 4, 2024.
 
 #### updated `AnimatedListView` to include a scroll physics property

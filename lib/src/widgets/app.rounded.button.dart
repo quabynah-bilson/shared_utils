@@ -22,6 +22,9 @@ class AppRoundedButton extends StatelessWidget {
   final IconData? icon;
   final Gradient? gradient;
   final double? fontSize;
+  final bool isBusy;
+  final double borderOpacity;
+  final double borderWidth;
 
   const AppRoundedButton({
     Key? key,
@@ -38,6 +41,9 @@ class AppRoundedButton extends StatelessWidget {
     this.iconLocation = IconLocation.start,
     this.gradient,
     this.fontSize,
+    this.isBusy = false,
+    this.borderOpacity = 1.0,
+    this.borderWidth = 2.0,
   }) : super(key: key);
 
   @override
@@ -73,10 +79,10 @@ class AppRoundedButton extends StatelessWidget {
                         ? backgroundColor ??
                             (buttonType == AppButtonType.primary
                                 ? context.colorScheme.primary
-                                : context.colorScheme.secondary)
+                                : context.colorScheme.secondary).withOpacity(borderOpacity)
                         : context.theme.disabledColor
                             .withOpacity(kEmphasisLowest),
-                    width: 2,
+                    width: borderWidth,
                   ),
                 ),
                 child: Row(
