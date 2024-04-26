@@ -1,6 +1,6 @@
 name: shared_utils
 description: Shared utilities for personal Flutter projects
-version: 0.1.0-alpha.28
+version: 0.1.0-alpha.29
 homepage: https://github.com/quabynah-bilson/shared_utils/tree/main
 publish_to: 'https://github.com/quabynah-bilson/shared_utils.git' # https://github.com/quabynah-bilson/shared_utils.git
 
@@ -18,19 +18,19 @@ dependencies:
   flutter_bloc: ^8.1.1
   flutter_svg: ^2.0.2
   fluttericon: ^2.0.0
-  google_fonts: ^5.1.0
-  logger: ^1.2.2
+  google_fonts: ^6.2.1
+  logger: ^2.2.0
   simple_animations: ^5.0.0+3
   modal_bottom_sheet: ^3.0.0-pre
   flutter_staggered_animations: ^1.1.1
   flutter_multi_formatter: ^2.10.2
-  lottie: ^2.2.0
+  lottie: ^3.1.0
   flutter_tabler_icons: ^1.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
+  flutter_lints: ^3.0.2
 
 flutter: null
 # flutter pub publish --dry-run
