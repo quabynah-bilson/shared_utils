@@ -609,6 +609,7 @@ class FilledTextField extends StatefulWidget {
   final int? maxLines;
   final String countryCode;
   final String currency;
+  final void Function(String)? onSubmitted;
 
   const FilledTextField(
     this.label, {
@@ -634,6 +635,7 @@ class FilledTextField extends StatefulWidget {
     this.maxLines,
     this.suffix,
     this.prefix,
+    this.onSubmitted,
     this.countryCode = 'GH', // by default set to Ghana
     this.currency = 'GH₵', // by default set to Ghana
   }) : super(key: key);
@@ -691,6 +693,12 @@ class _FilledTextFieldState extends State<FilledTextField> {
               controller: widget.controller,
               enabled: widget.enabled,
               textInputAction: widget.inputAction,
+              onFieldSubmitted: (value) {
+                if (widget.inputAction == TextInputAction.next) {
+                  FocusScope.of(context).nextFocus();
+                }
+                widget.onSubmitted?.call(value);
+              },
               maxLines: widget.type == AppTextFieldType.password
                   ? 1
                   : widget.maxLines,

@@ -1,3 +1,7 @@
+## [0.1.0-alpha.30] - April 28, 2024.
+
+#### Updated `FilledTextField` to include `onSubmitted`
+
 ## [0.1.0-alpha.29] - April 26, 2024.
 
 #### Updated packages
