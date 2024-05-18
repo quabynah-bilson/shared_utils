@@ -1,3 +1,7 @@
+## [0.1.0-alpha.31] - May 18, 2024.
+
+#### Refactored `themes.dart` to use new Material3 Theme
+
 ## [0.1.0-alpha.30] - April 28, 2024.
 
 #### Updated `FilledTextField` to include `onSubmitted`
