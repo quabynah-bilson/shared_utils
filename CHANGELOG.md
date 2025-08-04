@@ -1,3 +1,7 @@
+## [0.1.0-alpha.32] - Aug 04, 2025.
+
+#### Updated packages to latest major versions
+
 ## [0.1.0-alpha.31] - May 18, 2024.
 
 #### Refactored `themes.dart` to use new Material3 Theme
