@@ -14,7 +14,6 @@ dependencies:
   bloc: ^9.0.0
   cached_network_image: ^3.3.1
   equatable: ^2.0.5
-  feather_icons: ^1.2.0
   flutter_bloc: ^9.1.1
   flutter_svg: ^2.0.2
   fluttericon: ^2.0.0

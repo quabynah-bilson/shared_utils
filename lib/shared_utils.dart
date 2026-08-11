@@ -1,6 +1,5 @@
 library shared_utils;
 
-export 'package:feather_icons/feather_icons.dart';
 export 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 export 'package:fluttericon/brandico_icons.dart';
 export 'package:fluttericon/entypo_icons.dart';

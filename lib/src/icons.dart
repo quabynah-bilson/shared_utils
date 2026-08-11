@@ -1,25 +1,24 @@
 library shared_utils;
 
-import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/entypo_icons.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
 
-const kHomeIcon = FeatherIcons.home;
+const kHomeIcon = Icons.home_outlined;
 const kNextIcon = Entypo.right_thin;
 const kBackIcon = Entypo.left_thin;
 const kCloseIcon = Entypo.cancel;
-const kProfileIcon = FeatherIcons.user;
-const kMessageIcon = FeatherIcons.messageCircle;
-const kNotificationIcon = FeatherIcons.bell;
+const kProfileIcon = Icons.person_outline;
+const kMessageIcon = Icons.chat_bubble_outline;
+const kNotificationIcon = Icons.notifications_outlined;
 const kCarIcon = Icons.car_rental;
 const kServicesIcon = Icons.dashboard_outlined;
-const kWishlistIcon = FeatherIcons.heart;
+const kWishlistIcon = Icons.favorite_outline;
 const kHistoryIcon = FontAwesome5.history;
-const kAboutIcon = FeatherIcons.info;
-const kContactIcon = FeatherIcons.users;
-const kSearchIcon = FeatherIcons.search;
-const kFilterIcon = FeatherIcons.filter;
+const kAboutIcon = Icons.info_outline;
+const kContactIcon = Icons.people_outline;
+const kSearchIcon = Icons.search;
+const kFilterIcon = Icons.filter_list;
 
 /// SVGs
 const kHomeSvg = 'assets/img/smart-home.svg';
