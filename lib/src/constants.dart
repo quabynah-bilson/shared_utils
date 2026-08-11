@@ -17,5 +17,5 @@ TextTheme kSecondaryFonts = GoogleFonts.rubikTextTheme();
 // debugging
 final logger = Logger(
   printer: PrettyPrinter(),
-  level: kDebugMode ? Level.verbose : Level.nothing,
+  level: kDebugMode ? Level.trace : Level.off,
 );

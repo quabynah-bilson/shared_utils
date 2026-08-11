@@ -90,7 +90,7 @@ class _LoadingIndicatorState extends State<LoadingIndicator>
                       child: ModalBarrier(
                         dismissible: false,
                         color: (widget.color ?? context.colorScheme.surface)
-                            .withOpacity(kEmphasisMedium),
+                            .withValues(alpha: kEmphasisMedium),
                       ),
                     ),
                   ),
@@ -154,7 +154,7 @@ class LoadingIndicatorItem extends StatelessWidget {
           if (message != null) ...{
             message
                 .subtitle1(context,
-                    color: foregroundColor ?? context.colorScheme.onBackground,
+                    color: foregroundColor ?? context.colorScheme.onSurface,
                     alignment: TextAlign.center)
                 .top(context.height * 0.05),
           },

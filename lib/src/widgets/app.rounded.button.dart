@@ -79,9 +79,10 @@ class AppRoundedButton extends StatelessWidget {
                         ? backgroundColor ??
                             (buttonType == AppButtonType.primary
                                 ? context.colorScheme.primary
-                                : context.colorScheme.secondary).withOpacity(borderOpacity)
+                                : context.colorScheme.secondary)
+                            .withValues(alpha: borderOpacity)
                         : context.theme.disabledColor
-                            .withOpacity(kEmphasisLowest),
+                            .withValues(alpha: kEmphasisLowest),
                     width: borderWidth,
                   ),
                 ),
@@ -100,7 +101,7 @@ class AppRoundedButton extends StatelessWidget {
                                     ? context.colorScheme.primary
                                     : context.colorScheme.secondary)
                             : context.theme.disabledColor
-                                .withOpacity(kEmphasisLowest),
+                                .withValues(alpha: kEmphasisLowest),
                       ).right(12),
                     },
                     text.button(
@@ -144,7 +145,7 @@ class AppRoundedButton extends StatelessWidget {
                                   ? context.colorScheme.primary
                                   : context.colorScheme.secondary)
                           : context.theme.disabledColor
-                              .withOpacity(kEmphasisLowest),
+                              .withValues(alpha: kEmphasisLowest),
                       child: _buildFilledBottom(context),
                     )
                   : Container(
@@ -181,7 +182,7 @@ class AppRoundedButton extends StatelessWidget {
                         (buttonType == AppButtonType.primary
                             ? context.colorScheme.onPrimary
                             : context.colorScheme.onSecondary)
-                    : context.theme.disabledColor.withOpacity(kEmphasisLowest),
+                    : context.theme.disabledColor.withValues(alpha: kEmphasisLowest),
               ).right(12),
             },
             text.button(
