@@ -77,3 +77,6 @@ build/
 example/
 
 **/*.lock
+
+# FVM Version Cache
+.fvm/

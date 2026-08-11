@@ -72,13 +72,13 @@ extension WidgetX on Widget {
           border: Border(
             bottom: BorderSide(
               color: context.theme.colorScheme.primary
-                  .withOpacity(kEmphasisMedium),
+                  .withValues(alpha: kEmphasisMedium),
               style: show && !left ? BorderStyle.solid : BorderStyle.none,
               width: kSpacingX4,
             ),
             left: BorderSide(
               color: context.theme.colorScheme.primary
-                  .withOpacity(kEmphasisMedium),
+                  .withValues(alpha: kEmphasisMedium),
               style: show && left ? BorderStyle.solid : BorderStyle.none,
               width: kSpacingX4,
             ),
@@ -166,8 +166,8 @@ extension IconX on Icon {
   Icon opacity(double emphasis) => Icon(
         icon,
         size: size,
-        color:
-            color?.withOpacity(emphasis) ?? kBlackColor.withOpacity(emphasis),
+        color: color?.withValues(alpha: emphasis) ??
+            kBlackColor.withValues(alpha: emphasis),
         semanticLabel: semanticLabel,
         textDirection: textDirection,
       );
@@ -204,8 +204,8 @@ extension TextX on String? {
             letterSpacing: spacing,
             fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.displayLarge?.fontWeight,
-            color: color?.withOpacity(emphasis) ??
-                context.colorScheme.onBackground.withOpacity(emphasis)),
+            color: color?.withValues(alpha: emphasis) ??
+                context.colorScheme.onSurface.withValues(alpha: emphasis)),
       );
 
   Widget h2(
@@ -228,8 +228,8 @@ extension TextX on String? {
             letterSpacing: spacing,
             fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.displayMedium?.fontWeight,
-            color: color?.withOpacity(emphasis) ??
-                context.colorScheme.onBackground.withOpacity(emphasis)),
+            color: color?.withValues(alpha: emphasis) ??
+                context.colorScheme.onSurface.withValues(alpha: emphasis)),
       );
 
   Widget h3(
@@ -252,8 +252,8 @@ extension TextX on String? {
             letterSpacing: spacing,
             fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.displaySmall?.fontWeight,
-            color: color?.withOpacity(emphasis) ??
-                context.colorScheme.onBackground.withOpacity(emphasis)),
+            color: color?.withValues(alpha: emphasis) ??
+                context.colorScheme.onSurface.withValues(alpha: emphasis)),
       );
 
   Widget h4(
@@ -276,8 +276,8 @@ extension TextX on String? {
             letterSpacing: spacing,
             fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.headlineMedium?.fontWeight,
-            color: color?.withOpacity(emphasis) ??
-                context.colorScheme.onBackground.withOpacity(emphasis)),
+            color: color?.withValues(alpha: emphasis) ??
+                context.colorScheme.onSurface.withValues(alpha: emphasis)),
       );
 
   Widget h5(
@@ -300,8 +300,8 @@ extension TextX on String? {
             letterSpacing: spacing,
             fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.headlineSmall?.fontWeight,
-            color: color?.withOpacity(emphasis) ??
-                context.colorScheme.onBackground.withOpacity(emphasis)),
+            color: color?.withValues(alpha: emphasis) ??
+                context.colorScheme.onSurface.withValues(alpha: emphasis)),
       );
 
   Widget h6(
@@ -324,8 +324,8 @@ extension TextX on String? {
             letterSpacing: spacing,
             fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.titleLarge?.fontWeight,
-            color: color?.withOpacity(emphasis) ??
-                context.colorScheme.onBackground.withOpacity(emphasis)),
+            color: color?.withValues(alpha: emphasis) ??
+                context.colorScheme.onSurface.withValues(alpha: emphasis)),
       );
 
   Widget bodyText1(
@@ -348,8 +348,8 @@ extension TextX on String? {
             letterSpacing: spacing,
             fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.bodyLarge?.fontWeight,
-            color: color?.withOpacity(emphasis) ??
-                context.colorScheme.onBackground.withOpacity(emphasis)),
+            color: color?.withValues(alpha: emphasis) ??
+                context.colorScheme.onSurface.withValues(alpha: emphasis)),
       );
 
   Widget bodyText2(
@@ -372,8 +372,8 @@ extension TextX on String? {
             letterSpacing: spacing,
             fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.bodyMedium?.fontWeight,
-            color: color?.withOpacity(emphasis) ??
-                context.colorScheme.onBackground.withOpacity(emphasis)),
+            color: color?.withValues(alpha: emphasis) ??
+                context.colorScheme.onSurface.withValues(alpha: emphasis)),
       );
 
   Widget subtitle1(
@@ -396,8 +396,8 @@ extension TextX on String? {
             letterSpacing: spacing,
             fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.titleMedium?.fontWeight,
-            color: color?.withOpacity(emphasis) ??
-                context.colorScheme.onBackground.withOpacity(emphasis)),
+            color: color?.withValues(alpha: emphasis) ??
+                context.colorScheme.onSurface.withValues(alpha: emphasis)),
       );
 
   Widget subtitle2(
@@ -420,8 +420,8 @@ extension TextX on String? {
             letterSpacing: spacing,
             fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.titleSmall?.fontWeight,
-            color: color?.withOpacity(emphasis) ??
-                context.colorScheme.onBackground.withOpacity(emphasis)),
+            color: color?.withValues(alpha: emphasis) ??
+                context.colorScheme.onSurface.withValues(alpha: emphasis)),
       );
 
   Widget caption(
@@ -444,8 +444,8 @@ extension TextX on String? {
             letterSpacing: spacing,
             fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.bodySmall?.fontWeight,
-            color: color?.withOpacity(emphasis) ??
-                context.colorScheme.onBackground.withOpacity(emphasis)),
+            color: color?.withValues(alpha: emphasis) ??
+                context.colorScheme.onSurface.withValues(alpha: emphasis)),
       );
 
   Widget overline(
@@ -468,8 +468,8 @@ extension TextX on String? {
             letterSpacing: spacing,
             fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.labelSmall?.fontWeight,
-            color: color?.withOpacity(emphasis) ??
-                context.colorScheme.onBackground.withOpacity(emphasis)),
+            color: color?.withValues(alpha: emphasis) ??
+                context.colorScheme.onSurface.withValues(alpha: emphasis)),
       );
 
   Widget button(
@@ -492,8 +492,8 @@ extension TextX on String? {
             letterSpacing: spacing,
             fontSize: fontSize,
             fontWeight: weight ?? context.textTheme.labelLarge?.fontWeight,
-            color: color?.withOpacity(emphasis) ??
-                context.colorScheme.onBackground.withOpacity(emphasis)),
+            color: color?.withValues(alpha: emphasis) ??
+                context.colorScheme.onSurface.withValues(alpha: emphasis)),
       );
 
   Widget asSvg({
@@ -626,12 +626,12 @@ extension ContextX on BuildContext {
   }) =>
       SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(
-          statusBarColor: statusBarColor ?? colorScheme.background,
+          statusBarColor: statusBarColor ?? colorScheme.surface,
           systemNavigationBarColor:
-              navigationBarColor ?? colorScheme.background,
+              navigationBarColor ?? colorScheme.surface,
           statusBarIconBrightness: statusBarIconBrightness,
           systemNavigationBarDividerColor:
-              navigationBarColor ?? colorScheme.background,
+              navigationBarColor ?? colorScheme.surface,
           systemNavigationBarIconBrightness: navigationBarIconBrightness,
           statusBarBrightness: statusBarBrightness,
           systemStatusBarContrastEnforced: false,
@@ -780,12 +780,12 @@ void kUseDefaultOverlays(
 }) =>
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        statusBarColor: statusBarColor ?? context.colorScheme.background,
+        statusBarColor: statusBarColor ?? context.colorScheme.surface,
         systemNavigationBarColor:
-            navigationBarColor ?? context.colorScheme.background,
+            navigationBarColor ?? context.colorScheme.surface,
         statusBarIconBrightness: statusBarIconBrightness,
         systemNavigationBarDividerColor:
-            navigationBarColor ?? context.colorScheme.background,
+            navigationBarColor ?? context.colorScheme.surface,
         systemNavigationBarIconBrightness: navigationBarIconBrightness,
         statusBarBrightness: statusBarBrightness,
         systemStatusBarContrastEnforced: false,

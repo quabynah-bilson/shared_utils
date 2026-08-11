@@ -868,7 +868,7 @@ class AppDropdownField extends StatelessWidget {
                 TextStyle(color: foreground ?? context.colorScheme.onSurface),
             filled: true,
             fillColor:
-                background ?? context.theme.disabledColor.withOpacity(0.3),
+                background ?? context.theme.disabledColor.withValues(alpha: 0.3),
             suffixIcon: Icon(
               dropdownIcon ?? Icons.arrow_drop_down_circle_outlined,
               color: foreground ?? context.colorScheme.onSurface,
